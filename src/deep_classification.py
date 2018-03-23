@@ -10,7 +10,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.layers.normalization import BatchNormalization
 from keras.optimizers import SGD, Adam
-from function import read_merged_data, extract_feature_and_label, store_data, transform_json_to_csv
+from function import read_merged_data, extract_feature_and_label
 from evaluation import roc_auc_single, roc_auc_multi, bedroc_auc_multi, bedroc_auc_single, \
     precision_auc_multi, precision_auc_single, enrichment_factor_multi, enrichment_factor_single
 from CallBacks import KeckCallBackOnROC, KeckCallBackOnPrecision, \
@@ -721,7 +721,6 @@ def demo_multi_classification():
                            sample_weight=sample_weight,
                            weight_file=weight_file,
                            score_file=score_file)
-    store_data(transform_json_to_csv(config_json_file), config_csv_file)
 
     whole_EF = []
     for EF_ratio in task.EF_ratio_list:

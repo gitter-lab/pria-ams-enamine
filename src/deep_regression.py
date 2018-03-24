@@ -17,7 +17,7 @@ from virtual_screening.evaluation import roc_auc_single, bedroc_auc_single, \
 
 def get_sample_weight(task, y_data):
     if task.weight_schema == 'no_weight':
-        sw = [1.0 for t in y_data]
+        sw = [1.0 for _ in y_data]
     elif task.weight_schema == 'weighted_sample':
         values = set(map(lambda x: int(x), y_data))
         values = dict.fromkeys(values, 0)

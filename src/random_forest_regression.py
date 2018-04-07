@@ -6,7 +6,7 @@ import numpy as np
 import math
 from sklearn.ensemble import RandomForestRegressor
 from function import read_merged_data, extract_feature_and_label, transform_json_to_csv, reshape_data_into_2_dim
-from evaluation import roc_auc_single, bedroc_auc_single, precision_auc_single
+from evaluation import roc_auc_single, precision_auc_single
 from util import output_regression_result
 
 

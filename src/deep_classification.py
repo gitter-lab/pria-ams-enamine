@@ -13,9 +13,8 @@ from keras.layers import Dense, Dropout
 from keras.layers.normalization import BatchNormalization
 from keras.optimizers import SGD, Adam
 from function import read_merged_data, extract_feature_and_label
-from evaluation import roc_auc_single, bedroc_auc_single, precision_auc_single
-from CallBacks import KeckCallBackOnROC, KeckCallBackOnPrecision, \
-    MultiCallBackOnROC, MultiCallBackOnPR
+from evaluation import roc_auc_single, precision_auc_single
+from CallBacks import KeckCallBackOnROC, KeckCallBackOnPrecision
 from util import output_classification_result
 
 

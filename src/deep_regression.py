@@ -10,9 +10,8 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.layers.normalization import BatchNormalization
 from keras.optimizers import SGD, Adam
-from virtual_screening.function import read_merged_data, extract_feature_and_label, reshape_data_into_2_dim
-from virtual_screening.evaluation import roc_auc_single, bedroc_auc_single, \
-    precision_auc_single, enrichment_factor_single
+from function import read_merged_data, extract_feature_and_label, reshape_data_into_2_dim
+from util import output_regression_result
 
 
 def get_sample_weight(task, y_data):
@@ -129,28 +128,17 @@ class SingleRegression:
                   shuffle=True)
         model.save_weights(weight_file)
 
-        y_pred_on_train = model.predict(X_train)
-        print('train precision: {}'.format(precision_auc_single(y_train_binary, y_pred_on_train)))
-        print('train roc: {}'.format(roc_auc_single(y_train_binary, y_pred_on_train)))
-        print('train bedroc: {}'.format(bedroc_auc_single(y_train_binary, y_pred_on_train)))
-        print
-
-        y_pred_on_val = model.predict(X_val)
-        print('validation precision: {}'.format(precision_auc_single(y_val_binary, y_pred_on_val)))
-        print('validation roc: {}'.format(roc_auc_single(y_val_binary, y_pred_on_val)))
-        print('validation bedroc: {}'.format(bedroc_auc_single(y_val_binary, y_pred_on_val)))
-        print
-
+        y_pred_on_train = reshape_data_into_2_dim(model.predict(X_train))
+        y_pred_on_val = reshape_data_into_2_dim(model.predict(X_val))
         if X_test is not None:
-            y_pred_on_test = model.predict(X_test)
-            print('test precision: {}'.format(precision_auc_single(y_test_binary, y_pred_on_test)))
-            print('test roc: {}'.format(roc_auc_single(y_test_binary, y_pred_on_test)))
-            print('test bedroc: {}'.format(bedroc_auc_single(y_test_binary, y_pred_on_test)))
-            print
-            for EF_ratio in self.EF_ratio_list:
-                n_actives, ef, ef_max = enrichment_factor_single(y_test_binary, y_pred_on_test, EF_ratio)
-                print('ratio: {}, EF: {},\tactive: {}'.format(EF_ratio, ef, n_actives))
-            print
+            y_pred_on_test = reshape_data_into_2_dim(model.predict(X_test))
+        else:
+            y_pred_on_test = None
+
+        output_regression_result(y_train_binary=y_train_binary, y_pred_on_train=y_pred_on_train,
+                                 y_val_binary=y_val_binary, y_pred_on_val=y_pred_on_val,
+                                 y_test_binary=y_test_binary, y_pred_on_test=y_pred_on_test,
+                                 EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
         return
 
     def predict_with_existing(self, X_data, weight_file):
@@ -165,43 +153,17 @@ class SingleRegression:
                            weight_file):
         model = self.load_model(weight_file)
 
-        y_pred_on_train = model.predict(X_train)
-        print('train precision: {}'.format(precision_auc_single(y_train_binary, y_pred_on_train)))
-        print('train roc: {}'.format(roc_auc_single(y_train_binary, y_pred_on_train)))
-        print('train bedroc: {}'.format(bedroc_auc_single(y_train_binary, y_pred_on_train)))
-        print
-
-        y_pred_on_val = model.predict(X_val)
-        print('validation precision: {}'.format(precision_auc_single(y_val_binary, y_pred_on_val)))
-        print('validation roc: {}'.format(roc_auc_single(y_val_binary, y_pred_on_val)))
-        print('validation bedroc: {}'.format(bedroc_auc_single(y_val_binary, y_pred_on_val)))
-        print
-
+        y_pred_on_train = reshape_data_into_2_dim(model.predict(X_train))
+        y_pred_on_val = reshape_data_into_2_dim(model.predict(X_val))
         if X_test is not None:
-            y_pred_on_test = model.predict(X_test)
-            print('test precision: {}'.format(precision_auc_single(y_test_binary, y_pred_on_test)))
-            print('test roc: {}'.format(roc_auc_single(y_test_binary, y_pred_on_test)))
-            print('test bedroc: {}'.format(bedroc_auc_single(y_test_binary, y_pred_on_test)))
-            print
-            for EF_ratio in self.EF_ratio_list:
-                n_actives, ef, ef_max = enrichment_factor_single(y_test_binary, y_pred_on_test, EF_ratio)
-                print('ratio: {}, EF: {},\tactive: {}'.format(EF_ratio, ef, n_actives))
-            print
-        return
+            y_pred_on_test = reshape_data_into_2_dim(model.predict(X_test))
+        else:
+            y_pred_on_test = None
 
-    def get_EF_score_with_existing_model(self,
-                                         X_test, y_test, y_test_binary,
-                                         weight_file, EF_ratio):
-        model = self.load_model(weight_file)
-        y_pred_on_test = model.predict(X_test)
-        print('test precision: {}'.format(precision_auc_single(y_test_binary, y_pred_on_test)))
-        print('test roc: {}'.format(roc_auc_single(y_test_binary, y_pred_on_test)))
-        print('test bedroc: {}'.format(bedroc_auc_single(y_test_binary, y_pred_on_test)))
-        print
-
-        n_actives, ef, ef_max = enrichment_factor_single(y_test_binary, y_pred_on_test, EF_ratio)
-        print('EF: {},\tactive: {}'.format(ef, n_actives))
-
+        output_regression_result(y_train_binary=y_train_binary, y_pred_on_train=y_pred_on_train,
+                                 y_val_binary=y_val_binary, y_pred_on_val=y_pred_on_val,
+                                 y_test_binary=y_test_binary, y_pred_on_test=y_pred_on_test,
+                                 EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
         return
 
     def save_model(self, model, weight_file):

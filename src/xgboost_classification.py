@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 from xgboost import XGBClassifier
 from function import read_merged_data, extract_feature_and_label, reshape_data_into_2_dim
-from evaluation import roc_auc_single, bedroc_auc_single, precision_auc_single
+from evaluation import roc_auc_single, precision_auc_single
 from util import output_classification_result
 
 

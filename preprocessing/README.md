@@ -41,9 +41,11 @@ The steps of the merging can be summarized as follows:
 3. Process MLPCN files: cross-reference MLPCN molecules with the current Master DF; adding new molecules and duplicates. Add retests with different `Duplicate ID`.
 4. Finalize Master DF by removing duplicate ROWS based on 'SMSSF ID', 'SMILES', AND 'PriA-SSB AS normalized % inhibition'.
 5. Two molecules have missing SMILES (SMSSF-0046450 and SMSSF-0060022). Add their SMILES and FPS as discussed:
-| SMSSF-0046450 | COc1ccc(cc1NC(=O)CS(=O)c2ncc(n2C)c3ccccc3)C                    |
+
+|SMSSF ID       |  SMILES                 |
 |---------------|----------------------------------------------------------------|
-| SMSSF-0060022 | C1CCCN(CC1)c2c(nc(o2)c3ccccc3)[P+](c4ccccc4)(c5ccccc5)c6ccccc6 |
+| SMSSF-0046450 | `COc1ccc(cc1NC(=O)CS(=O)c2ncc(n2C)c3ccccc3)C`                   |
+| SMSSF-0060022 | `C1CCCN(CC1)c2c(nc(o2)c3ccccc3)[P+](c4ccccc4)(c5ccccc5)c6ccccc6` |
 
 ## Binary Activity Rules
 Some molecules can have up to 4 % inhibition scores. How should binary activity labels be generated? 

@@ -63,7 +63,7 @@ def process_LC123(master_df, raw_files, output_dir, FP_size, FP_radius,
     print(raw_files[0], 'compound count: {}.'.format(curr_rowidx), 'Processing time: {}'.format(time.time()-start_time), file=output_file)
     print('Master DF current size: {}'.format(curr_rowidx), file=output_file)
     curr_molid = master_df['Molecule ID'].sort_values().iloc[-1] + 1
-    master_df.to_csv(output_dir+'/master_mlpcn_lc.csv', index=False)
+    master_df.to_csv(output_dir+'/master_mlpcn_lc.csv.gz', index=False, compression='gzip')
 
     # process main label file
     start_time = time.time()
@@ -75,7 +75,7 @@ def process_LC123(master_df, raw_files, output_dir, FP_size, FP_radius,
     master_df = master_df.merge(lc123_main, on='SMSSF ID', how='left', suffixes=['_x', ''])[ID_columns+feature_columns+label_columns]
     print(raw_files[1], 'compound count: {}'.format(lc123_main.shape), 'Processing time: {}'.format(time.time()-start_time), file=output_file)
     del lc123_main
-    master_df.to_csv(output_dir+'/master_mlpcn_lc.csv', index=False)
+    master_df.to_csv(output_dir+'/master_mlpcn_lc.csv.gz', index=False, compression='gzip')
                       
     # process retest data
     start_time = time.time()
@@ -118,7 +118,7 @@ def process_LC123(master_df, raw_files, output_dir, FP_size, FP_radius,
     print(raw_files[6], 'compound count: {}'.format(lc123_retest.shape), 'Processing time: {}'.format(time.time()-start_time), file=output_file)
     print('Master DF current size: {}'.format(curr_rowidx), file=output_file)
     del lc123_retest
-    master_df.to_csv(output_dir+'/master_mlpcn_lc.csv', index=False)
+    master_df.to_csv(output_dir+'/master_mlpcn_lc.csv.gz', index=False, compression='gzip')
     
     return master_df, curr_molid, curr_rowidx
 
@@ -193,7 +193,7 @@ def process_LC4(master_df, raw_files, output_dir, FP_size, FP_radius,
     print('LC4 merged compound count: {}'.format(lc4_merged_df.shape), 'Processing time: {}'.format(time.time()-start_time), file=output_file)
     print('Master DF current size: {}'.format(curr_rowidx), file=output_file)
     del lc4_df1, lc4_df2, lc4_merged_df, smiles_df, temp_df
-    master_df.to_csv(output_dir+'/master_mlpcn_lc.csv', index=False)
+    master_df.to_csv(output_dir+'/master_mlpcn_lc.csv.gz', index=False, compression='gzip')
     
     return master_df, curr_molid, curr_rowidx
 
@@ -241,7 +241,7 @@ def process_MLPCN1(master_df, raw_files, output_dir, FP_size, FP_radius,
     print(raw_files[5], 'compound count: {}'.format(mlpcn_df.shape), 'Processing time: {}'.format(time.time()-start_time), file=output_file)
     print('Master DF current size: {}'.format(curr_rowidx), file=output_file)
     del mlpcn_df
-    master_df.to_csv(output_dir+'/master_mlpcn_lc.csv', index=False)
+    master_df.to_csv(output_dir+'/master_mlpcn_lc.csv.gz', index=False, compression='gzip')
     
     return master_df, curr_molid, curr_rowidx
 
@@ -280,7 +280,7 @@ def process_MLPCN2(master_df, raw_files, output_dir, FP_size, FP_radius,
     print(raw_files[6], 'compound count: {}'.format(mlpcn_retest.shape), 'Processing time: {}'.format(time.time()-start_time), file=output_file)
     print('Master DF current size: {}'.format(curr_rowidx), file=output_file)
     del mlpcn_retest
-    master_df.to_csv(output_dir+'/master_mlpcn_lc.csv', index=False)
+    master_df.to_csv(output_dir+'/master_mlpcn_lc.csv.gz', index=False, compression='gzip')
 
     return master_df, curr_molid, curr_rowidx
     
@@ -322,11 +322,12 @@ if __name__ == '__main__':
     label_columns = ['PriA-SSB AS normalized % inhibition', 'PriA-SSB AS Activity']
     
     if os.path.isfile(output_dir+'/master_mlpcn_lc.csv'):
-        master_df = pd.read_csv(output_dir+'/master_mlpcn_lc.csv', 
+        master_df = pd.read_csv(output_dir+'/master_mlpcn_lc.csv.gz', 
                                 converters={ID_columns[0]: np.int64,
                                             ID_columns[1]: np.int64,
                                             label_columns[1]: np.int8
-                                           })
+                                           },
+                                compression='gzip')
         
         curr_molid = master_df['Molecule ID'].sort_values().iloc[-1] + 1
         curr_rowidx = np.where(master_df['Molecule ID'] == -1)[0][0]
@@ -368,6 +369,15 @@ if __name__ == '__main__':
         print('Master DF BEFORE deduplication: {}'.format(master_df.shape), file=output_file)
         master_df = master_df.drop_duplicates(subset=['SMSSF ID', 'SMILES', 'PriA-SSB AS normalized % inhibition'])
         print('Master DF AFTER deduplication on SMSSF ID, SMILES, and Activity Score: {}'.format(master_df.shape), file=output_file)
-        master_df.to_csv(output_dir+'/master_mlpcn_lc.csv', index=False)
+        master_df.to_csv(output_dir+'/master_mlpcn_lc.csv.gz', index=False, compression='gzip')
         
+        # two molecules have missing SMILES (SMSSF-0046450 and SMSSF-0060022), add them here as discussed
+        smssfid_smiles_pairs = [('SMSSF-0046450', 'COc1ccc(cc1NC(=O)CS(=O)c2ncc(n2C)c3ccccc3)C'), 
+                                ('SMSSF-0060022', 'C1CCCN(CC1)c2c(nc(o2)c3ccccc3)[P+](c4ccccc4)(c5ccccc5)c6ccccc6')]
+        for smssfid, smiles in smssfid_smiles_pairs:
+            mol = Chem.MolFromSmiles(smiles)
+            fps = AllChem.GetMorganFingerprintAsBitVect(mol, radius=FP_radius, nBits=FP_size).ToBitString()
+            canon_smiles = Chem.MolToSmiles(mol)
+            master_df.loc[master_df['SMSSF ID'] == smssfid, 
+                          ['SMILES', '{} MorganFP Radius {}'.format(FP_size, FP_radius)]] = canon_smiles, fps
     output_file.close()

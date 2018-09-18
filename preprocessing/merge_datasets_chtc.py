@@ -91,7 +91,8 @@ def process_LC123(master_df, raw_files, output_dir, FP_size, FP_radius,
 
             # check if same smssfid treat as same molecule
             if same_smssfid.any():
-                curr_df = curr_df[same_smssfid].sort_values('Duplicate ID')
+                mol_id = curr_df[same_smssfid].iloc[0,0]
+                curr_df = master_df[master_df['Molecule ID'] == mol_id].sort_values('Duplicate ID')
                 ref_molid, ref_dupid, suppid, canon_smiles, fps = curr_df.iloc[-1,[0, 1, 3, 4, 5]]
                 
                 master_df.loc[curr_rowidx, ['Molecule ID', 'Duplicate ID', 
@@ -173,13 +174,15 @@ def process_LC4(master_df, raw_files, output_dir, FP_size, FP_radius,
 
             # check if same smssfid or same smiles, treat as same molecule
             if same_smssfid.any():
-                curr_df = curr_df[same_smssfid].sort_values('Duplicate ID')
+                mol_id = curr_df[same_smssfid].iloc[0,0]
+                curr_df = master_df[master_df['Molecule ID'] == mol_id].sort_values('Duplicate ID')
                 ref_molid, ref_dupid = curr_df.iloc[-1,[0,1]]
             elif same_smiles.any():
-                curr_df = curr_df[same_smiles].sort_values('Duplicate ID')
+                mol_id = curr_df[same_smiles].iloc[0,0]
+                curr_df = master_df[master_df['Molecule ID'] == mol_id].sort_values('Duplicate ID')
                 ref_molid, ref_dupid = curr_df.iloc[-1,[0,1]]
             else: # new molecule
-                ref_molid, ref_dupid = curr_molid, 0
+                ref_molid, ref_dupid = curr_molid, -1
                 curr_molid += 1
             master_df.loc[curr_rowidx, ['Molecule ID', 'Duplicate ID', 
                                         'SMSSF ID', 'SMILES', 
@@ -221,13 +224,15 @@ def process_MLPCN1(master_df, raw_files, output_dir, FP_size, FP_radius,
 
             # check if same smssfid or same smiles, treat as same molecule
             if same_smssfid.any():
-                curr_df = curr_df[same_smssfid].sort_values('Duplicate ID')
+                mol_id = curr_df[same_smssfid].iloc[0,0]
+                curr_df = master_df[master_df['Molecule ID'] == mol_id].sort_values('Duplicate ID')
                 ref_molid, ref_dupid = curr_df.iloc[-1,[0,1]]
             elif same_smiles.any():
-                curr_df = curr_df[same_smiles].sort_values('Duplicate ID')
+                mol_id = curr_df[same_smiles].iloc[0,0]
+                curr_df = master_df[master_df['Molecule ID'] == mol_id].sort_values('Duplicate ID')
                 ref_molid, ref_dupid = curr_df.iloc[-1,[0,1]]
             else: # new molecule
-                ref_molid, ref_dupid = curr_molid, 0
+                ref_molid, ref_dupid = curr_molid, -1
                 curr_molid += 1
             master_df.loc[curr_rowidx, ['Molecule ID', 'Duplicate ID', 
                                         'SMSSF ID', 'SMILES', 
@@ -262,7 +267,8 @@ def process_MLPCN2(master_df, raw_files, output_dir, FP_size, FP_radius,
 
             # check if same smssfid treat as same molecule
             if same_smssfid.any():
-                curr_df = curr_df[same_smssfid].sort_values('Duplicate ID')
+                mol_id = curr_df[same_smssfid].iloc[0,0]
+                curr_df = master_df[master_df['Molecule ID'] == mol_id].sort_values('Duplicate ID')
                 ref_molid, ref_dupid, suppid, canon_smiles, fps = curr_df.iloc[-1,[0, 1, 3, 4, 5]]
             else: # we don't have smile info for this retest, record and process it later
                 ref_molid, ref_dupid, suppid, canon_smiles, fps = curr_molid, -1, np.nan, np.nan, np.nan

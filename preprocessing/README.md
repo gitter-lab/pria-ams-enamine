@@ -18,7 +18,7 @@ All files involved in the merge are in UW-Madison Box Storage.
 
 ## Master Dataframe 
 Create a master dataframe with the following columns:
-1. `Molecule ID`: uniquely identifies a molecule. Currently an non-negative integer.
+1. `Molecule ID`: uniquely identifies a molecule. Currently a non-negative integer.
 2. `Duplicate ID`: denotes the duplicate number of a molecule. This is done so that the same molecule can have multiple % inhibition readings; allows grouping by `Molecule ID`.
 3. `SMSSF ID`: molecule ID used by SMSSF for easy cross-referencing and issue followup.
 4. `Supplier ID`: the supplier of the molecule.
@@ -32,14 +32,14 @@ Two molecules are duplicates (i.e. should have the same `Molecule ID`, but diffe
 1. They have the same `SMSSF ID`.
 2. They have the same `SMILES` i.e. the same rdkit canonical smiles.
 
-If two molecules have the same 'SMSSF ID', 'SMILES', AND 'PriA-SSB AS normalized % inhibition', then they are regarded as the same entry; one of them is removed.
+If two molecules have the same `SMSSF ID`, `SMILES`, AND `PriA-SSB AS normalized % inhibition`, then they are regarded as the same entry; one of them is removed.
 
 ## Merging Strategy:
 The steps of the merging can be summarized as follows:
 1. Process LC123 files: get SMSSF ID and SMILES, then record the % inhibition. Ensure duplication rules are applied to the Master DF.
 2. Process LC4 files: cross-reference LC4 molecules with the current Master DF; adding new molecules and duplicates. Add retests with different `Duplicate ID`.
 3. Process MLPCN files: cross-reference MLPCN molecules with the current Master DF; adding new molecules and duplicates. Add retests with different `Duplicate ID`.
-4. Finalize Master DF by removing duplicate ROWS based on 'SMSSF ID', 'SMILES', AND 'PriA-SSB AS normalized % inhibition'.
+4. Finalize Master DF by removing duplicate ROWS based on `SMSSF ID`, `SMILES`, AND `PriA-SSB AS normalized % inhibition`.
 5. Two molecules have missing SMILES (SMSSF-0046450 and SMSSF-0060022). Add their SMILES and FPS as discussed:
 
 |SMSSF ID       |  SMILES                 |
@@ -55,3 +55,6 @@ From discussions, the following rules were advised:
 2. Apply threshold on the `median` to generate binary label.
 
 Still need to add PAINS filter results. Use rdkit's [FilterCatalog](https://github.com/rdkit/rdkit/pull/536) for such filters.
+
+## Misc. Notes/Remarks
+1. Many of the Primary % inhibition in the data files are aggregate of multiple (typically three) screen using the `median`.

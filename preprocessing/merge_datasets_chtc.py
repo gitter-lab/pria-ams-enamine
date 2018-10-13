@@ -92,8 +92,7 @@ def process_LC123(master_df, raw_files, output_dir, FP_size, FP_radius,
             # check if same smssfid treat as same molecule
             if same_smssfid.any():
                 mol_id = curr_df[same_smssfid].iloc[0,0]
-                curr_df = master_df[master_df['Molecule ID'] == mol_id].sort_values('Duplicate ID')
-                ref_molid, ref_dupid, suppid, canon_smiles, fps = curr_df.iloc[-1,[0, 1, 3, 4, 5]]
+                ref_molid, ref_dupid, suppid, canon_smiles, fps = curr_df[curr_df['Molecule ID'] == mol_id].sort_values('Duplicate ID').iloc[-1,[0, 1, 3, 4, 5]]
                 
                 master_df.loc[curr_rowidx, ['Molecule ID', 'Duplicate ID', 
                                             'SMSSF ID', 'SMILES', 
@@ -175,12 +174,10 @@ def process_LC4(master_df, raw_files, output_dir, FP_size, FP_radius,
             # check if same smssfid or same smiles, treat as same molecule
             if same_smssfid.any():
                 mol_id = curr_df[same_smssfid].iloc[0,0]
-                curr_df = master_df[master_df['Molecule ID'] == mol_id].sort_values('Duplicate ID')
-                ref_molid, ref_dupid = curr_df.iloc[-1,[0,1]]
+                ref_molid, ref_dupid = curr_df[curr_df['Molecule ID'] == mol_id].sort_values('Duplicate ID').iloc[-1,[0,1]]
             elif same_smiles.any():
                 mol_id = curr_df[same_smiles].iloc[0,0]
-                curr_df = master_df[master_df['Molecule ID'] == mol_id].sort_values('Duplicate ID')
-                ref_molid, ref_dupid = curr_df.iloc[-1,[0,1]]
+                ref_molid, ref_dupid = curr_df[curr_df['Molecule ID'] == mol_id].sort_values('Duplicate ID').iloc[-1,[0,1]]
             else: # new molecule
                 ref_molid, ref_dupid = curr_molid, -1
                 curr_molid += 1
@@ -202,14 +199,20 @@ def process_LC4(master_df, raw_files, output_dir, FP_size, FP_radius,
 
 # process MLPCN
 def process_MLPCN1(master_df, raw_files, output_dir, FP_size, FP_radius, 
-                   curr_molid, curr_rowidx, ID_columns, feature_columns, label_columns):
+                   curr_molid, curr_rowidx, ID_columns, feature_columns, label_columns,
+                   first_run):
     print('\nProcessing MLPCN', file=output_file)
     # main MLPCN file
     start_time = time.time()
     mlpcn_df = pd.read_csv(raw_files[5])
     mlpcn_df.columns = ['SMSSF ID', 'SMILES', 'Supplier ID', 'PID', 'PriA-SSB AS', 'Activity']
     mlpcn_df = mlpcn_df[['SMSSF ID', 'Supplier ID', 'SMILES', 'PriA-SSB AS']]
-
+    
+    total_rows = mlpcn_df.shape[0]
+    if first_run:
+        mlpcn_df = mlpcn_df.iloc[:total_rows//2,:]
+    else:
+        mlpcn_df = mlpcn_df.iloc[total_rows//2:,:]
     for row in mlpcn_df.itertuples():
         curr_df = master_df.iloc[:curr_rowidx,:]
 
@@ -221,16 +224,16 @@ def process_MLPCN1(master_df, raw_files, output_dir, FP_size, FP_radius,
         if 'smssf' in mol_name.lower():
             same_smssfid = curr_df['SMSSF ID'] == mol_name
             same_smiles = curr_df['SMILES'] == canon_smiles
-
+            
+            same_smiles_and_smssfid = same_smssfid & same_smiles
+            
             # check if same smssfid or same smiles, treat as same molecule
             if same_smssfid.any():
                 mol_id = curr_df[same_smssfid].iloc[0,0]
-                curr_df = master_df[master_df['Molecule ID'] == mol_id].sort_values('Duplicate ID')
-                ref_molid, ref_dupid = curr_df.iloc[-1,[0,1]]
+                ref_molid, ref_dupid = curr_df[curr_df['Molecule ID'] == mol_id].sort_values('Duplicate ID').iloc[-1,[0,1]]
             elif same_smiles.any():
                 mol_id = curr_df[same_smiles].iloc[0,0]
-                curr_df = master_df[master_df['Molecule ID'] == mol_id].sort_values('Duplicate ID')
-                ref_molid, ref_dupid = curr_df.iloc[-1,[0,1]]
+                ref_molid, ref_dupid = curr_df[curr_df['Molecule ID'] == mol_id].sort_values('Duplicate ID').iloc[-1,[0,1]]
             else: # new molecule
                 ref_molid, ref_dupid = curr_molid, -1
                 curr_molid += 1
@@ -243,13 +246,13 @@ def process_MLPCN1(master_df, raw_files, output_dir, FP_size, FP_radius,
                                                                                    fps, suppid, activity_score]
             curr_rowidx += 1
 
-    print(raw_files[5], 'compound count: {}'.format(mlpcn_df.shape), 'Processing time: {}'.format(time.time()-start_time), file=output_file)
+    print(raw_files[5], ' run compound count: {}'.format(mlpcn_df.shape), 'Processing time: {}'.format(time.time()-start_time), file=output_file)
     print('Master DF current size: {}'.format(curr_rowidx), file=output_file)
     del mlpcn_df
     master_df.to_csv(output_dir+'/master_mlpcn_lc.csv.gz', index=False, compression='gzip')
     
     return master_df, curr_molid, curr_rowidx
-
+    
 def process_MLPCN2(master_df, raw_files, output_dir, FP_size, FP_radius, 
                    curr_molid, curr_rowidx, ID_columns, feature_columns, label_columns):
     # process retest data
@@ -268,8 +271,7 @@ def process_MLPCN2(master_df, raw_files, output_dir, FP_size, FP_radius,
             # check if same smssfid treat as same molecule
             if same_smssfid.any():
                 mol_id = curr_df[same_smssfid].iloc[0,0]
-                curr_df = master_df[master_df['Molecule ID'] == mol_id].sort_values('Duplicate ID')
-                ref_molid, ref_dupid, suppid, canon_smiles, fps = curr_df.iloc[-1,[0, 1, 3, 4, 5]]
+                ref_molid, ref_dupid, suppid, canon_smiles, fps = curr_df[curr_df['Molecule ID'] == mol_id].sort_values('Duplicate ID').iloc[-1,[0, 1, 3, 4, 5]]
             else: # we don't have smile info for this retest, record and process it later
                 ref_molid, ref_dupid, suppid, canon_smiles, fps = curr_molid, -1, np.nan, np.nan, np.nan
                 curr_molid += 1
@@ -325,9 +327,9 @@ if __name__ == '__main__':
     # master dataframe columns
     ID_columns = ['Molecule ID', 'Duplicate ID', 'SMSSF ID', 'Supplier ID']
     feature_columns = ['SMILES', '{} MorganFP Radius {}'.format(FP_size, FP_radius)]
-    label_columns = ['PriA-SSB AS normalized % inhibition', 'PriA-SSB AS Activity']
+    label_columns = ['PriA-SSB AS % inhibition', 'PriA-SSB AS Activity']
     
-    if os.path.isfile(output_dir+'/master_mlpcn_lc.csv'):
+    if os.path.isfile(output_dir+'/master_mlpcn_lc.csv.gz'):
         master_df = pd.read_csv(output_dir+'/master_mlpcn_lc.csv.gz', 
                                 converters={ID_columns[0]: np.int64,
                                             ID_columns[1]: np.int64,
@@ -362,8 +364,13 @@ if __name__ == '__main__':
                                                          curr_molid, curr_rowidx, ID_columns, feature_columns, label_columns)
     if step == 2:
         master_df, curr_molid, curr_rowidx = process_MLPCN1(master_df, raw_files, output_dir, FP_size, FP_radius, 
-                                                            curr_molid, curr_rowidx, ID_columns, feature_columns, label_columns)
+                                                            curr_molid, curr_rowidx, ID_columns, feature_columns, label_columns,
+                                                            True)
     if step == 3:
+        master_df, curr_molid, curr_rowidx = process_MLPCN1(master_df, raw_files, output_dir, FP_size, FP_radius, 
+                                                            curr_molid, curr_rowidx, ID_columns, feature_columns, label_columns,
+                                                            False)
+    if step == 4:
         master_df, curr_molid, curr_rowidx = process_MLPCN2(master_df, raw_files, output_dir, FP_size, FP_radius, 
                                                             curr_molid, curr_rowidx, ID_columns, feature_columns, label_columns)
     

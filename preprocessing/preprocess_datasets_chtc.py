@@ -64,7 +64,7 @@ if __name__ == '__main__':
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    concat_df = pd.read_csv(rawdata_dir+'/merged_cdd_2018_10_8.csv.gz', compression='gzip')
+    concat_df = pd.read_csv(rawdata_dir+'/merged_cdd_2018_10_15.csv.gz', compression='gzip')
     ID_columns = ['Molecule ID', 'Duplicate ID', 'SMSSF ID', 'Batch Name', 
                   'Library ID', 'Plate Name', 'Plate Well', 'Run Date']
     feature_columns = ['CDD SMILES', 'rdkit SMILES', '{} MorganFP Radius {}'.format(FP_size, FP_radius)]

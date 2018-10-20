@@ -5,7 +5,6 @@ import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from function import read_merged_data, extract_feature_and_label, reshape_data_into_2_dim
-from evaluation import roc_auc_single, precision_auc_single
 from util import output_classification_result
 
 
@@ -18,6 +17,11 @@ class RandomForestClassification:
         self.class_weight = conf['class_weight']
         self.EF_ratio_list = conf['enrichment_factor']['ratio_list']
         self.random_seed = conf['random_seed']
+
+        if 'hit_ratio' in self.conf.keys():
+            self.hit_ratio = conf['hit_ratio']
+        else:
+            self.hit_ratio = 0.01
         np.random.seed(seed=self.random_seed)
         return
     
@@ -45,7 +49,7 @@ class RandomForestClassification:
         output_classification_result(y_train=y_train, y_pred_on_train=y_pred_on_train,
                                      y_val=None, y_pred_on_val=None,
                                      y_test=y_test, y_pred_on_test=y_pred_on_test,
-                                     EF_ratio_list=self.EF_ratio_list)
+                                     EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
 
         self.save_model(model, weight_file)
 
@@ -68,7 +72,7 @@ class RandomForestClassification:
         output_classification_result(y_train=y_train, y_pred_on_train=y_pred_on_train,
                                      y_val=None, y_pred_on_val=None,
                                      y_test=y_test, y_pred_on_test=y_pred_on_test,
-                                     EF_ratio_list=self.EF_ratio_list)
+                                     EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
 
         return
 

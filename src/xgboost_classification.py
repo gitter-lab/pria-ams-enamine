@@ -45,6 +45,11 @@ class XGBoostClassification:
         self.random_seed = conf['random_seed']
         self.eval_metric = eval_metric_mapping[conf['early_stopping']['eval_metric']]
         self.early_stopping_round = conf['early_stopping']['round']
+
+        if 'hit_ratio' in self.conf.keys():
+            self.hit_ratio = conf['hit_ratio']
+        else:
+            self.hit_ratio = 0.01
         np.random.seed(seed=self.random_seed)
         return
     
@@ -83,7 +88,7 @@ class XGBoostClassification:
         output_classification_result(y_train=y_train, y_pred_on_train=y_pred_on_train,
                                      y_val=y_val, y_pred_on_val=y_pred_on_val,
                                      y_test=y_test, y_pred_on_test=y_pred_on_test,
-                                     EF_ratio_list=self.EF_ratio_list)
+                                     EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
 
         self.save_model(model, weight_file)
 
@@ -107,7 +112,7 @@ class XGBoostClassification:
         output_classification_result(y_train=y_train, y_pred_on_train=y_pred_on_train,
                                      y_val=y_val, y_pred_on_val=y_pred_on_val,
                                      y_test=y_test, y_pred_on_test=y_pred_on_test,
-                                     EF_ratio_list=self.EF_ratio_list)
+                                     EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
 
         return
 

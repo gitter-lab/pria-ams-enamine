@@ -11,7 +11,7 @@ def roc_auc_single(predicted, actual):
         auc_ret = roc_auc_score(actual, predicted)
     except ValueError:
         auc_ret = np.nan
-    
+
     return auc_ret
 
 

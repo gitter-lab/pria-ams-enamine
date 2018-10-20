@@ -24,7 +24,7 @@ class KeckCallBackOnROC(keras.callbacks.Callback):
 
     def on_train_begin(self, logs={}):
         self.nb_epoch = self.params['nb_epoch']
-        self.curr_roc = roc_auc_single(self.y_val, self.model.predict(self.X_val))
+        self.curr_roc = roc_auc_single(self.model.predict(self.X_val), self.y_val)
         self.best_roc = self.curr_roc
         self.model.save_weights(self.file_path)
         self.time = time.time()
@@ -33,7 +33,7 @@ class KeckCallBackOnROC(keras.callbacks.Callback):
         print('Epoch {}/{}'.format(epoch + 1, self.nb_epoch))
         training_end_time = time.time()
         print('Epoch training duration: {}'.format(training_end_time-self.time))
-        self.curr_roc = roc_auc_single(self.y_val, self.model.predict(self.X_val))
+        self.curr_roc = roc_auc_single(self.model.predict(self.X_val), self.y_val)
         if self.curr_roc < self.best_roc:
             if self.counter >= self.patience:
                 self.model.stop_training = True
@@ -44,9 +44,9 @@ class KeckCallBackOnROC(keras.callbacks.Callback):
             self.best_roc = self.curr_roc
             self.model.save_weights(self.file_path)
 
-        train_roc = roc_auc_single(self.y_train, self.model.predict(self.X_train))
-        train_pr = precision_auc_single(self.y_train, self.model.predict(self.X_train))
-        curr_pr = precision_auc_single(self.y_val, self.model.predict(self.X_val))
+        train_roc = roc_auc_single(self.model.predict(self.X_train), self.y_train)
+        train_pr = precision_auc_single(self.model.predict(self.X_train), self.y_train)
+        curr_pr = precision_auc_single(self.model.predict(self.X_val), self.y_val)
         print 'Train\tAUC[ROC]: %.6f\tAUC[PR]: %.6f' % \
               (train_roc, train_pr)
         print 'Val\tAUC[ROC]: %.6f\tAUC[PR]: %.6f' % \
@@ -85,7 +85,7 @@ class KeckCallBackOnPrecision(keras.callbacks.Callback):
 
     def on_train_begin(self, logs={}):
         self.nb_epoch = self.params['nb_epoch']
-        self.curr_pr = precision_auc_single(self.y_val, self.model.predict(self.X_val))
+        self.curr_pr = precision_auc_single(self.model.predict(self.X_val), self.y_val)
         self.best_pr = self.curr_pr
         self.model.save_weights(self.file_path)
         self.time = time.time()
@@ -94,7 +94,7 @@ class KeckCallBackOnPrecision(keras.callbacks.Callback):
         print('Epoch {}/{}'.format(epoch + 1, self.nb_epoch))
         training_end_time = time.time()
         print('Epoch training duration: {}'.format(training_end_time-self.time))
-        self.curr_pr = precision_auc_single(self.y_val, self.model.predict(self.X_val))
+        self.curr_pr = precision_auc_single(self.model.predict(self.X_val), self.y_val)
         if self.curr_pr < self.best_pr:
             if self.counter >= self.patience:
                 self.model.stop_training = True
@@ -105,9 +105,9 @@ class KeckCallBackOnPrecision(keras.callbacks.Callback):
             self.best_pr = self.curr_pr
             self.model.save_weights(self.file_path)
 
-        train_roc = roc_auc_single(self.y_train, self.model.predict(self.X_train))
-        train_pr = precision_auc_single(self.y_train, self.model.predict(self.X_train))
-        curr_roc = roc_auc_single(self.y_val, self.model.predict(self.X_val))
+        train_roc = roc_auc_single(self.model.predict(self.X_train), self.y_train)
+        train_pr = precision_auc_single(self.model.predict(self.X_train), self.y_train)
+        curr_roc = roc_auc_single(self.model.predict(self.X_val), self.y_val)
         print 'Train\tAUC[ROC]: %.6f\tAUC[PR]: %.6f' % \
               (train_roc, train_pr)
         print 'Val\tAUC[ROC]: %.6f\tAUC[PR]: %.6f' % \

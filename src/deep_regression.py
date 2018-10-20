@@ -11,6 +11,7 @@ from keras.layers import Dense, Dropout
 from keras.layers.normalization import BatchNormalization
 from keras.optimizers import SGD, Adam
 from function import read_merged_data, extract_feature_and_label, reshape_data_into_2_dim
+from CallBacks import KeckCallBackOnROC, KeckCallBackOnPrecision
 from util import output_regression_result
 
 
@@ -83,18 +84,22 @@ class SingleRegression:
         self.EF_ratio_list = conf['enrichment_factor']['ratio_list']
         self.weight_schema = conf['sample_weight_option']
 
+        if 'hit_ratio' in self.conf.keys():
+            self.hit_ratio = conf['hit_ratio']
+        else:
+            self.hit_ratio = 0.01
         return
 
     def setup_model(self):
         model = Sequential()
         layers = self.conf['layers']
+        dropout = self.conf['drop_out']
         layer_number = len(layers)
         for i in range(layer_number):
             init = layers[i]['init']
             activation = layers[i]['activation']
             if i == 0:
                 hidden_units = int(layers[i]['hidden_units'])
-                dropout = float(layers[i]['dropout'])
                 model.add(Dense(hidden_units, input_dim=self.input_layer_dimension, init=init, activation=activation))
                 model.add(Dropout(dropout))
             elif i == layer_number - 1:
@@ -103,7 +108,6 @@ class SingleRegression:
                 model.add(Dense(self.output_layer_dimension, init=init, activation=activation))
             else:
                 hidden_units = int(layers[i]['hidden_units'])
-                dropout = float(layers[i]['dropout'])
                 model.add(Dense(hidden_units, init=init, activation=activation))
                 model.add(Dropout(dropout))
 
@@ -115,6 +119,18 @@ class SingleRegression:
                           X_test, y_test_continuous, y_test_binary,
                           weight_file):
         model = self.setup_model()
+        if self.early_stopping_option == 'auc':
+            early_stopping = KeckCallBackOnROC(X_train, y_train_binary, X_val, y_val_binary,
+                                               patience=self.early_stopping_patience,
+                                               file_path=weight_file)
+            callbacks = [early_stopping]
+        elif self.early_stopping_option == 'precision':
+            early_stopping = KeckCallBackOnPrecision(X_train, y_train_binary, X_val, y_val_binary,
+                                                     patience=self.early_stopping_patience,
+                                                     file_path=weight_file)
+            callbacks = [early_stopping]
+        else:
+            callbacks = []
         sw = get_sample_weight(self, y_train_continuous)
         print 'Sample Weight\t', sw
 
@@ -125,8 +141,11 @@ class SingleRegression:
                   verbose=self.fit_verbose,
                   sample_weight=sw,
                   validation_data=[X_val, y_val_continuous],
-                  shuffle=True)
-        model.save_weights(weight_file)
+                  shuffle=True,
+                  callbacks=callbacks)
+
+        if self.early_stopping_option == 'auc' or self.early_stopping_option == 'precision':
+            model = early_stopping.get_best_model()
 
         y_pred_on_train = reshape_data_into_2_dim(model.predict(X_train))
         y_pred_on_val = reshape_data_into_2_dim(model.predict(X_val))
@@ -182,18 +201,17 @@ def demo_single_regression():
             {
                 'hidden_units': 2000,
                 'init': 'glorot_normal',
-                'activation': 'sigmoid',
-                'dropout': 0.25
+                'activation': 'sigmoid'
             }, {
                 'hidden_units': 2000,
                 'init': 'glorot_normal',
-                'activation': 'sigmoid',
-                'dropout': 0.25
+                'activation': 'sigmoid'
             }, {
                 'init': 'glorot_normal',
                 'activation': 'linear'
             }
         ],
+        'drop_out': 0.25,
         'compile': {
             'loss': 'mse',
             'optimizer': {
@@ -215,7 +233,7 @@ def demo_single_regression():
         'fitting': {
             'nb_epoch': 3,
             'batch_size': 2048,
-            'verbose': 1,
+            'verbose': 0,
             'early_stopping': {
                 'option': 'auc',
                 'patience': 50

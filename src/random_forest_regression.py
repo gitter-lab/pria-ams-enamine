@@ -5,8 +5,7 @@ import pandas as pd
 import numpy as np
 import math
 from sklearn.ensemble import RandomForestRegressor
-from function import read_merged_data, extract_feature_and_label, transform_json_to_csv, reshape_data_into_2_dim
-from evaluation import roc_auc_single, precision_auc_single
+from function import read_merged_data, extract_feature_and_label, reshape_data_into_2_dim
 from util import output_regression_result
 
 
@@ -41,6 +40,11 @@ class RandomForestRegression:
         self.weight_schema = conf['sample_weight']
         self.EF_ratio_list = conf['enrichment_factor']['ratio_list']
         self.random_seed = conf['random_seed']
+
+        if 'hit_ratio' in self.conf.keys():
+            self.hit_ratio = conf['hit_ratio']
+        else:
+            self.hit_ratio = 0.01
         np.random.seed(seed=self.random_seed)
         return
     
@@ -73,7 +77,7 @@ class RandomForestRegression:
         output_regression_result(y_train_binary=y_train_binary, y_pred_on_train=y_pred_on_train,
                                  y_val_binary=None, y_pred_on_val=None,
                                  y_test_binary=y_test_binary, y_pred_on_test=y_pred_on_test,
-                                 EF_ratio_list=self.EF_ratio_list)
+                                 EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
 
         self.save_model(model, weight_file)
 
@@ -99,7 +103,7 @@ class RandomForestRegression:
         output_regression_result(y_train_binary=y_train_binary, y_pred_on_train=y_pred_on_train,
                                  y_val_binary=None, y_pred_on_val=None,
                                  y_test_binary=y_test_binary, y_pred_on_test=y_pred_on_test,
-                                 EF_ratio_list=self.EF_ratio_list)
+                                 EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
         return
 
     def save_model(self, model, weight_file):

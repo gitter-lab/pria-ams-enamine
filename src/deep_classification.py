@@ -12,8 +12,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.layers.normalization import BatchNormalization
 from keras.optimizers import SGD, Adam
-from function import read_merged_data, extract_feature_and_label
-from evaluation import roc_auc_single, precision_auc_single
+from function import read_merged_data, extract_feature_and_label, reshape_data_into_2_dim
 from CallBacks import KeckCallBackOnROC, KeckCallBackOnPrecision
 from util import output_classification_result
 
@@ -85,7 +84,10 @@ def get_class_weight(task, y_data, reference=None):
 class SingleClassification:
     def __init__(self, conf):
         self.conf = conf
-        self.input_layer_dimension = 1024
+        if 'input_layer_dimension' in conf.keys():
+            self.input_layer_dimension = conf['input_layer_dimension']
+        else:
+            self.input_layer_dimension = 1024
         self.output_layer_dimension = 1
 
         self.early_stopping_patience = conf['fitting']['early_stopping']['patience']
@@ -128,18 +130,22 @@ class SingleClassification:
                                                        gamma_init=batch_normalizer_gamma_init)
         self.EF_ratio_list = conf['enrichment_factor']['ratio_list']
 
+        if 'hit_ratio' in self.conf.keys():
+            self.hit_ratio = conf['hit_ratio']
+        else:
+            self.hit_ratio = 0.01
         return
 
     def setup_model(self):
         model = Sequential()
         layers = self.conf['layers']
+        dropout = self.conf['drop_out']
         layer_number = len(layers)
         for i in range(layer_number):
             init = layers[i]['init']
             activation = layers[i]['activation']
             if i == 0:
                 hidden_units = int(layers[i]['hidden_units'])
-                dropout = float(layers[i]['dropout'])
                 model.add(Dense(hidden_units, input_dim=self.input_layer_dimension, init=init, activation=activation))
                 model.add(Dropout(dropout))
             elif i == layer_number - 1:
@@ -148,7 +154,6 @@ class SingleClassification:
                 model.add(Dense(self.output_layer_dimension, init=init, activation=activation))
             else:
                 hidden_units = int(layers[i]['hidden_units'])
-                dropout = float(layers[i]['dropout'])
                 model.add(Dense(hidden_units, init=init, activation=activation))
                 model.add(Dropout(dropout))
 
@@ -194,7 +199,7 @@ class SingleClassification:
         output_classification_result(y_train=y_train, y_pred_on_train=y_pred_on_train,
                                      y_val=y_val, y_pred_on_val=y_pred_on_val,
                                      y_test=y_test, y_pred_on_test=y_pred_on_test,
-                                     EF_ratio_list=self.EF_ratio_list)
+                                     EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
         return
 
     def predict_with_existing(self, X_data, weight_file):
@@ -219,7 +224,7 @@ class SingleClassification:
         output_classification_result(y_train=y_train, y_pred_on_train=y_pred_on_train,
                                      y_val=y_val, y_pred_on_val=y_pred_on_val,
                                      y_test=y_test, y_pred_on_test=y_pred_on_test,
-                                     EF_ratio_list=self.EF_ratio_list)
+                                     EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
         return
 
     def get_EF_score_with_existing_model(self,
@@ -250,18 +255,17 @@ def demo_single_classification():
             {
                 'hidden_units': 2000,
                 'init': 'glorot_normal',
-                'activation': 'relu',
-                'dropout': 0.25
+                'activation': 'relu'
             }, {
                 'hidden_units': 2000,
                 'init': 'glorot_normal',
-                'activation': 'sigmoid',
-                'dropout': 0.25
+                'activation': 'sigmoid'
             }, {
                 'init': 'glorot_normal',
                 'activation': 'sigmoid'
             }
         ],
+        'drop_out': 0.25,
         'compile': {
             'loss': 'binary_crossentropy',
             'optimizer': {

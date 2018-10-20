@@ -17,7 +17,7 @@ from util import output_regression_result
 
 def get_sample_weight(task, y_data):
     if task.weight_schema == 'no_weight':
-        sw = [1.0 for _ in y_data]
+        sw = [1.0 for t in y_data]
     elif task.weight_schema == 'weighted_sample':
         values = set(map(lambda x: int(x), y_data))
         values = dict.fromkeys(values, 0)
@@ -256,7 +256,7 @@ def demo_single_regression():
             'ratio_list': [0.02, 0.01, 0.0015, 0.001]
         },
         'sample_weight_option': 'no_weight',
-        'label_name_list': ['Keck_Pria_AS_Retest', 'Keck_Pria_Continuous']
+        'label_name_list': ['PriA-SSB AS Activity', 'PriA-SSB AS % inhibition (Primary Median)']
     }
     label_name_list = conf['label_name_list']
     print 'label_name_list ', label_name_list
@@ -270,13 +270,13 @@ def demo_single_regression():
 
     # extract data, and split training data into training and val
     X_train, y_train = extract_feature_and_label(train_pd,
-                                                 feature_name='Fingerprints',
+                                                 feature_name='1024 MorganFP Radius 2',
                                                  label_name_list=label_name_list)
     X_val, y_val = extract_feature_and_label(val_pd,
-                                             feature_name='Fingerprints',
+                                             feature_name='1024 MorganFP Radius 2',
                                              label_name_list=label_name_list)
     X_test, y_test = extract_feature_and_label(test_pd,
-                                               feature_name='Fingerprints',
+                                               feature_name='1024 MorganFP Radius 2',
                                                label_name_list=label_name_list)
     y_train_binary = reshape_data_into_2_dim(y_train[:, 0])
     y_train_continuous = reshape_data_into_2_dim(y_train[:, 1])
@@ -295,6 +295,7 @@ def demo_single_regression():
                             X_val, y_val_continuous, y_val_binary,
                             X_test, y_test_continuous, y_test_binary,
                             weight_file)
+    return
 
 
 if __name__ == '__main__':
@@ -307,7 +308,7 @@ if __name__ == '__main__':
 
     # specify dataset
     K = 5
-    directory = '../datasets/keck_pria_lc/{}.csv'
+    directory = '../datasets/keck_pria_test/fold_{}.csv'
     file_list = []
     for i in range(K):
         file_list.append(directory.format(i))

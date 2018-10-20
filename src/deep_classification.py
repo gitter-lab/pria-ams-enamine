@@ -12,7 +12,8 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.layers.normalization import BatchNormalization
 from keras.optimizers import SGD, Adam
-from function import read_merged_data, extract_feature_and_label, reshape_data_into_2_dim
+from function import read_merged_data, extract_feature_and_label
+from evaluation import roc_auc_single, precision_auc_single
 from CallBacks import KeckCallBackOnROC, KeckCallBackOnPrecision
 from util import output_classification_result
 
@@ -24,7 +25,7 @@ def count_occurance(key_list, target_list):
     return weight
 
 
-def get_class_weight(task, y_data, reference=None):
+def get_class_weight(task, y_data):
     if task.weight_schema == 'no_weight':
         cw = []
         for i in range(task.output_layer_dimension):
@@ -36,47 +37,9 @@ def get_class_weight(task, y_data, reference=None):
             zero_weight = 1.0
             one_weight = 1.0 * w[0] / w[1]
             cw.append({0: zero_weight, 1: one_weight})
-    elif task.weight_schema == 'weighted_task':
-        cw = []
-        ones_sum = 0
-        w_list = []
-        for i in range(task.output_layer_dimension):
-            w = reference[i]
-            w_list.append(w)
-            ones_sum += w['1']
-        for i in range(task.output_layer_dimension):
-            w = w_list[i]
-            share = 0.01 * ones_sum / w['1']
-            zero_weight = share * 1.0
-            one_weight = share * w['0'] / w['1']
-            # this corresponds to Keck PriA-SSB
-            if i + 1 == task.output_layer_dimension:
-                # TODO(Chao): Need to generalize this part
-                zero_weight *= task.conf['weight_scaled_param']
-                one_weight *= task.conf['weight_scaled_param']
-            cw.append({-1: 0.0, 0: zero_weight, 1: one_weight})
-    elif task.weight_schema == 'weighted_task_log':
-        cw = []
-        ones_sum = 0
-        w_list = []
-        for i in range(task.output_layer_dimension):
-            w = reference[i]
-            w_list.append(w)
-            ones_sum += w['1']
-        for i in range(task.output_layer_dimension):
-            w = w_list[i]
-            share = math.log(ones_sum / w['1'])
-            zero_weight = share * 1.0
-            one_weight = share * w['0'] / w['1']
-            # this corresponds to Keck PriA-SSB
-            if i + 1 == task.output_layer_dimension:
-                # TODO(Chao): Need to generalize this part
-                zero_weight *= task.conf['weight_scaled_param']
-                one_weight *= task.conf['weight_scaled_param']
-            cw.append({-1: 0.0, 0: zero_weight, 1: one_weight})
     else:
-        raise ValueError('Weight schema not included. Should be among [{}, {}, {}, {}].'.
-                         format('no_weight', 'weighted_sample', 'weighted_task', 'weighted_task_log'))
+        raise ValueError('Weight schema not included. Should be among [{}, {}].'.
+                         format('no_weight', 'weighted_sample'))
 
     return cw
 
@@ -129,6 +92,7 @@ class SingleClassification:
                                                        beta_init=batch_normalizer_beta_init,
                                                        gamma_init=batch_normalizer_gamma_init)
         self.EF_ratio_list = conf['enrichment_factor']['ratio_list']
+        self.weight_schema = conf['weighted schema']
 
         if 'hit_ratio' in self.conf.keys():
             self.hit_ratio = conf['hit_ratio']
@@ -177,6 +141,9 @@ class SingleClassification:
             callbacks = [early_stopping]
         else:
             callbacks = []
+
+        cw = get_class_weight(self, y_train)
+        print('cw ', cw)
 
         model.compile(loss=self.compile_loss, optimizer=self.compile_optimizer)
         model.fit(X_train, y_train,
@@ -306,7 +273,8 @@ def demo_single_classification():
         'enrichment_factor': {
             'ratio_list': [0.02, 0.01, 0.0015, 0.001]
         },
-        'label_name_list': ['Keck_Pria_AS_Retest']
+        'weighted schema': 'weighted_sample',
+        'label_name_list': ['PriA-SSB AS Activity']
     }
     label_name_list = conf['label_name_list']
     print('label_name_list ', label_name_list)
@@ -320,20 +288,20 @@ def demo_single_classification():
 
     # extract data, and split training data into training and val
     X_train, y_train = extract_feature_and_label(train_pd,
-                                                 feature_name='Fingerprints',
+                                                 feature_name='1024 MorganFP Radius 2',
                                                  label_name_list=label_name_list)
     X_val, y_val = extract_feature_and_label(val_pd,
-                                             feature_name='Fingerprints',
+                                             feature_name='1024 MorganFP Radius 2',
                                              label_name_list=label_name_list)
     X_test, y_test = extract_feature_and_label(test_pd,
-                                               feature_name='Fingerprints',
+                                               feature_name='1024 MorganFP Radius 2',
                                                label_name_list=label_name_list)
     print('done data preparation')
 
     print(conf['label_name_list'])
     task = SingleClassification(conf=conf)
     task.train_and_predict(X_train, y_train, X_val, y_val, X_test, y_test, weight_file)
-
+    task.eval_with_existing(X_train, y_train, X_val, y_val, X_test, y_test, weight_file)
     return
 
 
@@ -348,7 +316,7 @@ if __name__ == '__main__':
     if mode == 'single_classification':
         # specify dataset
         K = 5
-        directory = '../datasets/keck_pria_lc/{}.csv'
+        directory = '../datasets/keck_pria_test/fold_{}.csv'
         file_list = []
         for i in range(K):
             file_list.append(directory.format(i))

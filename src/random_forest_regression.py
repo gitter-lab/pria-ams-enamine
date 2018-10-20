@@ -3,7 +3,6 @@ from __future__ import print_function
 import argparse
 import pandas as pd
 import numpy as np
-import math
 from sklearn.ensemble import RandomForestRegressor
 from function import read_merged_data, extract_feature_and_label, reshape_data_into_2_dim
 from util import output_regression_result

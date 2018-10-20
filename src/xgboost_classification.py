@@ -1,4 +1,4 @@
-from __future__ import  print_function
+from __future__ import print_function
 
 import argparse
 import pandas as pd
@@ -52,7 +52,7 @@ class XGBoostClassification:
             self.hit_ratio = 0.01
         np.random.seed(seed=self.random_seed)
         return
-    
+
     def setup_model(self):
         model = XGBClassifier(max_depth=self.max_depth,
                               learning_rate=self.learning_rate,
@@ -150,7 +150,7 @@ def demo_xgboost_classification():
         'enrichment_factor': {
             'ratio_list': [0.02, 0.01, 0.0015, 0.001]
         },
-        "random_seed": 1337,
+        'random_seed': 1337,
         'label_name_list': ['PriA-SSB AS Activity']
     }
 
@@ -162,8 +162,8 @@ def demo_xgboost_classification():
     complete_index = np.arange(K)
     train_index = np.where((complete_index != test_index) & (complete_index != val_index))[0]
     train_file_list = file_list[train_index]
-    val_file_list = file_list[val_index:val_index+1]
-    test_file_list = file_list[test_index:test_index+1]
+    val_file_list = file_list[val_index:val_index + 1]
+    test_file_list = file_list[test_index:test_index + 1]
 
     print('train files ', train_file_list)
     print('val files ', val_file_list)
@@ -189,6 +189,7 @@ def demo_xgboost_classification():
     task.eval_with_existing(X_train, y_train, X_val, y_val, X_test, y_test, weight_file)
     return
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--weight_file', action='store', dest='weight_file', required=True)
@@ -202,5 +203,5 @@ if __name__ == '__main__':
     for i in range(K):
         file_list.append(directory.format(i))
     file_list = np.array(file_list)
-    
+
     demo_xgboost_classification()

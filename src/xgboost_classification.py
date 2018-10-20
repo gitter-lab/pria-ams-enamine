@@ -151,7 +151,7 @@ def demo_xgboost_classification():
             'ratio_list': [0.02, 0.01, 0.0015, 0.001]
         },
         "random_seed": 1337,
-        'label_name_list': ['Keck_Pria_AS_Retest']
+        'label_name_list': ['PriA-SSB AS Activity']
     }
 
     label_name_list = conf['label_name_list']
@@ -175,18 +175,18 @@ def demo_xgboost_classification():
 
     # extract data, and split training data into training and val
     X_train, y_train = extract_feature_and_label(train_pd,
-                                                 feature_name='Fingerprints',
+                                                 feature_name='1024 MorganFP Radius 2',
                                                  label_name_list=label_name_list)
     X_val, y_val = extract_feature_and_label(val_pd,
-                                             feature_name='Fingerprints',
+                                             feature_name='1024 MorganFP Radius 2',
                                              label_name_list=label_name_list)
     X_test, y_test = extract_feature_and_label(test_pd,
-                                               feature_name='Fingerprints',
+                                               feature_name='1024 MorganFP Radius 2',
                                                label_name_list=label_name_list)
 
     task = XGBoostClassification(conf=conf)
     task.train_and_predict(X_train, y_train, X_val, y_val, X_test, y_test, weight_file)
-    # task.eval_with_existing(X_train, y_train, X_val, y_val, X_test, y_test, weight_file)
+    task.eval_with_existing(X_train, y_train, X_val, y_val, X_test, y_test, weight_file)
     return
 
 if __name__ == '__main__':
@@ -197,7 +197,7 @@ if __name__ == '__main__':
 
     # specify dataset
     K = 5
-    directory = '../datasets/keck_pria_lc/{}.csv'
+    directory = '../datasets/keck_pria_test/fold_{}.csv'
     file_list = []
     for i in range(K):
         file_list.append(directory.format(i))

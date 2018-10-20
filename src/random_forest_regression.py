@@ -63,8 +63,6 @@ class RandomForestRegression:
                           X_test, y_test_continuous, y_test_binary,
                           weight_file):
         model = self.setup_model()
-        sw = get_sample_weight(self, y_train_continuous)
-        print('Sample Weight\t', sw)
 
         model.fit(X_train, y_train_continuous)
 
@@ -127,7 +125,7 @@ def demo_random_forest_regression():
             'ratio_list': [0.02, 0.01, 0.0015, 0.001]
         },
         'random_seed': 1337,
-        'label_name_list': ['Keck_Pria_AS_Retest', 'Keck_Pria_Continuous']
+        'label_name_list': ['PriA-SSB AS Activity', 'PriA-SSB AS % inhibition (Primary Median)']
     }
 
     label_name_list = conf['label_name_list']
@@ -147,10 +145,10 @@ def demo_random_forest_regression():
 
     # extract data, and split training data into training and val
     X_train, y_train = extract_feature_and_label(train_pd,
-                                                 feature_name='Fingerprints',
+                                                 feature_name='1024 MorganFP Radius 2',
                                                  label_name_list=label_name_list)
     X_test, y_test = extract_feature_and_label(test_pd,
-                                               feature_name='Fingerprints',
+                                               feature_name='1024 MorganFP Radius 2',
                                                label_name_list=label_name_list)
 
     y_train_binary = reshape_data_into_2_dim(y_train[:, 0])
@@ -176,7 +174,7 @@ if __name__ == '__main__':
 
     # specify dataset
     K = 5
-    directory = '../datasets/keck_pria_lc/{}.csv'
+    directory = '../datasets/keck_pria_test/fold_{}.csv'
     file_list = []
     for i in range(K):
         file_list.append(directory.format(i))

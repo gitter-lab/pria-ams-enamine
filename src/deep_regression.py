@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import argparse
 import pandas as pd
 import csv
@@ -134,16 +136,16 @@ class SingleRegression:
             callbacks = [early_stopping]
         else:
             callbacks = []
+
         sw = get_sample_weight(self, y_train_continuous)
-        print 'Sample Weight\t', sw
+        print('Sample Weight\t', sw)
 
         model.compile(loss=self.compile_loss, optimizer=self.compile_optimizer)
-        model.fit(x=X_train, y=y_train_continuous,
+        model.fit(X_train, y_train_continuous,
                   nb_epoch=self.fit_nb_epoch,
                   batch_size=self.fit_batch_size,
                   verbose=self.fit_verbose,
                   sample_weight=sw,
-                  validation_data=[X_val, y_val_continuous],
                   shuffle=True,
                   callbacks=callbacks)
 
@@ -259,7 +261,7 @@ def demo_single_regression():
         'label_name_list': ['PriA-SSB AS Activity', 'PriA-SSB AS % inhibition (Primary Median)']
     }
     label_name_list = conf['label_name_list']
-    print 'label_name_list ', label_name_list
+    print('label_name_list ', label_name_list)
 
     train_pd = read_merged_data(file_list[0:3])
     train_pd.fillna(0, inplace=True)
@@ -284,7 +286,7 @@ def demo_single_regression():
     y_val_continuous = reshape_data_into_2_dim(y_val[:, 1])
     y_test_binary = reshape_data_into_2_dim(y_test[:, 0])
     y_test_continuous = reshape_data_into_2_dim(y_test[:, 1])
-    print 'done data preparation'
+    print('done data preparation')
 
     task = SingleRegression(conf=conf)
     task.train_and_predict(X_train, y_train_continuous, y_train_binary,

@@ -7,13 +7,11 @@ import numpy as np
 import json
 import keras
 import sys
-import math
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.layers.normalization import BatchNormalization
 from keras.optimizers import SGD, Adam
 from function import read_merged_data, extract_feature_and_label
-from evaluation import roc_auc_single, precision_auc_single
 from CallBacks import KeckCallBackOnROC, KeckCallBackOnPrecision
 from util import output_classification_result
 
@@ -143,13 +141,14 @@ class SingleClassification:
             callbacks = []
 
         cw = get_class_weight(self, y_train)
-        print('cw ', cw)
+        print('Class Weight ', cw)
 
         model.compile(loss=self.compile_loss, optimizer=self.compile_optimizer)
         model.fit(X_train, y_train,
                   nb_epoch=self.fit_nb_epoch,
                   batch_size=self.fit_batch_size,
                   verbose=self.fit_verbose,
+                  class_weight=cw,
                   shuffle=True,
                   callbacks=callbacks)
 
@@ -192,18 +191,6 @@ class SingleClassification:
                                      y_val=y_val, y_pred_on_val=y_pred_on_val,
                                      y_test=y_test, y_pred_on_test=y_pred_on_test,
                                      EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
-        return
-
-    def get_EF_score_with_existing_model(self,
-                                         X_test, y_test,
-                                         weight_file, EF_ratio):
-        model = self.load_model(weight_file)
-        y_pred_on_test = model.predict(X_test)
-        n_actives, ef, ef_max = enrichment_factor_single(y_test, y_pred_on_test, EF_ratio)
-        print('test precision: {}'.format(get_model_precision_auc(y_test, y_pred_on_test)))
-        print('test auc: {}'.format(get_model_roc_auc(y_test, y_pred_on_test)))
-        print('EF: {},\tactive: {}'.format(ef, n_actives))
-
         return
 
     def save_model(self, model, weight_file):

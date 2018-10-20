@@ -40,7 +40,10 @@ def get_sample_weight(task, y_data):
 class SingleRegression:
     def __init__(self, conf):
         self.conf = conf
-        self.input_layer_dimension = 1024
+        if 'input_layer_dimension' in conf.keys():
+            self.input_layer_dimension = conf['input_layer_dimension']
+        else:
+            self.input_layer_dimension = 1024
         self.output_layer_dimension = 1
 
         self.early_stopping_patience = conf['fitting']['early_stopping']['patience']

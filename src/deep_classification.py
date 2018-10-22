@@ -90,7 +90,7 @@ class SingleClassification:
                                                        beta_init=batch_normalizer_beta_init,
                                                        gamma_init=batch_normalizer_gamma_init)
         self.EF_ratio_list = conf['enrichment_factor']['ratio_list']
-        self.weight_schema = conf['weighted schema']
+        self.weight_schema = conf['class_weight_option']
 
         if 'hit_ratio' in self.conf.keys():
             self.hit_ratio = conf['hit_ratio']
@@ -260,7 +260,7 @@ def demo_single_classification():
         'enrichment_factor': {
             'ratio_list': [0.02, 0.01, 0.0015, 0.001]
         },
-        'weighted schema': 'weighted_sample',
+        'class_weight_option': 'weighted_sample',
         'label_name_list': ['PriA-SSB AS Activity']
     }
     label_name_list = conf['label_name_list']

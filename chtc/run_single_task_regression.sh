@@ -67,6 +67,6 @@ done
 date
 
 cp -r ../output/cross_validation_keck ~/"$transfer_output_files"/
-# cp -r ../model_weight/cross_validation_keck ~/"$transfer_output_files"/
+cp -r ../model_weight/cross_validation_keck ~/"$transfer_output_files"/
 
 exit $pyexit

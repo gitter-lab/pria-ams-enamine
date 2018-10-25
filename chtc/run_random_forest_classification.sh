@@ -21,10 +21,7 @@ chmod 777 -R ./anaconda
 
 cd zinc/src/
 
-#process_list=(379 605 440 376 140 32 698 622 47 694 729 314 967 431 360 263 910 518 267 203 44 17 960 889 512 872 832 691 645 628 418 373 298 247 153 108 876 783 761 619 528 458 342 331 167 133 106)
-#process=${process_list["$process"]}
 echo process "$process"
-
 
 date
 pyexit=0
@@ -46,6 +43,6 @@ done
 date
 
 cp -r ../output/cross_validation_keck ~/"$transfer_output_files"/
-#cp -r ../model_weight/cross_validation_keck ~/"$transfer_output_files"/
+cp -r ../model_weight/cross_validation_keck ~/"$transfer_output_files"/
 
 exit $pyexit

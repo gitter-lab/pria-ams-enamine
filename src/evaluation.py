@@ -73,3 +73,8 @@ def enrichment_factor_single(scores_arr, labels_arr, percentile):
         ef = 'ND'
         ef_max = 'ND'
     return n_actives, ef, ef_max
+
+
+def normalized_enrichment_factor_single(scores_arr, labels_arr, percentile):
+    n_actives, ef, ef_max = enrichment_factor_single(scores_arr, labels_arr, percentile)
+    return ef/ef_max

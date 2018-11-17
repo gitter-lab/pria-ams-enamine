@@ -1,6 +1,7 @@
 from __future__ import print_function
 
-from evaluation import roc_auc_single, precision_auc_single, enrichment_factor_single, number_of_hit_single
+from evaluation import roc_auc_single, precision_auc_single, enrichment_factor_single, \
+    normalized_enrichment_factor_single, number_of_hit_single
 
 
 def output_classification_result(y_train, y_pred_on_train,
@@ -29,6 +30,8 @@ def output_classification_result(y_train, y_pred_on_train,
         for EF_ratio in EF_ratio_list:
             n_actives, ef, ef_max = enrichment_factor_single(y_pred_on_test, y_test, EF_ratio)
             print('ratio: {}, EF: {},\tactive: {}'.format(EF_ratio, ef, n_actives))
+            nef = normalized_enrichment_factor_single(y_pred_on_test, y_test, EF_ratio)
+            print('ratio: {}, NEF: {}'.format(EF_ratio, nef))
         print()
 
     return
@@ -63,6 +66,8 @@ def output_regression_result(y_train_binary, y_pred_on_train,
         for EF_ratio in EF_ratio_list:
             n_actives, ef, ef_max = enrichment_factor_single(y_pred_on_test, y_test_binary, EF_ratio)
             print('ratio: {}, EF: {},\tactive: {}'.format(EF_ratio, ef, n_actives))
+            nef = normalized_enrichment_factor_single(y_pred_on_test, y_test_binary, EF_ratio)
+            print('ratio: {}, NEF: {}'.format(EF_ratio, nef))
         print()
 
     return

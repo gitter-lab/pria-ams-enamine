@@ -29,7 +29,7 @@ def extract(file_path):
 if __name__ == '__main__':
     model_list = [
         'random_forest_classification',
-        'xgboost_classification',
+        'xgboost_classification', 'xgboost_regression',
         'single_deep_classification', 'single_deep_regression'
     ]
 
@@ -73,7 +73,6 @@ if __name__ == '__main__':
                 hyper_parameter_result_precision[running_process] = np.mean(test_precision_list)
             if len(test_EF_list) > 0:
                 hyper_parameter_result_EF[running_process] = np.mean(test_EF_list)
-        print()
 
         # print('top {} AUC[PR]'.format(top_k))
         # hyper_parameter_result_precision_ordered_index = np.argsort(-1 * hyper_parameter_result_precision)
@@ -96,31 +95,41 @@ if __name__ == '__main__':
             if i <= top_k:
                 print('{}-th largest\trunning process: {}\tEF: {}'.
                       format(i, running_process, hyper_parameter_result_EF[running_process]))
-                if 'deep'  in model:
-                    config_json_file = '../../config/cross_validation_keck/{}/{}.json'.format(model, running_process)
-                    with open(config_json_file, 'r') as f:
-                        conf = json.load(f)
-                        print('index: {}\t\t# layers: {}'.format(running_process, len(conf['layers']) - 1))
+                # if 'deep'  in model:
+                #     config_json_file = '../../config/cross_validation_keck/{}/{}.json'.format(model, running_process)
+                #     with open(config_json_file, 'r') as f:
+                #         conf = json.load(f)
+                #         print('index: {}\t\t# layers: {}'.format(running_process, len(conf['layers']) - 1))
                 filtered_index.append(running_process)
         print()
 
-        print('top {} EF'.format(top_k))
-        filtered_index = list(set(filtered_index))
         print('process_list=(', end='')
         for running_process in filtered_index:
             print(' ', running_process, end='')
         print(')')
-        print()
-
         print('missing\t', missing_index)
-        for index in missing_index:
-            config_json_file = '../../config/cross_validation_keck/{}/{}.json'.format(model, index)
-            with open(config_json_file, 'r') as f:
-                conf = json.load(f)
-            if 'random_forest' in model:
-                print('index: {},\t# trees: {}'.format(index, conf['n_estimators']))
-            elif 'deep' in model:
-                print('index: {},\t# layers: {},\tNN structure: {}'.format(index, len(conf['layers'])-1, conf['layers']))
-        print()
+        # missing_index_with_layer_4 = []
+        # for index in missing_index:
+        #     config_json_file = '../../config/cross_validation_keck/{}/{}.json'.format(model, index)
+        #     with open(config_json_file, 'r') as f:
+        #         conf = json.load(f)
+        #     if 'random_forest' in model:
+        #         print('index: {},\t# trees: {}'.format(index, conf['n_estimators']))
+        #     elif 'deep' in model:
+        #         print('index: {},\t# layers: {},\tNN structure: {}'.format(index, len(conf['layers'])-1, conf['layers']))
+        #         if len(conf['layers']) == 5:
+        #             missing_index_with_layer_4.append(index)
+        # print()
+        #
+        # if len(missing_index_with_layer_4) > 0:
+        #     print('{} missing indices with 4 layers'.format(len(missing_index_with_layer_4)))
+        #     print('missing index with 4 layers: {}'.format(missing_index_with_layer_4))
+        #     np.random.shuffle(missing_index_with_layer_4)
+        #     print('missing index with 4 layers: {}'.format(missing_index_with_layer_4))
+        #     print('fetch first 5 missing index: {}'.format(missing_index_with_layer_4[:10]))
 
+        print()
+        print()
+        print()
+        print()
         print()

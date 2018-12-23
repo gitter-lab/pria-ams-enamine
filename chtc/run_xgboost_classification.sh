@@ -13,23 +13,20 @@ chmod 777 *
 export PATH=$PWD/anaconda/bin:$PATH
 echo 'Done installing anaconda'
 chmod 777 *
-
-conda install --yes -c conda-forge scikit-learn  > /dev/null
-conda install --yes -c conda-forge xgboost > /dev/null
-conda install --yes -c rdkit rdkit-postgresql > /dev/null
-echo 'Done installing libraries'
 chmod 777 -R ./anaconda
 
 cd zinc
+
+conda env create -n zinc_project -f cpu_env.yml
+source activate zinc_project
+echo 'Done loading environment.'
 tar -xzvf config.tar.gz
+
 cd src
 
-echo process "$process"
-
+mode=xgboost_classification
 
 date
-pyexit=0
-mode=xgboost_classification
 for ix in `seq 0 4`;
 do
     mkdir -p ../model_weight/cross_validation_keck/"$mode"
@@ -45,6 +42,8 @@ do
     echo "$pyexit"
 done
 date
+
+source deactivate zinc_project
 
 cp -r ../output/cross_validation_keck ~/"$transfer_output_files"/
 cp -r ../model_weight/cross_validation_keck ~/"$transfer_output_files"/

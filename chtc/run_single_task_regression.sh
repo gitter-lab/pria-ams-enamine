@@ -14,14 +14,15 @@ export PATH=$PATH:/usr/local/cuda-8.0/bin
 wget -q --retry-connrefused --waitretry=10 https://repo.continuum.io/miniconda/Miniconda2-4.2.12-Linux-x86_64.sh
 bash Miniconda2-4.2.12-Linux-x86_64.sh -b -p ./anaconda
 export PATH=$PWD/anaconda/bin:$PATH
+chmod 777 *
+chmod 777 -R ./anaconda
 
-
-conda create --yes --name zinc python=2.7 gcc numpy theano=0.8 pandas pygpu keras=1.1 scikit-learn=0.19 matplotlib h5py pyyaml > /dev/null
-source activate zinc
-conda install --yes -c rdkit rdkit-postgresql > /dev/null
-conda install --yes -c anaconda pandas > /dev/null
-conda install -c anaconda cudatoolkit==8.0 --yes > /dev/null
-conda install -c anaconda cudnn==6.0.0 --yes > /dev/null
+cd zinc
+conda env create -n zinc_project -f gpu_env.yml
+source activate zinc_project
+echo 'Done loading environment.'
+tar -xzvf config.tar.gz
+cd ..
 
 
 wget -nv http://proxy.chtc.wisc.edu/SQUID/agitter/cudnn/cudnn-8.0-linux-x64-v5.0-ga.tgz
@@ -44,9 +45,7 @@ KERAS_BACKEND=theano python -c "from keras import backend"
 pyexit=$?
 echo "$pyexit"
 
-cd zinc
-tar -xzvf config.tar.gz
-cd src
+cd zinc/src
 
 mode=single_deep_regression
 
@@ -55,7 +54,7 @@ do
     mkdir -p ../model_weight/cross_validation_keck/"$mode"
     mkdir -p ../output/cross_validation_keck/"$mode"
 
-    python cross_validation_keck.py \
+    KERAS_BACKEND=theano python cross_validation_keck.py \
     --config_json_file=../config/cross_validation_keck/"$mode"/"$process".json \
     --weight_file=../model_weight/cross_validation_keck/"$mode"/"$mode"_"$process"_"$ix".pkl \
     --process_num="$ix" \

@@ -11,7 +11,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.layers.normalization import BatchNormalization
 from keras.optimizers import SGD, Adam
-from function import read_merged_data, extract_feature_and_label
+from function import read_merged_data, extract_feature_and_label, reshape_data_into_2_dim
 from CallBacks import KeckCallBackOnROC, KeckCallBackOnPrecision
 from util import output_classification_result
 

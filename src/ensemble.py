@@ -8,6 +8,8 @@ from sklearn.linear_model import LogisticRegression
 from random_forest_classification import RandomForestClassification
 from xgboost_classification import XGBoostClassification
 from xgboost_regression import XGBoostRegression
+from deep_classification import SingleClassification
+from deep_regression import SingleRegression
 from util import output_classification_result
 
 
@@ -20,7 +22,7 @@ def construct_data(conf, file_list):
         test_file_list = file_list[running_index: running_index+1]
         test_pd = read_merged_data(test_file_list)
         X_test, _ = extract_feature_and_label(test_pd,
-                                              feature_name='Fingerprints',
+                                              feature_name='1024 MorganFP Radius 2',
                                               label_name_list=label_name_list)
         X_train_current_round = []
         for model, model_conf in conf['models'].items():
@@ -44,7 +46,7 @@ def construct_data(conf, file_list):
 
     train_pd = read_merged_data(file_list)
     _, y_train = extract_feature_and_label(train_pd,
-                                           feature_name='Fingerprints',
+                                           feature_name='1024 MorganFP Radius 2',
                                            label_name_list=label_name_list)
     return X_train, y_train
 
@@ -108,46 +110,58 @@ def demo_ensemble():
         'models': {
             'random_forest_classification': {
                 'task_module': 'RandomForestClassification',
-                'config_json_file': '../config/random_forest_classification.json',
-                'model_weight': '../model_weight/xgboost_classification/xgboost_classification_{}.pkl'
+                'config_json_file': '../config/random_forest_classification/139.json',
+                'model_weight': '../model_weight/random_forest_classification/random_forest_classification_139_{}.pkl'
             },
             'xgboost_classification': {
                 'task_module': 'XGBoostClassification',
-                'config_json_file': '../config/xgboost_classification.json',
-                'model_weight': '../model_weight/xgboost_classification/xgboost_classification_{}.pkl'
+                'config_json_file': '../config/xgboost_classification/140.json',
+                'model_weight': '../model_weight/xgboost_classification/xgboost_classification_140_{}.pkl'
             },
             'xgboost_regression': {
                 'task_module': 'XGBoostRegression',
-                'config_json_file': '../config/xgboost_regression.json',
-                'model_weight': '../model_weight/xgboost_classification/xgboost_classification_{}.pkl'
+                'config_json_file': '../config/xgboost_regression/187.json',
+                'model_weight': '../model_weight/xgboost_regression/xgboost_regression_187_{}.pkl'
+            },
+            'single_deep_classification': {
+                'task_module': 'SingleClassification',
+                'config_json_file': '../config/single_deep_classification/328.json',
+                'model_weight': '../model_weight/single_deep_classification/single_deep_classification_328_{}.pkl'
+            },
+            'single_deep_regression': {
+                'task_module': 'SingleRegression',
+                'config_json_file': '../config/single_deep_regression/124.json',
+                'model_weight': '../model_weight/single_deep_regression/single_deep_regression_124_{}.pkl'
             }
         },
         'enrichment_factor': {
             'ratio_list': [0.02, 0.01, 0.0015, 0.001]
         },
         'random_seed': 1337,
-        'label_name_list': ['Keck_Pria_AS_Retest']
+        'label_name_list': ['PriA-SSB AS Activity', 'PriA-SSB AS % inhibition (Primary Median)']
     }
 
     # specify dataset
     K = 5
-    directory = '../datasets/keck_pria_lc/{}.csv'
+    directory = '../datasets/keck_pria/fold_{}.csv'
     file_list = []
     for i in range(K):
         file_list.append(directory.format(i))
     file_list = np.array(file_list)
     X_train, y_train = construct_data(conf, file_list)
+    y_train = y_train[:, 0]
     print('Consructed data: {}, {}'.format(X_train.shape, y_train.shape))
 
-    # label_name_list = conf['label_name_list']
-    # test_pd = read_merged_data(['../datasets/keck_pria_lc/keck_lc4.csv.gz'])
-    # X_test, y_test = extract_feature_and_label(test_pd,
-    #                                            feature_name='Fingerprints',
-    #                                            label_name_list=label_name_list)
-    # print'Test data {}, {}'.format(X_test.shape, y_test.shape)
+    label_name_list = conf['label_name_list']
+    test_pd = read_merged_data(['../datasets/keck_pria/fold_8.csv', '../datasets/keck_pria/fold_9.csv'])
+    X_test, y_test = extract_feature_and_label(test_pd,
+                                               feature_name='1024 MorganFP Radius 2',
+                                               label_name_list=label_name_list)
+    y_test = y_test[:, 0]
+    print'Test data {}, {}'.format(X_test.shape, y_test.shape)
 
     secondary_layer_model = Ensemble(conf=conf)
-    secondary_layer_model.train_and_predict(X_train, y_train, weight_file)
+    secondary_layer_model.train_and_predict(X_train, y_train, X_test, y_test, weight_file)
 
     return
 

@@ -18,12 +18,14 @@ def construct_training_data(conf, file_list):
     K = len(file_list)
     label_name_list = conf['label_name_list']
 
-    for running_index in range(K):
-        test_file_list = file_list[running_index: running_index+1]
+    for index,test_file in enumerate(file_list):
+        running_index = index / 2
+        print(test_file)
+        test_file_list = [test_file]
         test_pd = read_merged_data(test_file_list)
         feature, _ = extract_feature_and_label(test_pd,
-                                              feature_name='1024 MorganFP Radius 2',
-                                              label_name_list=label_name_list)
+                                               feature_name='1024 MorganFP Radius 2',
+                                               label_name_list=label_name_list)
         X_train_current_round = []
         for model, model_conf in conf['models'].items():
             print('Loading {} ......'.format(model))
@@ -39,7 +41,7 @@ def construct_training_data(conf, file_list):
 
         X_train_current_round = np.concatenate(X_train_current_round, axis=1)
         X_train.append(X_train_current_round)
-        print('Current round {} shape {}'.format(running_index, X_train_current_round.shape))
+        print('Current round {} shape {}'.format(index, X_train_current_round.shape))
         print
 
     X_train = np.concatenate(X_train)
@@ -132,21 +134,21 @@ class Ensemble:
 def demo_ensemble():
     conf = {
         'models': {
-            # 'random_forest_classification': {
-            #     'task_module': 'RandomForestClassification',
-            #     'config_json_file': '../config/random_forest_classification/139.json',
-            #     'model_weight': '../model_weight/random_forest_classification/random_forest_classification_139_{}.pkl'
-            # },
-            # 'xgboost_classification': {
-            #     'task_module': 'XGBoostClassification',
-            #     'config_json_file': '../config/xgboost_classification/140.json',
-            #     'model_weight': '../model_weight/xgboost_classification/xgboost_classification_140_{}.pkl'
-            # },
-            # 'xgboost_regression': {
-            #     'task_module': 'XGBoostRegression',
-            #     'config_json_file': '../config/xgboost_regression/187.json',
-            #     'model_weight': '../model_weight/xgboost_regression/xgboost_regression_187_{}.pkl'
-            # },
+            'random_forest_classification': {
+                'task_module': 'RandomForestClassification',
+                'config_json_file': '../config/random_forest_classification/139.json',
+                'model_weight': '../model_weight/random_forest_classification/random_forest_classification_139_{}.pkl'
+            },
+            'xgboost_classification': {
+                'task_module': 'XGBoostClassification',
+                'config_json_file': '../config/xgboost_classification/140.json',
+                'model_weight': '../model_weight/xgboost_classification/xgboost_classification_140_{}.pkl'
+            },
+            'xgboost_regression': {
+                'task_module': 'XGBoostRegression',
+                'config_json_file': '../config/xgboost_regression/187.json',
+                'model_weight': '../model_weight/xgboost_regression/xgboost_regression_187_{}.pkl'
+            },
             'single_deep_classification': {
                 'task_module': 'SingleClassification',
                 'config_json_file': '../config/single_deep_classification/328.json',
@@ -166,8 +168,7 @@ def demo_ensemble():
     }
 
     # specify dataset
-    K = 5
-    K = 3
+    K = 8
     directory = '../datasets/keck_pria/fold_{}.csv'
     file_list = []
     for i in range(K):

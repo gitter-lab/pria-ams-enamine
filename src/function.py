@@ -4,7 +4,7 @@ import random
 import os
 import json
 import csv
-from sklearn.cross_validation import StratifiedKFold, KFold
+from sklearn.model_selection import StratifiedKFold, KFold
 
 
 def analysis(data):

@@ -29,15 +29,19 @@ def construct_training_data(conf, file_list):
         X_train_current_round = []
         for model, model_conf in conf['models'].items():
             print('Loading {} ......'.format(model))
-            task_module = globals()[model_conf['task_module']]
-            config_json_file = model_conf['config_json_file']
-            model_weight_file = model_conf['model_weight'].format(running_index)
-            with open(config_json_file, 'r') as f:
-                task_conf = json.load(f)
-            task = task_module(conf=task_conf)
-            y_pred = task.predict_with_existing(feature, model_weight_file)
-            print y_pred.shape
-            X_train_current_round.append(y_pred)
+            process_num_list = model_conf['process_num_list']
+            top_process_num = model_conf['top_process_num']
+            print('Pick up top {} out of {}'.format(top_process_num, len(process_num_list)))
+            for process_num in process_num_list[:top_process_num]:
+                task_module = globals()[model_conf['task_module']]
+                config_json_file = model_conf['config_json_file'].format(process_num)
+                model_weight_file = model_conf['model_weight'].format(process_num, running_index)
+                with open(config_json_file, 'r') as f:
+                    task_conf = json.load(f)
+                task = task_module(conf=task_conf)
+                y_pred = task.predict_with_existing(feature, model_weight_file)
+                print y_pred.shape
+                X_train_current_round.append(y_pred)
 
         X_train_current_round = np.concatenate(X_train_current_round, axis=1)
         X_train.append(X_train_current_round)
@@ -64,15 +68,19 @@ def construct_test_data(conf, file_list):
     X_test_temp = []
     for model, model_conf in conf['models'].items():
         print('Loading {} ......'.format(model))
-        task_module = globals()[model_conf['task_module']]
-        config_json_file = model_conf['config_json_file']
-        model_weight_file = model_conf['model_weight'].format(running_index)
-        with open(config_json_file, 'r') as f:
-            task_conf = json.load(f)
-        task = task_module(conf=task_conf)
-        y_pred = task.predict_with_existing(feature, model_weight_file)
-        print y_pred.shape
-        X_test_temp.append(y_pred)
+        process_num_list = model_conf['process_num_list']
+        top_process_num = model_conf['top_process_num']
+        print('Pick up top {} out of {}'.format(top_process_num, len(process_num_list)))
+        for process_num in process_num_list[:top_process_num]:
+            task_module = globals()[model_conf['task_module']]
+            config_json_file = model_conf['config_json_file'].format(process_num)
+            model_weight_file = model_conf['model_weight'].format(process_num, running_index)
+            with open(config_json_file, 'r') as f:
+                task_conf = json.load(f)
+            task = task_module(conf=task_conf)
+            y_pred = task.predict_with_existing(feature, model_weight_file)
+            print y_pred.shape
+            X_test_temp.append(y_pred)
 
     X_test = np.concatenate(X_test_temp, axis=1)
 
@@ -136,28 +144,38 @@ def demo_ensemble():
         'models': {
             'random_forest_classification': {
                 'task_module': 'RandomForestClassification',
-                'config_json_file': '../config/random_forest_classification/139.json',
-                'model_weight': '../model_weight/random_forest_classification/random_forest_classification_139_{}.pkl'
+                'config_json_file': '../config/random_forest_classification/{}.json',
+                'model_weight': '../model_weight/random_forest_classification/random_forest_classification_{}_{}.pkl',
+                'process_num_list': [139, 69, 111, 212, 210, 148, 28, 61, 124, 130, 131, 141, 14, 38, 165, 65, 123, 94, 3, 88, 72],
+                'top_process_num': 1
             },
             'xgboost_classification': {
                 'task_module': 'XGBoostClassification',
-                'config_json_file': '../config/xgboost_classification/140.json',
-                'model_weight': '../model_weight/xgboost_classification/xgboost_classification_140_{}.pkl'
+                'config_json_file': '../config/xgboost_classification/{}.json',
+                'model_weight': '../model_weight/xgboost_classification/xgboost_classification_{}_{}.pkl',
+                'process_num_list': [140, 967, 960, 807, 263, 694, 440, 47, 116, 792, 663, 32, 564, 950, 735, 84, 364, 605, 431, 55, 388],
+                'top_process_num': 2
             },
             'xgboost_regression': {
                 'task_module': 'XGBoostRegression',
-                'config_json_file': '../config/xgboost_regression/187.json',
-                'model_weight': '../model_weight/xgboost_regression/xgboost_regression_187_{}.pkl'
+                'config_json_file': '../config/xgboost_regression/{}.json',
+                'model_weight': '../model_weight/xgboost_regression/xgboost_regression_{}_{}.pkl',
+                'process_num_list': [187, 6, 514, 507, 880, 440, 605, 718, 754, 409, 586, 214, 753, 65, 294, 911, 721, 81, 321, 545, 280],
+                'top_process_num': 2
             },
             'single_deep_classification': {
                 'task_module': 'SingleClassification',
-                'config_json_file': '../config/single_deep_classification/328.json',
-                'model_weight': '../model_weight/single_deep_classification/single_deep_classification_328_{}.pkl'
+                'config_json_file': '../config/single_deep_classification/{}.json',
+                'model_weight': '../model_weight/single_deep_classification/single_deep_classification_{}_{}.pkl',
+                'process_num_list': [328, 423, 325, 53, 339, 42, 407, 253, 28, 416, 208, 124, 366, 273, 132, 106, 259, 214, 27, 24],
+                'top_process_num': 2
             },
             'single_deep_regression': {
                 'task_module': 'SingleRegression',
-                'config_json_file': '../config/single_deep_regression/124.json',
-                'model_weight': '../model_weight/single_deep_regression/single_deep_regression_124_{}.pkl'
+                'config_json_file': '../config/single_deep_regression/{}.json',
+                'model_weight': '../model_weight/single_deep_regression/single_deep_regression_{}_{}.pkl',
+                'process_num_list': [124, 208, 328, 360, 54, 75, 90, 28, 214, 325, 335, 345, 363, 384, 31, 32, 85, 327, 253, 285],
+                'top_process_num': 2
             }
         },
         'enrichment_factor': {

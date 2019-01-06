@@ -140,51 +140,6 @@ class Ensemble:
 
 
 def demo_ensemble():
-    conf = {
-        'models': {
-            'random_forest_classification': {
-                'task_module': 'RandomForestClassification',
-                'config_json_file': '../config/random_forest_classification/{}.json',
-                'model_weight': '../model_weight/random_forest_classification/random_forest_classification_{}_{}.pkl',
-                'process_num_list': [139, 69, 111, 212, 210, 148, 28, 61, 124, 130, 131, 141, 14, 38, 165, 65, 123, 94, 3, 88, 72],
-                'top_process_num': 1
-            },
-            'xgboost_classification': {
-                'task_module': 'XGBoostClassification',
-                'config_json_file': '../config/xgboost_classification/{}.json',
-                'model_weight': '../model_weight/xgboost_classification/xgboost_classification_{}_{}.pkl',
-                'process_num_list': [140, 967, 960, 807, 263, 694, 440, 47, 116, 792, 663, 32, 564, 950, 735, 84, 364, 605, 431, 55, 388],
-                'top_process_num': 2
-            },
-            'xgboost_regression': {
-                'task_module': 'XGBoostRegression',
-                'config_json_file': '../config/xgboost_regression/{}.json',
-                'model_weight': '../model_weight/xgboost_regression/xgboost_regression_{}_{}.pkl',
-                'process_num_list': [187, 6, 514, 507, 880, 440, 605, 718, 754, 409, 586, 214, 753, 65, 294, 911, 721, 81, 321, 545, 280],
-                'top_process_num': 2
-            },
-            'single_deep_classification': {
-                'task_module': 'SingleClassification',
-                'config_json_file': '../config/single_deep_classification/{}.json',
-                'model_weight': '../model_weight/single_deep_classification/single_deep_classification_{}_{}.pkl',
-                'process_num_list': [328, 423, 325, 53, 339, 42, 407, 253, 28, 416, 208, 124, 366, 273, 132, 106, 259, 214, 27, 24],
-                'top_process_num': 2
-            },
-            'single_deep_regression': {
-                'task_module': 'SingleRegression',
-                'config_json_file': '../config/single_deep_regression/{}.json',
-                'model_weight': '../model_weight/single_deep_regression/single_deep_regression_{}_{}.pkl',
-                'process_num_list': [124, 208, 328, 360, 54, 75, 90, 28, 214, 325, 335, 345, 363, 384, 31, 32, 85, 327, 253, 285],
-                'top_process_num': 2
-            }
-        },
-        'enrichment_factor': {
-            'ratio_list': [0.02, 0.01, 0.0015, 0.001]
-        },
-        'random_seed': 1337,
-        'label_name_list': ['PriA-SSB AS Activity'] # 'PriA-SSB AS % inhibition (Primary Median)'
-    }
-
     # specify dataset
     K = 8
     directory = '../datasets/keck_pria/fold_{}.csv'
@@ -207,8 +162,13 @@ def demo_ensemble():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weight_file', action='store', dest='weight_file', required=True)
+    parser.add_argument('--config_json_file', action='store', required=True)
+    parser.add_argument('--weight_file', action='store', required=True)
     given_args = parser.parse_args()
     weight_file = given_args.weight_file
+    config_json_file = given_args.config_json_file
+
+    with open(config_json_file, 'r') as f:
+        conf = json.load(f)
 
     demo_ensemble()

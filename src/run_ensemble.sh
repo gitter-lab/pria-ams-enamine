@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-for i in {0..7}; do
+for i in {0..12}; do
     echo $i
     KERAS_BACKEND=theano \
     python ensemble.py \

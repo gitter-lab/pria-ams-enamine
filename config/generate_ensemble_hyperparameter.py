@@ -95,6 +95,10 @@ if __name__ == '__main__':
     generate_ensemble_hyperparameter(index, model_process_num_list)
     index += 1
 
+    model_process_num_list = [1, 1, 1, 1, 1]
+    generate_ensemble_hyperparameter(index, model_process_num_list)
+    index += 1
+
     model_process_num_list = [2, 2, 2, 2, 2]
     generate_ensemble_hyperparameter(index, model_process_num_list)
     index += 1

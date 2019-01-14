@@ -75,7 +75,23 @@ if __name__ == '__main__':
 
     index = 0
 
-    model_process_num_list = [1, 1, 1, 1, 1]
+    model_process_num_list = [1, 0, 0, 0, 0]
+    generate_ensemble_hyperparameter(index, model_process_num_list)
+    index += 1
+
+    model_process_num_list = [0, 1, 0, 0, 0]
+    generate_ensemble_hyperparameter(index, model_process_num_list)
+    index += 1
+
+    model_process_num_list = [0, 0, 1, 0, 0]
+    generate_ensemble_hyperparameter(index, model_process_num_list)
+    index += 1
+
+    model_process_num_list = [0, 0, 0, 1, 0]
+    generate_ensemble_hyperparameter(index, model_process_num_list)
+    index += 1
+
+    model_process_num_list = [0, 0, 0, 0, 1]
     generate_ensemble_hyperparameter(index, model_process_num_list)
     index += 1
 

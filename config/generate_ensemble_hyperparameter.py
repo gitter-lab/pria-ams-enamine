@@ -35,16 +35,16 @@ def generate_ensemble_hyperparameter(index, model_process_num_list):
                 'task_module': 'SingleClassification',
                 'config_json_file': '../config/single_deep_classification/{}.json',
                 'model_weight': '../model_weight/single_deep_classification/single_deep_classification_{}_{}.pkl',
-                'process_num_list': [328, 423, 325, 53, 339, 42, 407, 253, 28, 416, 208, 124, 366, 273, 132, 106, 259,
-                                     214, 27, 24],
+                'process_num_list': [356, 404, 215, 93, 254, 88, 423, 47, 363, 132, 5, 385, 370, 29, 415, 54, 124, 183,
+                                     180, 416, 252],
                 'top_process_num': 0
             },
             'single_deep_regression': {
                 'task_module': 'SingleRegression',
                 'config_json_file': '../config/single_deep_regression/{}.json',
                 'model_weight': '../model_weight/single_deep_regression/single_deep_regression_{}_{}.pkl',
-                'process_num_list': [124, 208, 328, 360, 54, 75, 90, 28, 214, 325, 335, 345, 363, 384, 31, 32, 85, 327,
-                                     253, 285],
+                'process_num_list': [199, 323, 114, 123, 47, 175, 17, 178, 106, 265, 67, 157, 369, 115, 191, 20, 27,
+                                     108, 270, 45, 356],
                 'top_process_num': 0
             }
         },

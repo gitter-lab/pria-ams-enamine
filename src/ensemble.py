@@ -33,9 +33,10 @@ def construct_training_data(conf, file_list):
             top_process_num = model_conf['top_process_num']
             print('Pick up top {} out of {}'.format(top_process_num, len(process_num_list)))
             for process_num in process_num_list[:top_process_num]:
+                print('process num: {}'.format(process_num))
                 task_module = globals()[model_conf['task_module']]
                 config_json_file = model_conf['config_json_file'].format(process_num)
-                model_weight_file = model_conf['model_weight'].format(process_num, running_index)
+                model_weight_file = model_conf['model_weight'].format(process_num, 4)
                 with open(config_json_file, 'r') as f:
                     task_conf = json.load(f)
                 task = task_module(conf=task_conf)
@@ -150,7 +151,7 @@ def demo_ensemble():
     X_train, y_train = construct_training_data(conf, training_file_list)
     print('Consructed data: {}, {}'.format(X_train.shape, y_train.shape))
 
-    test_file_list = ['../datasets/keck_pria/fold_8.csv', '../datasets/keck_pria/fold_9.csv']
+    test_file_list = ['../datasets/keck_pria/fold_9.csv']
     X_test, y_test = construct_test_data(conf, test_file_list)
     print'Test data {}, {}'.format(X_test.shape, y_test.shape)
 

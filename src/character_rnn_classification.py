@@ -14,8 +14,8 @@ from keras.preprocessing import sequence
 from keras.layers.embeddings import Embedding
 from keras.optimizers import SGD, Adam
 from function import read_merged_data, extract_SMILES_and_label
-from evaluation import roc_auc_single, bedroc_auc_single, precision_auc_single, enrichment_factor_single
 from CallBacks import KeckCallBackOnROC, KeckCallBackOnPrecision
+from util import output_classification_result
 
 
 class CharacterRNNClassification:
@@ -70,6 +70,11 @@ class CharacterRNNClassification:
                                                        beta_init=batch_normalizer_beta_init,
                                                        gamma_init=batch_normalizer_gamma_init)
         self.EF_ratio_list = conf['enrichment_factor']['ratio_list']
+
+        if 'hit_ratio' in self.conf.keys():
+            self.hit_ratio = conf['hit_ratio']
+        else:
+            self.hit_ratio = 0.01
         return
 
     def setup_model(self):
@@ -134,27 +139,16 @@ class CharacterRNNClassification:
             model = early_stopping.get_best_model()
 
         y_pred_on_train = model.predict(X_train)
-        print('train precision: {}'.format(precision_auc_single(y_train, y_pred_on_train)))
-        print('train roc: {}'.format(roc_auc_single(y_train, y_pred_on_train)))
-        print('train bedroc: {}'.format(bedroc_auc_single(y_train, y_pred_on_train)))
-        print
-
         y_pred_on_val = model.predict(X_val)
-        print('validation precision: {}'.format(precision_auc_single(y_val, y_pred_on_val)))
-        print('validation roc: {}'.format(roc_auc_single(y_val, y_pred_on_val)))
-        print('validation bedroc: {}'.format(bedroc_auc_single(y_val, y_pred_on_val)))
-        print
-
         if X_test is not None:
             y_pred_on_test = model.predict(X_test)
-            print('test precision: {}'.format(precision_auc_single(y_test, y_pred_on_test)))
-            print('test roc: {}'.format(roc_auc_single(y_test, y_pred_on_test)))
-            print('test bedroc: {}'.format(bedroc_auc_single(y_test, y_pred_on_test)))
-            print
+        else:
+            y_pred_on_test = None
 
-            for EF_ratio in self.EF_ratio_list:
-                n_actives, ef, ef_max = enrichment_factor_single(y_test, y_pred_on_test, EF_ratio)
-                print('ratio: {}, EF: {},\tactive: {}'.format(EF_ratio, ef, n_actives))
+        output_classification_result(y_train=y_train, y_pred_on_train=y_pred_on_train,
+                                     y_val=y_val, y_pred_on_val=y_pred_on_val,
+                                     y_test=y_test, y_pred_on_test=y_pred_on_test,
+                                     EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
         return
 
     def eval_with_existing(self,
@@ -162,30 +156,19 @@ class CharacterRNNClassification:
                            X_val, y_val,
                            X_test, y_test,
                            weight_file):
-        model = self.setup_model()
         model.load_weights(weight_file)
 
         y_pred_on_train = model.predict(X_train)
-        print('train precision: {}'.format(precision_auc_single(y_train, y_pred_on_train)))
-        print('train roc: {}'.format(roc_auc_single(y_train, y_pred_on_train)))
-        print('train bedroc: {}'.format(bedroc_auc_single(y_train, y_pred_on_train)))
-        print
-
         y_pred_on_val = model.predict(X_val)
-        print('validation precision: {}'.format(precision_auc_single(y_val, y_pred_on_val)))
-        print('validation roc: {}'.format(roc_auc_single(y_val, y_pred_on_val)))
-        print('validation bedroc: {}'.format(bedroc_auc_single(y_val, y_pred_on_val)))
-        print
         if X_test is not None:
             y_pred_on_test = model.predict(X_test)
-            print('test precision: {}'.format(precision_auc_single(y_test, y_pred_on_test)))
-            print('test roc: {}'.format(roc_auc_single(y_test, y_pred_on_test)))
-            print('test bedroc: {}'.format(bedroc_auc_single(y_test, y_pred_on_test)))
-            print
+        else:
+            y_pred_on_test = None
 
-            for EF_ratio in self.EF_ratio_list:
-                n_actives, ef, ef_max = enrichment_factor_single(y_test, y_pred_on_test, EF_ratio)
-                print('ratio: {}, EF: {},\tactive: {}'.format(EF_ratio, ef, n_actives))
+        output_classification_result(y_train=y_train, y_pred_on_train=y_pred_on_train,
+                                     y_val=y_val, y_pred_on_val=y_pred_on_val,
+                                     y_test=y_test, y_pred_on_test=y_pred_on_test,
+                                     EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
         return
 
 

@@ -38,9 +38,9 @@ if __name__ == '__main__':
         'random_forest_classification': [139, 69, 111, 212, 210, 148, 28, 61, 124, 130, 131, 141, 14, 38, 165, 65, 123, 94, 3, 88, 72],
         'xgboost_classification': [140, 967, 960, 807, 263, 694, 440, 47, 116, 792, 663, 32, 564, 950, 735, 84, 364, 605, 431, 55, 388],
         'xgboost_regression': [187, 6, 514, 507, 880, 440, 605, 718, 754, 409, 586, 214, 753, 65, 294, 911, 721, 81, 321, 545, 280],
-        'single_deep_classification': [328, 423, 325, 53, 339, 42, 407, 253, 28, 416, 208, 124, 366, 273, 132, 106, 259, 214, 27, 24],
-        'single_deep_regression': [124, 208, 328, 360, 54, 75, 90, 28, 214, 325, 335, 345, 363, 384, 31, 32, 85, 327, 253, 285],
-        'ensemble': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        'single_deep_classification': [356, 404, 215, 93, 254, 88, 423, 47, 363, 132, 5, 385, 370, 29, 415, 54, 124, 183, 180, 416],
+        'single_deep_regression': [199, 323, 114, 123, 47, 175, 17, 178, 106, 265, 67, 157, 369, 115, 191, 20, 27, 108, 270, 45],
+        'ensemble': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     }
 
     for model in model_list:
@@ -56,7 +56,7 @@ if __name__ == '__main__':
                 file_path = '{}/{}_{}_{}.out'.format(model, model, running_process, idx)
                 test_roc, test_precision, test_NEF = extract(file_path)
                 if test_roc == -1 and test_precision == -1:
-                    missing_index.add(running_process)
+                    print('missing index: {}'.format(running_process))
                 if test_roc != -1:
                     test_roc_list.append(test_roc)
                 if test_precision != -1:

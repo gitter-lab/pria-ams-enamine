@@ -8,11 +8,12 @@ def output_classification_result(y_train, y_pred_on_train,
                                  y_val, y_pred_on_val,
                                  y_test, y_pred_on_test, EF_ratio_list, hit_ratio=0.01):
 
-    print('train precision: {}'.format(precision_auc_single(y_pred_on_train, y_train)))
-    print('train roc: {}'.format(roc_auc_single(y_pred_on_train, y_train)))
-    N = int(len(y_train) * hit_ratio)
-    print('train hit in top {}: {} out of {}'.format(N, number_of_hit_single(y_pred_on_train, y_train, N=N), sum(y_train)[0]))
-    print()
+    if y_pred_on_train is not None:
+        print('train precision: {}'.format(precision_auc_single(y_pred_on_train, y_train)))
+        print('train roc: {}'.format(roc_auc_single(y_pred_on_train, y_train)))
+        N = int(len(y_train) * hit_ratio)
+        print('train hit in top {}: {} out of {}'.format(N, number_of_hit_single(y_pred_on_train, y_train, N=N), sum(y_train)[0]))
+        print()
 
     if y_pred_on_val is not None:
         print('val precision: {}'.format(precision_auc_single(y_pred_on_val, y_val)))
@@ -41,12 +42,13 @@ def output_regression_result(y_train_binary, y_pred_on_train,
                              y_val_binary, y_pred_on_val,
                              y_test_binary, y_pred_on_test, EF_ratio_list, hit_ratio=0.01):
 
-    print('train precision: {}'.format(precision_auc_single(y_pred_on_train, y_train_binary)))
-    print('train roc: {}'.format(roc_auc_single(y_pred_on_train, y_train_binary)))
-    N = int(len(y_train_binary) * hit_ratio)
-    print('train hit: {} out of {}'.format(number_of_hit_single(y_pred_on_train, y_train_binary, N=N),
-                                           sum(y_train_binary)[0]))
-    print()
+    if y_pred_on_train is not None:
+        print('train precision: {}'.format(precision_auc_single(y_pred_on_train, y_train_binary)))
+        print('train roc: {}'.format(roc_auc_single(y_pred_on_train, y_train_binary)))
+        N = int(len(y_train_binary) * hit_ratio)
+        print('train hit: {} out of {}'.format(number_of_hit_single(y_pred_on_train, y_train_binary, N=N),
+                                               sum(y_train_binary)[0]))
+        print()
 
     if y_pred_on_val is not None:
         print('val precision: {}'.format(precision_auc_single(y_pred_on_val, y_val_binary)))

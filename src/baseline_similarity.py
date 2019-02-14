@@ -131,7 +131,7 @@ def demo_similarity_baseline():
     x2 = np.array([int(x) for x in fps2.ToBitString()])
     assert DataStructs.TanimotoSimilarity(fps1, fps2) == task._tanimoto_similarity(x1, x2)
     return
-
+    
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--weight_file', action='store', dest='weight_file', required=True)

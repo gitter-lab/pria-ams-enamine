@@ -21,7 +21,6 @@ import gzip
 import time
 from rdkit import Chem
 from rdkit.Chem import AllChem
-from rdkit.Chem import AllChem
 from rdkit.Chem.SaltRemover import SaltRemover
 from rdkit.Chem.FilterCatalog import *
 

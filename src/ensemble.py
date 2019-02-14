@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import argparse
 import pandas as pd
 import numpy as np
@@ -41,7 +43,7 @@ def construct_training_data(conf, file_list):
                     task_conf = json.load(f)
                 task = task_module(conf=task_conf)
                 y_pred = task.predict_with_existing(feature, model_weight_file)
-                print y_pred.shape
+                print(y_pred.shape)
                 X_train_current_round.append(y_pred)
 
         X_train_current_round = np.concatenate(X_train_current_round, axis=1)
@@ -80,7 +82,7 @@ def construct_test_data(conf, file_list):
                 task_conf = json.load(f)
             task = task_module(conf=task_conf)
             y_pred = task.predict_with_existing(feature, model_weight_file)
-            print y_pred.shape
+            print(y_pred.shape)
             X_test_temp.append(y_pred)
 
     X_test = np.concatenate(X_test_temp, axis=1)
@@ -153,7 +155,7 @@ def demo_ensemble():
 
     test_file_list = ['../datasets/keck_pria/fold_9.csv']
     X_test, y_test = construct_test_data(conf, test_file_list)
-    print'Test data {}, {}'.format(X_test.shape, y_test.shape)
+    print('Test data {}, {}'.format(X_test.shape, y_test.shape))
 
     secondary_layer_model = Ensemble(conf=conf)
     secondary_layer_model.train_and_predict(X_train, y_train, X_test, y_test, weight_file)

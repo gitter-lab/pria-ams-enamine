@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import argparse
 import pandas as pd
 import csv
@@ -8,8 +10,8 @@ from function import *
 
 
 # specify dataset
-K = 5
-directory = '../datasets/keck_pria_mlpcn/{}.csv.gz'
+K = 10
+directory = '../datasets/keck_pria/fold_{}.csv'
 file_list = []
 for i in range(K):
     file_list.append(directory.format(i))
@@ -24,22 +26,27 @@ def run_single_deep_classification(running_index):
     with open(config_json_file, 'r') as f:
         conf = json.load(f)
     label_name_list = conf['label_name_list']
-    print 'label_name_list ', label_name_list
+    print('label_name_list ', label_name_list)
 
     # read data
-    test_index = running_index / K
-    val_index = running_index % K + (running_index % K >= test_index)
-    complete_index = np.arange(K)
-    train_index = np.where((complete_index != test_index) & (complete_index != val_index))[0]
-    print train_index
+    if running_index == 5:
+        test_index = [9]
+        val_index = [8]
+        complete_index = np.arange(10)
+        train_index = filter(lambda x: x not in test_index and x not in val_index, complete_index)
+    else:
+        test_index = [2 * running_index + 1]
+        val_index = [2 * running_index]
+        complete_index = np.arange(8)
+        train_index = filter(lambda x: x not in test_index and x not in val_index, complete_index)
 
     train_file_list = file_list[train_index]
-    val_file_list = file_list[val_index:val_index+1]
-    test_file_list = file_list[test_index:test_index+1]
+    val_file_list = file_list[val_index]
+    test_file_list = file_list[test_index]
 
-    print 'train files ', train_file_list
-    print 'val files ', val_file_list
-    print 'test files ', test_file_list
+    print('train files ', train_file_list)
+    print('val files ', val_file_list)
+    print('test files ', test_file_list)
 
     train_pd = filter_out_missing_values(read_merged_data(train_file_list), label_list=label_name_list)
     val_pd = filter_out_missing_values(read_merged_data(val_file_list), label_list=label_name_list)
@@ -47,13 +54,13 @@ def run_single_deep_classification(running_index):
 
     # extract data, and split training data into training and val
     X_train, y_train = extract_feature_and_label(train_pd,
-                                                 feature_name='Fingerprints',
+                                                 feature_name='1024 MorganFP Radius 2',
                                                  label_name_list=label_name_list)
     X_val, y_val = extract_feature_and_label(val_pd,
-                                             feature_name='Fingerprints',
+                                             feature_name='1024 MorganFP Radius 2',
                                              label_name_list=label_name_list)
     X_test, y_test = extract_feature_and_label(test_pd,
-                                               feature_name='Fingerprints',
+                                               feature_name='1024 MorganFP Radius 2',
                                                label_name_list=label_name_list)
 
     task = SingleClassification(conf=conf)
@@ -70,29 +77,27 @@ def run_single_deep_regression(running_index):
     with open(config_json_file, 'r') as f:
         conf = json.load(f)
     label_name_list = conf['label_name_list']
-    print 'label_name_list ', label_name_list
-
-    # specify dataset
-    directory = '../datasets/keck_pria_mlpcn'
-    file_list = []
-    for i in range(5):
-        file_list.append('{}/{}.csv.gz'.format(directory, i))
-    file_list = np.array(file_list)
+    print('label_name_list ', label_name_list)
 
     # read data
-    test_index = running_index / K
-    val_index = running_index % K + (running_index % K >= test_index)
-    complete_index = np.arange(K)
-    train_index = np.where((complete_index != test_index) & (complete_index != val_index))[0]
-    print train_index
+    if running_index == 5:
+        test_index = [9]
+        val_index = [8]
+        complete_index = np.arange(10)
+        train_index = filter(lambda x: x not in test_index and x not in val_index, complete_index)
+    else:
+        test_index = [2 * running_index + 1]
+        val_index = [2 * running_index]
+        complete_index = np.arange(8)
+        train_index = filter(lambda x: x not in test_index and x not in val_index, complete_index)
 
     train_file_list = file_list[train_index]
-    val_file_list = file_list[val_index:val_index + 1]
-    test_file_list = file_list[test_index:test_index + 1]
+    val_file_list = file_list[val_index]
+    test_file_list = file_list[test_index]
 
-    print 'train files ', train_file_list
-    print 'val files ', val_file_list
-    print 'test files ', test_file_list
+    print('train files ', train_file_list)
+    print('val files ', val_file_list)
+    print('test files ', test_file_list)
 
     train_pd = filter_out_missing_values(read_merged_data(train_file_list), label_list=label_name_list)
     val_pd = filter_out_missing_values(read_merged_data(val_file_list), label_list=label_name_list)
@@ -100,13 +105,13 @@ def run_single_deep_regression(running_index):
 
     # extract data, and split training data into training and val
     X_train, y_train = extract_feature_and_label(train_pd,
-                                                 feature_name='Fingerprints',
+                                                 feature_name='1024 MorganFP Radius 2',
                                                  label_name_list=label_name_list)
     X_val, y_val = extract_feature_and_label(val_pd,
-                                             feature_name='Fingerprints',
+                                             feature_name='1024 MorganFP Radius 2',
                                              label_name_list=label_name_list)
     X_test, y_test = extract_feature_and_label(test_pd,
-                                               feature_name='Fingerprints',
+                                               feature_name='1024 MorganFP Radius 2',
                                                label_name_list=label_name_list)
 
     y_train_binary = reshape_data_into_2_dim(y_train[:, 0])
@@ -115,7 +120,7 @@ def run_single_deep_regression(running_index):
     y_val_continuous = reshape_data_into_2_dim(y_val[:, 1])
     y_test_binary = reshape_data_into_2_dim(y_test[:, 0])
     y_test_continuous = reshape_data_into_2_dim(y_test[:, 1])
-    print 'done data preparation'
+    print('done data preparation')
 
     task = SingleRegression(conf=conf)
     task.train_and_predict(X_train, y_train_continuous, y_train_binary,
@@ -133,29 +138,33 @@ def run_random_forest_classification(running_index):
     with open(config_json_file, 'r') as f:
         conf = json.load(f)
     label_name_list = conf['label_name_list']
-    print 'label_name_list ', label_name_list
+    print('label_name_list ', label_name_list)
 
     # read data
-    test_index = running_index % K
-    complete_index = np.arange(K)
-    train_index = np.where(complete_index != test_index)[0]
-    print train_index
+    if running_index == 5:
+        test_index = [9]
+        complete_index = np.arange(10)
+        train_index = filter(lambda x: x not in test_index, complete_index)
+    else:
+        test_index = [2 * running_index + 1]
+        complete_index = np.arange(8)
+        train_index = filter(lambda x: x not in test_index, complete_index)
 
     train_file_list = file_list[train_index]
-    test_file_list = file_list[test_index:test_index + 1]
+    test_file_list = file_list[test_index]
 
-    print 'train files ', train_file_list
-    print 'test files ', test_file_list
+    print('train files ', train_file_list)
+    print('test files ', test_file_list)
 
     train_pd = filter_out_missing_values(read_merged_data(train_file_list), label_list=label_name_list)
     test_pd = filter_out_missing_values(read_merged_data(test_file_list), label_list=label_name_list)
 
     # extract data, and split training data into training and val
     X_train, y_train = extract_feature_and_label(train_pd,
-                                                 feature_name='Fingerprints',
+                                                 feature_name='1024 MorganFP Radius 2',
                                                  label_name_list=label_name_list)
     X_test, y_test = extract_feature_and_label(test_pd,
-                                               feature_name='Fingerprints',
+                                               feature_name='1024 MorganFP Radius 2',
                                                label_name_list=label_name_list)
 
     task = RandomForestClassification(conf=conf)
@@ -172,36 +181,40 @@ def run_random_forest_regression(running_index):
     with open(config_json_file, 'r') as f:
         conf = json.load(f)
     label_name_list = conf['label_name_list']
-    print 'label_name_list ', label_name_list
+    print('label_name_list ', label_name_list)
 
     # read data
-    test_index = running_index % K
-    complete_index = np.arange(K)
-    train_index = np.where(complete_index != test_index)[0]
-    print train_index
+    if running_index == 5:
+        test_index = [9]
+        complete_index = np.arange(10)
+        train_index = filter(lambda x: x not in test_index, complete_index)
+    else:
+        test_index = [2 * running_index + 1]
+        complete_index = np.arange(8)
+        train_index = filter(lambda x: x not in test_index, complete_index)
 
     train_file_list = file_list[train_index]
-    test_file_list = file_list[test_index:test_index + 1]
+    test_file_list = file_list[test_index]
 
-    print 'train files ', train_file_list
-    print 'test files ', test_file_list
+    print('train files ', train_file_list)
+    print('test files ', test_file_list)
 
     train_pd = filter_out_missing_values(read_merged_data(train_file_list), label_list=label_name_list)
     test_pd = filter_out_missing_values(read_merged_data(test_file_list), label_list=label_name_list)
 
     # extract data, and split training data into training and val
     X_train, y_train = extract_feature_and_label(train_pd,
-                                                 feature_name='Fingerprints',
+                                                 feature_name='1024 MorganFP Radius 2',
                                                  label_name_list=label_name_list)
     X_test, y_test = extract_feature_and_label(test_pd,
-                                               feature_name='Fingerprints',
+                                               feature_name='1024 MorganFP Radius 2',
                                                label_name_list=label_name_list)
 
     y_train_binary = reshape_data_into_2_dim(y_train[:, 0])
     y_train_continuous = reshape_data_into_2_dim(y_train[:, 1])
     y_test_binary = reshape_data_into_2_dim(y_test[:, 0])
     y_test_continuous = reshape_data_into_2_dim(y_test[:, 1])
-    print 'done data preparation'
+    print('done data preparation')
 
     task = RandomForestRegression(conf=conf)
     task.train_and_predict(X_train, y_train_continuous, y_train_binary,
@@ -218,34 +231,48 @@ def run_xgboost_classification(running_index):
     with open(config_json_file, 'r') as f:
         conf = json.load(f)
     label_name_list = conf['label_name_list']
-    print 'label_name_list ', label_name_list
+    print('label_name_list ', label_name_list)
 
     # read data
-    test_index = running_index % K
-    complete_index = np.arange(K)
-    train_index = np.where(complete_index != test_index)[0]
-    print train_index
+    if running_index == 5:
+        test_index = [9]
+        val_index = [8]
+        complete_index = np.arange(10)
+        train_index = filter(lambda x: x not in test_index and x not in val_index, complete_index)
+    else:
+        test_index = [2 * running_index + 1]
+        val_index = [2 * running_index]
+        complete_index = np.arange(8)
+        train_index = filter(lambda x: x not in test_index and x not in val_index, complete_index)
 
     train_file_list = file_list[train_index]
-    test_file_list = file_list[test_index:test_index + 1]
+    val_file_list = file_list[val_index]
+    test_file_list = file_list[test_index]
 
-    print 'train files ', train_file_list
-    print 'test files ', test_file_list
+    print('train files ', train_file_list)
+    print('val files ', val_file_list)
+    print('test files ', test_file_list)
 
     train_pd = filter_out_missing_values(read_merged_data(train_file_list), label_list=label_name_list)
+    val_pd = filter_out_missing_values(read_merged_data(val_file_list), label_list=label_name_list)
     test_pd = filter_out_missing_values(read_merged_data(test_file_list), label_list=label_name_list)
 
-    # extract data, and split training data into training and val
     X_train, y_train = extract_feature_and_label(train_pd,
-                                                 feature_name='Fingerprints',
+                                                 feature_name='1024 MorganFP Radius 2',
                                                  label_name_list=label_name_list)
+    X_val, y_val = extract_feature_and_label(val_pd,
+                                             feature_name='1024 MorganFP Radius 2',
+                                             label_name_list=label_name_list)
     X_test, y_test = extract_feature_and_label(test_pd,
-                                               feature_name='Fingerprints',
+                                               feature_name='1024 MorganFP Radius 2',
                                                label_name_list=label_name_list)
+    print('done data preparation')
+
+    print('X_train\t', X_train.shape)
+    print('y_train\t', y_train.shape)
 
     task = XGBoostClassification(conf=conf)
-    task.train_and_predict(X_train, y_train, X_test, y_test, weight_file)
-    task.eval_with_existing(X_train, y_train, X_test, y_test, weight_file)
+    task.train_and_predict(X_train, y_train, X_val, y_val, X_test, y_test, weight_file)
     return
 
 
@@ -257,44 +284,55 @@ def run_xgboost_regression(running_index):
     with open(config_json_file, 'r') as f:
         conf = json.load(f)
     label_name_list = conf['label_name_list']
-    print 'label_name_list ', label_name_list
+    print('label_name_list ', label_name_list)
 
     # read data
-    test_index = running_index % K
-    complete_index = np.arange(K)
-    train_index = np.where(complete_index != test_index)[0]
-    print train_index
+    if running_index == 5:
+        test_index = [9]
+        val_index = [8]
+        complete_index = np.arange(10)
+        train_index = filter(lambda x: x not in test_index and x not in val_index, complete_index)
+    else:
+        test_index = [2 * running_index + 1]
+        val_index = [2 * running_index]
+        complete_index = np.arange(8)
+        train_index = filter(lambda x: x not in test_index and x not in val_index, complete_index)
 
     train_file_list = file_list[train_index]
-    test_file_list = file_list[test_index:test_index + 1]
+    val_file_list = file_list[val_index]
+    test_file_list = file_list[test_index]
 
-    print 'train files ', train_file_list
-    print 'test files ', test_file_list
+    print('train files ', train_file_list)
+    print('val files ', val_file_list)
+    print('test files ', test_file_list)
 
     train_pd = filter_out_missing_values(read_merged_data(train_file_list), label_list=label_name_list)
+    val_pd = filter_out_missing_values(read_merged_data(val_file_list), label_list=label_name_list)
     test_pd = filter_out_missing_values(read_merged_data(test_file_list), label_list=label_name_list)
 
-    # extract data, and split training data into training and val
     X_train, y_train = extract_feature_and_label(train_pd,
-                                                 feature_name='Fingerprints',
+                                                 feature_name='1024 MorganFP Radius 2',
                                                  label_name_list=label_name_list)
+    X_val, y_val = extract_feature_and_label(val_pd,
+                                             feature_name='1024 MorganFP Radius 2',
+                                             label_name_list=label_name_list)
     X_test, y_test = extract_feature_and_label(test_pd,
-                                               feature_name='Fingerprints',
+                                               feature_name='1024 MorganFP Radius 2',
                                                label_name_list=label_name_list)
 
     y_train_binary = reshape_data_into_2_dim(y_train[:, 0])
     y_train_continuous = reshape_data_into_2_dim(y_train[:, 1])
+    y_val_binary = reshape_data_into_2_dim(y_val[:, 0])
+    y_val_continuous = reshape_data_into_2_dim(y_val[:, 1])
     y_test_binary = reshape_data_into_2_dim(y_test[:, 0])
     y_test_continuous = reshape_data_into_2_dim(y_test[:, 1])
-    print 'done data preparation'
+    print('done data preparation')
 
     task = XGBoostRegression(conf=conf)
     task.train_and_predict(X_train, y_train_continuous, y_train_binary,
+                           X_val, y_val_continuous, y_val_binary,
                            X_test, y_test_continuous, y_test_binary,
                            weight_file)
-    task.eval_with_existing(X_train, y_train_continuous, y_train_binary,
-                            X_test, y_test_continuous, y_test_binary,
-                            weight_file)
     return
 
 
@@ -307,19 +345,28 @@ def run_character_rnn_classification(running_index):
     with open(config_json_file, 'r') as f:
         conf = json.load(f)
     label_name_list = conf['label_name_list']
-    print 'label_name_list ', label_name_list
+    print('label_name_list ', label_name_list)
     task = CharacterRNNClassification(conf)
 
     # read data
-    test_index = running_index / K
-    val_index = running_index % K + (running_index % K >= test_index)
-    complete_index = np.arange(K)
-    train_index = np.where((complete_index != test_index) & (complete_index != val_index))[0]
-    print train_index
+    if running_index == 5:
+        test_index = [9]
+        val_index = [8]
+        complete_index = np.arange(10)
+        train_index = filter(lambda x: x not in test_index and x not in val_index, complete_index)
+    else:
+        test_index = [2 * running_index + 1]
+        val_index = [2 * running_index]
+        complete_index = np.arange(8)
+        train_index = filter(lambda x: x not in test_index and x not in val_index, complete_index)
 
     train_file_list = file_list[train_index]
-    val_file_list = file_list[val_index:val_index+1]
-    test_file_list = file_list[test_index:test_index+1]
+    val_file_list = file_list[val_index]
+    test_file_list = file_list[test_index]
+
+    print('train files ', train_file_list)
+    print('val files ', val_file_list)
+    print('test files ', test_file_list)
 
     train_pd = read_merged_data(train_file_list)
     val_pd = read_merged_data(val_file_list)
@@ -376,7 +423,7 @@ if __name__ == '__main__':
     parser.add_argument('--model', dest='model',
                         action='store', required=True)
     parser.add_argument('--cross_validation_upper_bound', dest='cross_validation_upper_bound', type=int,
-                        action='store', required=False, default=20)
+                        action='store', required=False, default=5)
     given_args = parser.parse_args()
 
     config_json_file = given_args.config_json_file

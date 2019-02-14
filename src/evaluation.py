@@ -11,7 +11,7 @@ def roc_auc_single(predicted, actual):
         auc_ret = roc_auc_score(actual, predicted)
     except ValueError:
         auc_ret = np.nan
-    
+
     return auc_ret
 
 
@@ -73,3 +73,8 @@ def enrichment_factor_single(scores_arr, labels_arr, percentile):
         ef = 'ND'
         ef_max = 'ND'
     return n_actives, ef, ef_max
+
+
+def normalized_enrichment_factor_single(scores_arr, labels_arr, percentile):
+    n_actives, ef, ef_max = enrichment_factor_single(scores_arr, labels_arr, percentile)
+    return ef/ef_max

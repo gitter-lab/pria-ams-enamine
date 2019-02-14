@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 import argparse
 import pandas as pd
 import csv
@@ -7,48 +5,25 @@ import numpy as np
 import json
 import keras
 import sys
-from keras.models import Sequential
-from keras.layers import Dense, Dropout
+from keras.models import Sequential, Model
+from keras.layers import Input, Dense, Dropout, Activation
 from keras.layers.normalization import BatchNormalization
+from keras.layers.core import Dense, Activation, Flatten, RepeatVector
+from keras.layers.embeddings import Embedding
 from keras.optimizers import SGD, Adam
-from function import read_merged_data, extract_feature_and_label, reshape_data_into_2_dim
+from keras.layers.convolutional import Convolution1D
+from function import read_merged_data, extract_grammar_and_label
+from evaluation import roc_auc_single, precision_auc_single, enrichment_factor_single
 from CallBacks import KeckCallBackOnROC, KeckCallBackOnPrecision
 from util import output_classification_result
 
 
-def count_occurance(key_list, target_list):
-    weight = {i: 0 for i in key_list}
-    for x in target_list:
-        weight[x] += 1
-    return weight
-
-
-def get_class_weight(task, y_data):
-    if task.weight_schema == 'no_weight':
-        cw = []
-        for i in range(task.output_layer_dimension):
-            cw.append({0: 0.5, 1: 0.5})
-    elif task.weight_schema == 'weighted_sample':
-        cw = []
-        for i in range(task.output_layer_dimension):
-            w = count_occurance([0, 1], y_data[:, i])
-            zero_weight = 1.0
-            one_weight = 1.0 * w[0] / w[1]
-            cw.append({0: zero_weight, 1: one_weight})
-    else:
-        raise ValueError('Weight schema not included. Should be among [{}, {}].'.
-                         format('no_weight', 'weighted_sample'))
-
-    return cw
-
-
-class SingleClassification:
+class GrammarCNNClassification:
     def __init__(self, conf):
         self.conf = conf
-        if 'input_layer_dimension' in conf.keys():
-            self.input_layer_dimension = conf['input_layer_dimension']
-        else:
-            self.input_layer_dimension = 1024
+
+        self.padding_length = conf['cnn']['padding_length']
+        self.vocabulary_size = conf['cnn']['grammar_vocabulary_length']
         self.output_layer_dimension = 1
 
         self.early_stopping_patience = conf['fitting']['early_stopping']['patience']
@@ -90,35 +65,18 @@ class SingleClassification:
                                                        beta_init=batch_normalizer_beta_init,
                                                        gamma_init=batch_normalizer_gamma_init)
         self.EF_ratio_list = conf['enrichment_factor']['ratio_list']
-        self.weight_schema = conf['class_weight_option']
-
-        if 'hit_ratio' in self.conf.keys():
-            self.hit_ratio = conf['hit_ratio']
-        else:
-            self.hit_ratio = 0.01
         return
 
     def setup_model(self):
-        model = Sequential()
-        layers = self.conf['layers']
-        dropout = self.conf['drop_out']
-        layer_number = len(layers)
-        for i in range(layer_number):
-            init = layers[i]['init']
-            activation = layers[i]['activation']
-            if i == 0:
-                hidden_units = int(layers[i]['hidden_units'])
-                model.add(Dense(hidden_units, input_dim=self.input_layer_dimension, init=init, activation=activation))
-                model.add(Dropout(dropout))
-            elif i == layer_number - 1:
-                if self.batch_is_use:
-                    model.add(self.batch_normalizer)
-                model.add(Dense(self.output_layer_dimension, init=init, activation=activation))
-            else:
-                hidden_units = int(layers[i]['hidden_units'])
-                model.add(Dense(hidden_units, init=init, activation=activation))
-                model.add(Dropout(dropout))
-
+        x = Input(shape=(self.padding_length, self.vocabulary_size))
+        h = Convolution1D(9, 9, activation='relu', name='conv_1')(x)
+        h = Convolution1D(9, 9, activation='relu', name='conv_2')(h)
+        h = Convolution1D(10, 11, activation='relu', name='conv_3')(h)
+        h = Flatten(name='flatten_1')(h)
+        h = Dense(435, activation='relu', name='dense_1')(h)
+        h = Dense(self.output_layer_dimension, activation='relu', name='dense_2')(h)
+        model = Model(x, h)
+        print(model.summary())
         return model
 
     def train_and_predict(self,
@@ -140,17 +98,10 @@ class SingleClassification:
         else:
             callbacks = []
 
-        cw = get_class_weight(self, y_train)
-        print('Class Weight ', cw)
-
         model.compile(loss=self.compile_loss, optimizer=self.compile_optimizer)
-        model.fit(X_train, y_train,
-                  nb_epoch=self.fit_nb_epoch,
-                  batch_size=self.fit_batch_size,
-                  verbose=self.fit_verbose,
-                  class_weight=cw,
-                  shuffle=True,
-                  callbacks=callbacks)
+        model.fit(X_train, y_train, nb_epoch=self.fit_nb_epoch, batch_size=self.fit_batch_size,
+                  callbacks=callbacks,
+                  verbose=self.fit_verbose)
 
         if self.early_stopping_option == 'auc' or self.early_stopping_option == 'precision':
             model = early_stopping.get_best_model()
@@ -168,17 +119,14 @@ class SingleClassification:
                                      EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
         return
 
-    def predict_with_existing(self, X_data, weight_file):
-        model = self.load_model(weight_file)
-        y_pred = reshape_data_into_2_dim(model.predict(X_data))
-        return y_pred
-
     def eval_with_existing(self,
                            X_train, y_train,
                            X_val, y_val,
                            X_test, y_test,
                            weight_file):
-        model = self.load_model(weight_file)
+        model = self.setup_model()
+        model.load_weights(weight_file)
+
 
         y_pred_on_train = model.predict(X_train)
         y_pred_on_val = model.predict(X_val)
@@ -193,45 +141,19 @@ class SingleClassification:
                                      EF_ratio_list=self.EF_ratio_list, hit_ratio=self.hit_ratio)
         return
 
-    def save_model(self, model, weight_file):
-        model.save_weights(weight_file)
-        return
 
-    def load_model(self, weight_file):
-        model = self.setup_model()
-        model.load_weights(weight_file)
-        return model
-
-
-def demo_single_classification():
+def demo_grammar_cnn_classification():
     conf = {
-        'layers': [
-            {
-                'hidden_units': 2000,
-                'init': 'glorot_normal',
-                'activation': 'relu'
-            }, {
-                'hidden_units': 2000,
-                'init': 'glorot_normal',
-                'activation': 'sigmoid'
-            }, {
-                'init': 'glorot_normal',
-                'activation': 'sigmoid'
-            }
-        ],
-        'drop_out': 0.25,
+        'cnn': {
+            'padding_length': 325,
+            'grammar_vocabulary_length': 79,
+        },
         'compile': {
             'loss': 'binary_crossentropy',
             'optimizer': {
                 'option': 'adam',
-                'sgd': {
-                    'lr': 0.003,
-                    'momentum': 0.9,
-                    'decay': 0.9,
-                    'nestrov': True
-                },
                 'adam': {
-                    'lr': 0.003,
+                    'lr': 0.0001,
                     'beta_1': 0.9,
                     'beta_2': 0.999,
                     'epsilon': 1e-8
@@ -243,8 +165,8 @@ def demo_single_classification():
             'batch_size': 2048,
             'verbose': 0,
             'early_stopping': {
-                'option': 'precision',
-                'patience': 200
+                'option': 'auc',
+                'patience': 50
             }
         },
         'batch': {
@@ -260,52 +182,38 @@ def demo_single_classification():
         'enrichment_factor': {
             'ratio_list': [0.02, 0.01, 0.0015, 0.001]
         },
-        'class_weight_option': 'weighted_sample',
-        'label_name_list': ['PriA-SSB AS Activity']
+        'class_weight_option': 'no_weight'
     }
-    label_name_list = conf['label_name_list']
-    print('label_name_list ', label_name_list)
+    task = GrammarCNNClassification(conf)
 
-    train_pd = read_merged_data(file_list[0:3])
-    train_pd.fillna(0, inplace=True)
-    val_pd = read_merged_data(file_list[3:4])
-    val_pd.fillna(0, inplace=True)
-    test_pd = read_merged_data(file_list[4:5])
-    test_pd.fillna(0, inplace=True)
+    train_file_list = file_list[: K-1]
+    val_file_list = file_list[K-1: K]
+    test_file_list = file_list[K: K+1]
+    print('train file list: {}\nval file list: {}\ntest file list: {}'.format(
+        train_file_list, val_file_list, test_file_list))
 
     # extract data, and split training data into training and val
-    X_train, y_train = extract_feature_and_label(train_pd,
-                                                 feature_name='1024 MorganFP Radius 2',
-                                                 label_name_list=label_name_list)
-    X_val, y_val = extract_feature_and_label(val_pd,
-                                             feature_name='1024 MorganFP Radius 2',
-                                             label_name_list=label_name_list)
-    X_test, y_test = extract_feature_and_label(test_pd,
-                                               feature_name='1024 MorganFP Radius 2',
-                                               label_name_list=label_name_list)
+    X_train, y_train = extract_grammar_and_label(train_file_list)
+    X_val, y_val = extract_grammar_and_label(val_file_list)
+    X_test, y_test = extract_grammar_and_label(test_file_list)
     print('done data preparation')
 
-    print(conf['label_name_list'])
-    task = SingleClassification(conf=conf)
     task.train_and_predict(X_train, y_train, X_val, y_val, X_test, y_test, weight_file)
-    task.eval_with_existing(X_train, y_train, X_val, y_val, X_test, y_test, weight_file)
-    return
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--weight_file', action='store', dest='weight_file', required=True)
-    parser.add_argument('--mode', action='store', dest='mode', required=False, default='single_classification')
     given_args = parser.parse_args()
     weight_file = given_args.weight_file
-    mode = given_args.mode
 
-    if mode == 'single_classification':
-        # specify dataset
-        K = 5
-        directory = '../datasets/keck_pria_test/fold_{}.csv'
-        file_list = []
-        for i in range(K):
-            file_list.append(directory.format(i))
-        file_list = np.array(file_list)
-        demo_single_classification()
+    # specify dataset
+    K = 5
+    directory = '../datasets/keck_pria_lc/{}_grammar.npz'
+    file_list = []
+    for i in range(K):
+        file_list.append(directory.format(i))
+    file_list.append('../datasets/keck_pria_lc/keck_lc4_grammar.npz')
+    file_list = np.array(file_list)
+
+    demo_grammar_cnn_classification()

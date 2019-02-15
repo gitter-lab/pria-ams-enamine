@@ -39,22 +39,23 @@ if __name__ == '__main__':
         lines = lines_[idx_]
         print(len(idx_), '\t', len(lines))
 
-        smiles_list = []
-        fingerprints_list = []
+        smiles_list, fingerprints_list, datestamp_list = [], [], []
         for idx,line in enumerate(lines):
             line_ = line.strip().split(' ')
             smiles = line_[0]
+            datestamp = line_[1]
             try:
                 mol = Chem.MolFromSmiles(smiles)
                 mol = saltRemover.StripMol(mol)
                 fingerprints = AllChem.GetMorganFingerprintAsBitVect(mol, radius=FP_radius, nBits=FP_size).ToBitString()
 
                 smiles_list.append(smiles)
+                datestamp_list.append(datestamp)
                 fingerprints_list.append(fingerprints)
             except:
                 print('invalid\t', smiles)
 
-        df = pd.DataFrame({'smiles': smiles_list, 'fingerprints': fingerprints_list})
+        df = pd.DataFrame({'smiles': smiles_list, 'datestamp': datestamp_list, 'fingerprints': fingerprints_list})
         print(df.shape)
         df.to_csv('../datasets/{}/{}.csv.gz'.format(target, count), index=None, compression='gzip')
         print()

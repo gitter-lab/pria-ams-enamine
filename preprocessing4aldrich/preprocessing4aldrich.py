@@ -59,4 +59,3 @@ if __name__ == '__main__':
         print(df.shape)
         df.to_csv('../datasets/{}/{}.csv.gz'.format(target, count), index=None, compression='gzip')
         print()
-        break

@@ -50,7 +50,6 @@ if __name__ == '__main__':
                 fingerprints = AllChem.GetMorganFingerprintAsBitVect(mol, radius=FP_radius, nBits=FP_size).ToBitString()
 
                 smiles_list.append(smiles)
-                fingerprints = list(fingerprints)
                 fingerprints_list.append(fingerprints)
             except:
                 print('invalid\t', smiles)

@@ -56,24 +56,17 @@ def predict():
     xgboost_model = XGBoostClassification(conf=task_conf)
     model = xgboost_model.load_model(weight_file)
 
-    handler = open('../output/final_stage/{}.out'.format(target), 'w')
+    handler = open('../output/final_stage/{}_prediction.out'.format(target), 'w')
 
     for count in range(50):
         df = pd.read_csv('../datasets/{}/{}.csv.gz'.format(target, count))
         print('{}\tshape:{}'.format(count, df.shape))
 
-        def apply(x):
-            x = x.replace('[', '')
-            x = x.replace(']', '')
-            x = x.replace(',', '')
-            x = x.replace(' ', '')
-            x = x.replace('\'', '')
-            return list(x)
-
+        old_smiles_list = df['old smiles'].tolist()
         smiles_list = df['smiles'].tolist()
         fingerprints_list = df['fingerprints'].tolist()
-        fingerprints_list = map(lambda x: apply(x), fingerprints_list)
-        # print(fingerprints_list[0], len(fingerprints_list[0]))
+        id_list = df['datestamp'].tolist()
+        fingerprints_list = map(lambda x: list(x), fingerprints_list)
         fingerprints_list = np.array(fingerprints_list)
         fingerprints_list= fingerprints_list.astype(float)
         print(fingerprints_list.shape)
@@ -82,8 +75,8 @@ def predict():
         print('shape: {},\tfirst 10 values: {}'.format(pred_values.shape, pred_values[:10]))
         print('over 0.1 has {}/{}'.format(sum(pred_values > 0.1), len(pred_values)))
 
-        for smiles, pred_value in zip(smiles_list, pred_values):
-            print('{}\t{}'.format(smiles, pred_value), file=handler)
+        for ori_smiles, smiles, id, pred_value in zip(old_smiles_list, smiles_list, id_list, pred_values):
+            print('{}\t{}\t{}\t{}'.format(ori_smiles, smiles, id, pred_value), file=handler)
         print()
     return
 
@@ -105,5 +98,5 @@ if __name__ == '__main__':
         print('Start Training.')
         train()
     elif mode == 'prediction':
-        print('Start Predictiong.')
+        print('Start Predicting.')
         predict()

@@ -18,6 +18,47 @@ for i in range(K):
 file_list = np.array(file_list)
 
 
+def run_baseline(running_index):
+    from baseline_similarity import SimilarityBaseline
+    if running_index >= cross_validation_upper_bound:
+        raise ValueError('Process number out of limit. At most {}.'.format(cross_validation_upper_bound - 1))
+
+    with open(config_json_file, 'r') as f:
+        conf = json.load(f)
+    label_name_list = conf['label_name_list']
+    print('label_name_list ', label_name_list)
+
+    # read data
+    if running_index == 5:
+        test_index = [9]
+        complete_index = np.arange(10)
+        train_index = filter(lambda x: x not in test_index, complete_index)
+    else:
+        test_index = [2 * running_index + 1]
+        complete_index = np.arange(8)
+        train_index = filter(lambda x: x not in test_index, complete_index)
+
+    train_file_list = file_list[train_index]
+    test_file_list = file_list[test_index]
+
+    print('train files ', train_file_list)
+    print('test files ', test_file_list)
+
+    train_pd = filter_out_missing_values(read_merged_data(train_file_list), label_list=label_name_list)
+    test_pd = filter_out_missing_values(read_merged_data(test_file_list), label_list=label_name_list)
+
+    # extract data, and split training data into training and val
+    X_train, y_train = extract_feature_and_label(train_pd,
+                                                 feature_name='1024 MorganFP Radius 2',
+                                                 label_name_list=label_name_list)
+    X_test, y_test = extract_feature_and_label(test_pd,
+                                               feature_name='1024 MorganFP Radius 2',
+                                               label_name_list=label_name_list)
+
+    task = SimilarityBaseline(conf=conf)
+    task.train_and_predict(X_train, y_train, X_test, y_test, weight_file)
+    task.eval_with_existing(X_train, y_train, X_test, y_test, weight_file)
+    
 def run_single_deep_classification(running_index):
     from deep_classification import SingleClassification
     if running_index >= cross_validation_upper_bound:
@@ -453,8 +494,10 @@ if __name__ == '__main__':
     elif model == 'character_rnn_classification':
         SMILES_mapping_json_file = given_args.SMILES_mapping_json_file
         run_character_rnn_classification(process_num)
+    elif model == 'baseline':
+        run_baseline(process_num)
     else:
-        raise Exception('No such model! Should be among [{}, {}, {}, {}, {}, {}, {}, {}].'.format(
+        raise Exception('No such model! Should be among [{}, {}, {}, {}, {}, {}, {}, {}, {}].'.format(
             'single_deep_classification',
             'single_deep_regression',
             'multi_deep_classification',
@@ -462,5 +505,6 @@ if __name__ == '__main__':
             'random_forest_regression',
             'xgboost_classification',
             'xgboost_regression',
-            'ensemble'
+            'ensemble',
+            'baseline'
         ))

@@ -1,9 +1,8 @@
 from __future__ import print_function
+from __future__ import division
 
 import argparse
 import numpy as np
-from rdkit import DataStructs
-from rdkit.Chem import AllChem
 from function import read_merged_data, extract_feature_and_label, reshape_data_into_2_dim
 from evaluation import roc_auc_single, precision_auc_single
 from util import output_classification_result
@@ -26,27 +25,28 @@ class SimilarityBaseline:
         self.X_train_actives = X_train[actives_indices]
         return
     
+    @staticmethod
     def _tanimoto_similarity(x1, x2):
         x1 = x1.astype(bool)
         x2 = x2.astype(bool)
         tan_sim = np.sum(np.bitwise_and(x1, x2)) / np.sum(np.bitwise_or(x1, x2))
         return tan_sim
     
-    def _baseline_pred(X_data):
+    def _baseline_pred(self, X_data):
         y_preds = np.zeros(shape=(X_data.shape[0], 1))
         ts_tmp = np.zeros(shape=(self.X_train_actives.shape[0],))
         for xi, x_fps in enumerate(X_data):
             for tsi, active_fps in enumerate(self.X_train_actives):
-                ts_tmp[tsi] = _tanimoto_similarity(x_fps, active_fps)
+                ts_tmp[tsi] = SimilarityBaseline._tanimoto_similarity(x_fps, active_fps)
             y_preds[xi] = np.max(ts_tmp)
         return y_preds
 
     def train_and_predict(self, X_train, y_train, X_test, y_test, weight_file):
         self.fit(X_train, y_train)
         
-        y_pred_on_train = _baseline_pred(X_train)
+        y_pred_on_train = self._baseline_pred(X_train)
         if X_test is not None:
-            y_pred_on_test = _baseline_pred(X_test)
+            y_pred_on_test = self._baseline_pred(X_test)
         else:
             y_pred_on_test = None
 
@@ -60,15 +60,15 @@ class SimilarityBaseline:
 
     def predict_with_existing(self, X_data, weight_file):
         self.load_model(weight_file)
-        y_pred = _baseline_pred(X_data)
+        y_pred = self._baseline_pred(X_data)
         return y_pred
 
     def eval_with_existing(self, X_train, y_train, X_test, y_test, weight_file):
         self.load_model(weight_file)
 
-        y_pred_on_train = _baseline_pred(X_train)
+        y_pred_on_train = self._baseline_pred(X_train)
         if X_test is not None:
-            y_pred_on_test = _baseline_pred(X_test)
+            y_pred_on_test = self._baseline_pred(X_test)
         else:
             y_pred_on_test = None
 
@@ -88,6 +88,8 @@ class SimilarityBaseline:
 
 
 def demo_similarity_baseline():
+    from rdkit import DataStructs
+    from rdkit.Chem import AllChem
     conf = {
         'enrichment_factor': {
             'ratio_list': [0.02, 0.01, 0.0015, 0.001]

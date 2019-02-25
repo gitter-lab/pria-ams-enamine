@@ -1,13 +1,11 @@
 from __future__ import print_function
 
-import argparse
-import pandas as pd
-import csv
-import numpy as np
 import json
-import sys
+import argparse
+import numpy as np
+import pandas as pd
 from function import *
-
+import glob
 
 # specify dataset
 K = 10
@@ -25,65 +23,57 @@ def prospective_baseline():
     label_name_list = conf['label_name_list']
     print('label_name_list ', label_name_list)
 
-    print('train files ', train_file_list)
-    print('test files ', test_file_list)
-
-    train_pd = filter_out_missing_values(read_merged_data(train_file_list), label_list=label_name_list)
-    test_pd = filter_out_missing_values(read_merged_data(test_file_list), label_list=label_name_list)
-
-    X_train, y_train = extract_feature_and_label(train_pd,
-                                                 feature_name='1024 MorganFP Radius 2',
-                                                 label_name_list=label_name_list)
-    X_test, _ = extract_feature_and_label(test_pd,
-                                          feature_name='1024 MorganFP Radius 2',
-                                          label_name_list=label_name_list)
-    print('done data preparation')
-
-    print('X_train\t', X_train.shape)
-    print('y_train\t', y_train.shape)
-
     task = SimilarityBaseline(conf=conf)
-    task.train_and_predict(X_train, y_train, 
-                           X_val=None, y_val=None, 
-                           X_test=None, y_test=None, 
-                           weight_file=weight_file)
     
-    y_pred_on_test = task.predict_with_existing(X_test, weight_file)
-    return y_pred_on_test
+    for target in ['aldrich']:
+        handler = open(prospective_preds_file.format(target, 'baseline'), 'w')
+        
+        for count in range(50):
+            df = pd.read_csv('../datasets/{}/{}.csv.gz'.format(target, count))
+            print('{}\tshape:{}'.format(count, df.shape))
+            
+            smiles_list = df['smiles'].tolist()
+            fingerprints_list = np.vstack([np.fromstring(x, 'u1') - ord('0') for x in df['fingerprints']]).astype(float)
+
+            pred_values = task.predict_with_existing(fingerprints_list[:20], weight_file)[:,0]
+            print('shape: {},\tfirst 10 values: {}'.format(pred_values.shape, pred_values[:10]))
+            print('over 0.1 has {}/{}'.format(sum(pred_values > 0.1), len(pred_values)))
+
+            for smiles, pred_value in zip(smiles_list, pred_values):
+                print('{}\t{}'.format(smiles, pred_value), file=handler)
+            print()
     
 
+"""
+Example usage:
+python prospective_keck.py \
+        --config_json_file=../config/baseline_similarity.json \
+        --train_file_dir_fmt=../datasets/keck_pria/fold_*.csv \
+        --weight_file=baseline_weight.npy \
+        --prospective_preds_file=baseline_aldrich_preds.npz \
+        --model=baseline
+"""
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--config_json_file', dest="config_json_file",
                         action="store", required=True)
-    parser.add_argument('--train_file_list', dest="train_file_list",
-                        action="store", required=True)
-    parser.add_argument('--test_file_list', dest="test_file_list",
+    parser.add_argument('--train_file_dir_fmt', dest="train_file_dir_fmt",
                         action="store", required=True)
     parser.add_argument('--weight_file', dest="weight_file",
+                        action="store", required=True)
+    parser.add_argument('--prospective_preds_file', dest="prospective_preds_file",
                         action="store", required=True)
     parser.add_argument('--model', dest='model',
                         action='store', required=True)
     given_args = parser.parse_args()
 
     config_json_file = given_args.config_json_file
-    train_file_list = given_args.train_file_list
-    test_file_list = given_args.test_file_list
+    train_file_dir_fmt = given_args.train_file_dir_fmt
     weight_file = given_args.weight_file
+    prospective_preds_file = given_args.prospective_preds_file
     model = given_args.model
-
+    
+    train_file_list = glob.glob(train_file_dir_fmt)
+    
     if model == 'baseline':
-        y_pred_on_test = prospective_baseline()
-    else:
-        raise Exception('No such model! Should be among [{}, {}, {}, {}, {}, {}, {}, {}].'.format(
-            'single_deep_classification',
-            'single_deep_regression',
-            'multi_deep_classification',
-            'random_forest_classification',
-            'random_forest_regression',
-            'xgboost_classification',
-            'xgboost_regression',
-            'ensemble'
-        ))
-        
-    # save y_pred_on_test?
+        prospective_baseline()

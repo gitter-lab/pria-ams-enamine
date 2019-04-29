@@ -1,16 +1,14 @@
 """
-    Merges MLCPN+LC raw datasets into one large master dataframe.
-    Refer to "Merging MLCPN and LC datasets - description.txt" for description.
+    Preprocesses the MLCPN+LC merged dataset following the steps in the README description.
     
-    Specify step as 0, 1, 2, or 3. Merging was broken down into 4 steps/jobs since 
-    processing all datasets took more than 72 hours (max time for CHTC job). 
     Usage:
-        python merge_datasets_chtc.py \
+        python preprocess_datasets_chtc.py \
         --rawdata_dir=../datasets/raw/ \
         --output_dir=../datasets/master/ \
         [--FP_size=1024] \
         [--FP_radius=2] \
-        [--binary_threshold=35.0]
+        [--binary_threshold=35.0] \
+        [--lb_inh_threshold=-100.0]
 """
 
 import argparse

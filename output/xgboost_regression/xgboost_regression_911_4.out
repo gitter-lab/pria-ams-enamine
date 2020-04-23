@@ -1,0 +1,92 @@
+label_name_list  [u'PriA-SSB AS Activity', u'PriA-SSB AS % inhibition (Primary Median)']
+train files  ['../datasets/keck_pria/fold_0.csv' '../datasets/keck_pria/fold_1.csv'
+ '../datasets/keck_pria/fold_2.csv' '../datasets/keck_pria/fold_3.csv'
+ '../datasets/keck_pria/fold_4.csv' '../datasets/keck_pria/fold_5.csv'
+ '../datasets/keck_pria/fold_6.csv' '../datasets/keck_pria/fold_7.csv']
+val files  ['../datasets/keck_pria/fold_8.csv']
+test files  ['../datasets/keck_pria/fold_9.csv']
+done data preparation
+[03:59:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 23336 extra nodes, 0 pruned nodes, max_depth=100
+[0]	validation_0-rmse:1.80231	validation_0-AUC[PR]:0.933157
+Multiple eval metrics have been passed: 'validation_0-AUC[PR]' will be used for early stopping.
+
+Will train until validation_0-AUC[PR] hasn't improved in 100 rounds.
+[04:05:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 23926 extra nodes, 0 pruned nodes, max_depth=100
+[1]	validation_0-rmse:3.0591	validation_0-AUC[PR]:0.908589
+[04:10:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 24406 extra nodes, 0 pruned nodes, max_depth=100
+[2]	validation_0-rmse:3.98584	validation_0-AUC[PR]:0.889164
+[04:17:01] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 24848 extra nodes, 0 pruned nodes, max_depth=100
+[3]	validation_0-rmse:4.70419	validation_0-AUC[PR]:0.893435
+[04:23:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 24678 extra nodes, 0 pruned nodes, max_depth=100
+[4]	validation_0-rmse:5.24514	validation_0-AUC[PR]:0.898047
+[04:29:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 24936 extra nodes, 0 pruned nodes, max_depth=100
+[5]	validation_0-rmse:5.66797	validation_0-AUC[PR]:0.891256
+[04:32:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 24244 extra nodes, 0 pruned nodes, max_depth=100
+[6]	validation_0-rmse:5.99719	validation_0-AUC[PR]:0.886089
+[04:36:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 23726 extra nodes, 0 pruned nodes, max_depth=100
+[7]	validation_0-rmse:6.26234	validation_0-AUC[PR]:0.879922
+[04:41:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 23450 extra nodes, 0 pruned nodes, max_depth=100
+[8]	validation_0-rmse:6.47984	validation_0-AUC[PR]:0.877579
+[04:47:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 24460 extra nodes, 0 pruned nodes, max_depth=100
+[9]	validation_0-rmse:6.649	validation_0-AUC[PR]:0.875529
+[04:53:32] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 23024 extra nodes, 0 pruned nodes, max_depth=100
+[10]	validation_0-rmse:6.79754	validation_0-AUC[PR]:0.870716
+[04:59:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 22362 extra nodes, 0 pruned nodes, max_depth=100
+[11]	validation_0-rmse:6.91974	validation_0-AUC[PR]:0.868862
+[05:05:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 22284 extra nodes, 0 pruned nodes, max_depth=100
+[12]	validation_0-rmse:7.01885	validation_0-AUC[PR]:0.872549
+[05:09:54] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 22882 extra nodes, 0 pruned nodes, max_depth=100
+[13]	validation_0-rmse:7.11241	validation_0-AUC[PR]:0.875533
+[05:13:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 22258 extra nodes, 0 pruned nodes, max_depth=100
+[14]	validation_0-rmse:7.19452	validation_0-AUC[PR]:0.863397
+[05:17:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 22776 extra nodes, 0 pruned nodes, max_depth=100
+[15]	validation_0-rmse:7.2707	validation_0-AUC[PR]:0.867171
+[05:21:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 22068 extra nodes, 0 pruned nodes, max_depth=100
+[16]	validation_0-rmse:7.3343	validation_0-AUC[PR]:0.864101
+[05:26:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 21048 extra nodes, 0 pruned nodes, max_depth=100
+[17]	validation_0-rmse:7.40003	validation_0-AUC[PR]:0.86733
+[05:31:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 20272 extra nodes, 0 pruned nodes, max_depth=100
+[18]	validation_0-rmse:7.45535	validation_0-AUC[PR]:0.867299
+[05:37:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 22608 extra nodes, 0 pruned nodes, max_depth=100
+[19]	validation_0-rmse:7.51276	validation_0-AUC[PR]:0.868948
+[05:43:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 21768 extra nodes, 0 pruned nodes, max_depth=100
+[20]	validation_0-rmse:7.55791	validation_0-AUC[PR]:0.861548
+[05:49:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 22624 extra nodes, 0 pruned nodes, max_depth=100
+[21]	validation_0-rmse:7.61216	validation_0-AUC[PR]:0.863356
+[05:53:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 22378 extra nodes, 0 pruned nodes, max_depth=100
+[22]	validation_0-rmse:7.65276	validation_0-AUC[PR]:0.866138
+[05:57:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 22148 extra nodes, 0 pruned nodes, max_depth=100
+[23]	validation_0-rmse:7.6928	validation_0-AUC[PR]:0.871792
+[06:01:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 22320 extra nodes, 0 pruned nodes, max_depth=100
+[24]	validation_0-rmse:7.73036	validation_0-AUC[PR]:0.871818
+[06:03:44] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 22776 extra nodes, 0 pruned nodes, max_depth=100
+[25]	validation_0-rmse:7.76141	validation_0-AUC[PR]:0.868605
+[06:06:21] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 21096 extra nodes, 0 pruned nodes, max_depth=100
+[26]	validation_0-rmse:7.79201	validation_0-AUC[PR]:0.870554
+[06:09:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 22056 extra nodes, 0 pruned nodes, max_depth=100
+[27]	validation_0-rmse:7.82066	validation_0-AUC[PR]:0.871794
+[06:12:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 22038 extra nodes, 0 pruned nodes, max_depth=100
+[28]	validation_0-rmse:7.85463	validation_0-AUC[PR]:0.875457
+[06:14:37] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 21326 extra nodes, 0 pruned nodes, max_depth=100
+[29]	validation_0-rmse:7.88234	validation_0-AUC[PR]:0.876835
+train precision: 0.237798036637
+train roc: 0.996269915427
+train hit: 399.0 out of 444.0
+
+val precision: 0.138452238633
+val roc: 0.932240430174
+val hit: 28.0 out of 55.0
+
+test precision: 0.0407193214447
+test roc: 0.896077478951
+test hit: 20.0 out of 55.0
+
+ratio: 0.02, EF: 28.1818181818,	active: 55.0
+ratio: 0.02, NEF: 0.563636363636
+ratio: 0.01, EF: 36.3636363636,	active: 55.0
+ratio: 0.01, NEF: 0.363636363636
+ratio: 0.0015, EF: 72.7272727273,	active: 55.0
+ratio: 0.0015, NEF: 0.109090909091
+ratio: 0.001, EF: 54.5454545455,	active: 55.0
+ratio: 0.001, NEF: 0.0714285714286
+

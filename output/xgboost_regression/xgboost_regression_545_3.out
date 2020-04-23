@@ -1,0 +1,2031 @@
+label_name_list  [u'PriA-SSB AS Activity', u'PriA-SSB AS % inhibition (Primary Median)']
+train files  ['../datasets/keck_pria/fold_0.csv' '../datasets/keck_pria/fold_1.csv'
+ '../datasets/keck_pria/fold_2.csv' '../datasets/keck_pria/fold_3.csv'
+ '../datasets/keck_pria/fold_4.csv' '../datasets/keck_pria/fold_5.csv']
+val files  ['../datasets/keck_pria/fold_6.csv']
+test files  ['../datasets/keck_pria/fold_7.csv']
+done data preparation
+[08:38:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 804 extra nodes, 0 pruned nodes, max_depth=10
+[0]	validation_0-rmse:0.329381	validation_0-AUC[PR]:0.979255
+Multiple eval metrics have been passed: 'validation_0-AUC[PR]' will be used for early stopping.
+
+Will train until validation_0-AUC[PR] hasn't improved in 1000 rounds.
+[08:38:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 896 extra nodes, 0 pruned nodes, max_depth=10
+[1]	validation_0-rmse:0.675434	validation_0-AUC[PR]:0.967126
+[08:38:50] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 830 extra nodes, 0 pruned nodes, max_depth=10
+[2]	validation_0-rmse:1.07037	validation_0-AUC[PR]:0.971825
+[08:39:03] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 830 extra nodes, 0 pruned nodes, max_depth=10
+[3]	validation_0-rmse:1.45615	validation_0-AUC[PR]:0.965902
+[08:39:16] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 800 extra nodes, 0 pruned nodes, max_depth=10
+[4]	validation_0-rmse:1.79599	validation_0-AUC[PR]:0.95702
+[08:39:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 918 extra nodes, 0 pruned nodes, max_depth=10
+[5]	validation_0-rmse:2.09475	validation_0-AUC[PR]:0.96209
+[08:39:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 876 extra nodes, 0 pruned nodes, max_depth=10
+[6]	validation_0-rmse:2.3638	validation_0-AUC[PR]:0.961095
+[08:39:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 852 extra nodes, 0 pruned nodes, max_depth=10
+[7]	validation_0-rmse:2.61775	validation_0-AUC[PR]:0.95882
+[08:40:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 846 extra nodes, 0 pruned nodes, max_depth=10
+[8]	validation_0-rmse:2.8561	validation_0-AUC[PR]:0.952809
+[08:40:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 790 extra nodes, 0 pruned nodes, max_depth=10
+[9]	validation_0-rmse:3.05614	validation_0-AUC[PR]:0.954411
+[08:40:33] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 844 extra nodes, 0 pruned nodes, max_depth=10
+[10]	validation_0-rmse:3.23587	validation_0-AUC[PR]:0.95636
+[08:40:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 706 extra nodes, 0 pruned nodes, max_depth=10
+[11]	validation_0-rmse:3.41335	validation_0-AUC[PR]:0.957762
+[08:40:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 706 extra nodes, 0 pruned nodes, max_depth=10
+[12]	validation_0-rmse:3.57226	validation_0-AUC[PR]:0.954169
+[08:41:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 792 extra nodes, 0 pruned nodes, max_depth=10
+[13]	validation_0-rmse:3.70358	validation_0-AUC[PR]:0.951455
+[08:41:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 792 extra nodes, 0 pruned nodes, max_depth=10
+[14]	validation_0-rmse:3.83663	validation_0-AUC[PR]:0.947085
+[08:41:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 694 extra nodes, 0 pruned nodes, max_depth=10
+[15]	validation_0-rmse:3.95536	validation_0-AUC[PR]:0.944503
+[08:41:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 764 extra nodes, 0 pruned nodes, max_depth=10
+[16]	validation_0-rmse:4.0546	validation_0-AUC[PR]:0.945335
+[08:41:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 776 extra nodes, 0 pruned nodes, max_depth=10
+[17]	validation_0-rmse:4.13797	validation_0-AUC[PR]:0.94442
+[08:41:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 764 extra nodes, 0 pruned nodes, max_depth=10
+[18]	validation_0-rmse:4.22555	validation_0-AUC[PR]:0.942752
+[08:41:55] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 696 extra nodes, 0 pruned nodes, max_depth=10
+[19]	validation_0-rmse:4.31322	validation_0-AUC[PR]:0.936908
+[08:42:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 804 extra nodes, 0 pruned nodes, max_depth=10
+[20]	validation_0-rmse:4.39215	validation_0-AUC[PR]:0.931115
+[08:42:13] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 722 extra nodes, 0 pruned nodes, max_depth=10
+[21]	validation_0-rmse:4.45423	validation_0-AUC[PR]:0.930956
+[08:42:21] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 652 extra nodes, 0 pruned nodes, max_depth=10
+[22]	validation_0-rmse:4.51344	validation_0-AUC[PR]:0.930315
+[08:42:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 648 extra nodes, 0 pruned nodes, max_depth=10
+[23]	validation_0-rmse:4.57936	validation_0-AUC[PR]:0.932221
+[08:42:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 816 extra nodes, 0 pruned nodes, max_depth=10
+[24]	validation_0-rmse:4.6423	validation_0-AUC[PR]:0.930018
+[08:42:50] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 674 extra nodes, 0 pruned nodes, max_depth=10
+[25]	validation_0-rmse:4.69287	validation_0-AUC[PR]:0.93015
+[08:43:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 628 extra nodes, 0 pruned nodes, max_depth=10
+[26]	validation_0-rmse:4.74008	validation_0-AUC[PR]:0.929616
+[08:43:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 582 extra nodes, 0 pruned nodes, max_depth=10
+[27]	validation_0-rmse:4.7788	validation_0-AUC[PR]:0.930554
+[08:43:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 666 extra nodes, 0 pruned nodes, max_depth=10
+[28]	validation_0-rmse:4.83447	validation_0-AUC[PR]:0.928196
+[08:43:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 710 extra nodes, 0 pruned nodes, max_depth=10
+[29]	validation_0-rmse:4.87869	validation_0-AUC[PR]:0.928111
+[08:43:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 730 extra nodes, 0 pruned nodes, max_depth=10
+[30]	validation_0-rmse:4.91922	validation_0-AUC[PR]:0.925424
+[08:43:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 640 extra nodes, 0 pruned nodes, max_depth=10
+[31]	validation_0-rmse:4.95033	validation_0-AUC[PR]:0.924496
+[08:44:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 556 extra nodes, 0 pruned nodes, max_depth=10
+[32]	validation_0-rmse:4.97565	validation_0-AUC[PR]:0.92359
+[08:44:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 692 extra nodes, 0 pruned nodes, max_depth=10
+[33]	validation_0-rmse:5.01193	validation_0-AUC[PR]:0.922232
+[08:44:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 696 extra nodes, 0 pruned nodes, max_depth=10
+[34]	validation_0-rmse:5.03653	validation_0-AUC[PR]:0.923145
+[08:44:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 694 extra nodes, 0 pruned nodes, max_depth=10
+[35]	validation_0-rmse:5.06569	validation_0-AUC[PR]:0.922861
+[08:45:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 600 extra nodes, 0 pruned nodes, max_depth=10
+[36]	validation_0-rmse:5.08836	validation_0-AUC[PR]:0.922362
+[08:45:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 562 extra nodes, 0 pruned nodes, max_depth=10
+[37]	validation_0-rmse:5.1079	validation_0-AUC[PR]:0.923229
+[08:45:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 744 extra nodes, 0 pruned nodes, max_depth=10
+[38]	validation_0-rmse:5.13134	validation_0-AUC[PR]:0.923253
+[08:45:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 594 extra nodes, 0 pruned nodes, max_depth=10
+[39]	validation_0-rmse:5.15099	validation_0-AUC[PR]:0.922878
+[08:45:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 598 extra nodes, 0 pruned nodes, max_depth=10
+[40]	validation_0-rmse:5.17229	validation_0-AUC[PR]:0.922017
+[08:45:44] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 546 extra nodes, 0 pruned nodes, max_depth=10
+[41]	validation_0-rmse:5.19193	validation_0-AUC[PR]:0.920196
+[08:45:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 628 extra nodes, 0 pruned nodes, max_depth=10
+[42]	validation_0-rmse:5.21584	validation_0-AUC[PR]:0.920861
+[08:45:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 522 extra nodes, 0 pruned nodes, max_depth=10
+[43]	validation_0-rmse:5.22977	validation_0-AUC[PR]:0.920063
+[08:46:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 630 extra nodes, 0 pruned nodes, max_depth=10
+[44]	validation_0-rmse:5.24208	validation_0-AUC[PR]:0.92199
+[08:46:15] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 544 extra nodes, 0 pruned nodes, max_depth=10
+[45]	validation_0-rmse:5.26365	validation_0-AUC[PR]:0.920876
+[08:46:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 680 extra nodes, 0 pruned nodes, max_depth=10
+[46]	validation_0-rmse:5.28131	validation_0-AUC[PR]:0.922488
+[08:46:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 556 extra nodes, 0 pruned nodes, max_depth=10
+[47]	validation_0-rmse:5.30518	validation_0-AUC[PR]:0.920705
+[08:46:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 594 extra nodes, 0 pruned nodes, max_depth=10
+[48]	validation_0-rmse:5.32145	validation_0-AUC[PR]:0.920394
+[08:46:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 554 extra nodes, 0 pruned nodes, max_depth=10
+[49]	validation_0-rmse:5.33546	validation_0-AUC[PR]:0.920624
+[08:46:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 570 extra nodes, 0 pruned nodes, max_depth=10
+[50]	validation_0-rmse:5.34799	validation_0-AUC[PR]:0.917516
+[08:47:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 546 extra nodes, 0 pruned nodes, max_depth=10
+[51]	validation_0-rmse:5.36234	validation_0-AUC[PR]:0.919886
+[08:47:13] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 516 extra nodes, 0 pruned nodes, max_depth=10
+[52]	validation_0-rmse:5.37718	validation_0-AUC[PR]:0.919863
+[08:47:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 512 extra nodes, 0 pruned nodes, max_depth=10
+[53]	validation_0-rmse:5.38493	validation_0-AUC[PR]:0.920002
+[08:47:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 544 extra nodes, 0 pruned nodes, max_depth=10
+[54]	validation_0-rmse:5.39773	validation_0-AUC[PR]:0.92119
+[08:47:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 672 extra nodes, 0 pruned nodes, max_depth=10
+[55]	validation_0-rmse:5.4084	validation_0-AUC[PR]:0.920275
+[08:47:50] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 492 extra nodes, 0 pruned nodes, max_depth=10
+[56]	validation_0-rmse:5.41738	validation_0-AUC[PR]:0.920975
+[08:48:01] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 532 extra nodes, 0 pruned nodes, max_depth=10
+[57]	validation_0-rmse:5.42618	validation_0-AUC[PR]:0.921413
+[08:48:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 462 extra nodes, 0 pruned nodes, max_depth=10
+[58]	validation_0-rmse:5.43694	validation_0-AUC[PR]:0.921291
+[08:48:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 512 extra nodes, 0 pruned nodes, max_depth=10
+[59]	validation_0-rmse:5.44698	validation_0-AUC[PR]:0.92017
+[08:48:28] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 620 extra nodes, 0 pruned nodes, max_depth=10
+[60]	validation_0-rmse:5.45924	validation_0-AUC[PR]:0.919076
+[08:48:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 544 extra nodes, 0 pruned nodes, max_depth=10
+[61]	validation_0-rmse:5.47061	validation_0-AUC[PR]:0.918993
+[08:48:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 432 extra nodes, 0 pruned nodes, max_depth=10
+[62]	validation_0-rmse:5.4799	validation_0-AUC[PR]:0.91862
+[08:48:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 608 extra nodes, 0 pruned nodes, max_depth=10
+[63]	validation_0-rmse:5.4904	validation_0-AUC[PR]:0.917605
+[08:48:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 518 extra nodes, 0 pruned nodes, max_depth=10
+[64]	validation_0-rmse:5.49856	validation_0-AUC[PR]:0.91757
+[08:49:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 632 extra nodes, 0 pruned nodes, max_depth=10
+[65]	validation_0-rmse:5.50919	validation_0-AUC[PR]:0.918062
+[08:49:15] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 462 extra nodes, 0 pruned nodes, max_depth=10
+[66]	validation_0-rmse:5.51698	validation_0-AUC[PR]:0.918267
+[08:49:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 492 extra nodes, 0 pruned nodes, max_depth=10
+[67]	validation_0-rmse:5.52909	validation_0-AUC[PR]:0.919915
+[08:49:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 434 extra nodes, 0 pruned nodes, max_depth=10
+[68]	validation_0-rmse:5.53591	validation_0-AUC[PR]:0.920217
+[08:49:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 472 extra nodes, 0 pruned nodes, max_depth=10
+[69]	validation_0-rmse:5.54421	validation_0-AUC[PR]:0.919968
+[08:49:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 402 extra nodes, 0 pruned nodes, max_depth=10
+[70]	validation_0-rmse:5.5514	validation_0-AUC[PR]:0.92001
+[08:49:55] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 482 extra nodes, 0 pruned nodes, max_depth=10
+[71]	validation_0-rmse:5.55821	validation_0-AUC[PR]:0.920201
+[08:50:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 538 extra nodes, 0 pruned nodes, max_depth=10
+[72]	validation_0-rmse:5.57056	validation_0-AUC[PR]:0.920608
+[08:50:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 428 extra nodes, 0 pruned nodes, max_depth=10
+[73]	validation_0-rmse:5.57658	validation_0-AUC[PR]:0.920955
+[08:50:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 538 extra nodes, 0 pruned nodes, max_depth=10
+[74]	validation_0-rmse:5.58645	validation_0-AUC[PR]:0.918135
+[08:50:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 408 extra nodes, 0 pruned nodes, max_depth=10
+[75]	validation_0-rmse:5.59228	validation_0-AUC[PR]:0.918614
+[08:50:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 476 extra nodes, 0 pruned nodes, max_depth=10
+[76]	validation_0-rmse:5.59926	validation_0-AUC[PR]:0.918763
+[08:50:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 464 extra nodes, 0 pruned nodes, max_depth=10
+[77]	validation_0-rmse:5.6083	validation_0-AUC[PR]:0.918384
+[08:50:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 514 extra nodes, 0 pruned nodes, max_depth=10
+[78]	validation_0-rmse:5.61714	validation_0-AUC[PR]:0.917595
+[08:51:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 498 extra nodes, 0 pruned nodes, max_depth=10
+[79]	validation_0-rmse:5.62281	validation_0-AUC[PR]:0.917962
+[08:51:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 572 extra nodes, 0 pruned nodes, max_depth=10
+[80]	validation_0-rmse:5.63624	validation_0-AUC[PR]:0.91494
+[08:51:16] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[81]	validation_0-rmse:5.64238	validation_0-AUC[PR]:0.914557
+[08:51:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 556 extra nodes, 0 pruned nodes, max_depth=10
+[82]	validation_0-rmse:5.65157	validation_0-AUC[PR]:0.915736
+[08:51:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 358 extra nodes, 0 pruned nodes, max_depth=10
+[83]	validation_0-rmse:5.65602	validation_0-AUC[PR]:0.916167
+[08:51:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 454 extra nodes, 0 pruned nodes, max_depth=10
+[84]	validation_0-rmse:5.66104	validation_0-AUC[PR]:0.915028
+[08:51:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 556 extra nodes, 0 pruned nodes, max_depth=10
+[85]	validation_0-rmse:5.66681	validation_0-AUC[PR]:0.912662
+[08:51:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 434 extra nodes, 0 pruned nodes, max_depth=10
+[86]	validation_0-rmse:5.67263	validation_0-AUC[PR]:0.9125
+[08:52:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 524 extra nodes, 0 pruned nodes, max_depth=10
+[87]	validation_0-rmse:5.68042	validation_0-AUC[PR]:0.912048
+[08:52:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 504 extra nodes, 0 pruned nodes, max_depth=10
+[88]	validation_0-rmse:5.68516	validation_0-AUC[PR]:0.912097
+[08:52:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 562 extra nodes, 0 pruned nodes, max_depth=10
+[89]	validation_0-rmse:5.68868	validation_0-AUC[PR]:0.912113
+[08:52:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 462 extra nodes, 0 pruned nodes, max_depth=10
+[90]	validation_0-rmse:5.6921	validation_0-AUC[PR]:0.912208
+[08:52:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 552 extra nodes, 0 pruned nodes, max_depth=10
+[91]	validation_0-rmse:5.6984	validation_0-AUC[PR]:0.911539
+[08:52:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[92]	validation_0-rmse:5.70234	validation_0-AUC[PR]:0.911607
+[08:52:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 528 extra nodes, 0 pruned nodes, max_depth=10
+[93]	validation_0-rmse:5.70746	validation_0-AUC[PR]:0.913018
+[08:52:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 382 extra nodes, 0 pruned nodes, max_depth=10
+[94]	validation_0-rmse:5.7154	validation_0-AUC[PR]:0.912137
+[08:53:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 488 extra nodes, 0 pruned nodes, max_depth=10
+[95]	validation_0-rmse:5.71904	validation_0-AUC[PR]:0.912112
+[08:53:15] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 478 extra nodes, 0 pruned nodes, max_depth=10
+[96]	validation_0-rmse:5.72569	validation_0-AUC[PR]:0.912345
+[08:53:23] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 532 extra nodes, 0 pruned nodes, max_depth=10
+[97]	validation_0-rmse:5.73234	validation_0-AUC[PR]:0.912169
+[08:53:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 480 extra nodes, 0 pruned nodes, max_depth=10
+[98]	validation_0-rmse:5.73742	validation_0-AUC[PR]:0.912314
+[08:53:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 420 extra nodes, 0 pruned nodes, max_depth=10
+[99]	validation_0-rmse:5.7407	validation_0-AUC[PR]:0.912113
+[08:53:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 390 extra nodes, 0 pruned nodes, max_depth=10
+[100]	validation_0-rmse:5.74378	validation_0-AUC[PR]:0.912136
+[08:54:03] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[101]	validation_0-rmse:5.74904	validation_0-AUC[PR]:0.91261
+[08:54:13] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 468 extra nodes, 0 pruned nodes, max_depth=10
+[102]	validation_0-rmse:5.7538	validation_0-AUC[PR]:0.912448
+[08:54:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 470 extra nodes, 0 pruned nodes, max_depth=10
+[103]	validation_0-rmse:5.75912	validation_0-AUC[PR]:0.912532
+[08:54:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 540 extra nodes, 0 pruned nodes, max_depth=10
+[104]	validation_0-rmse:5.7657	validation_0-AUC[PR]:0.91207
+[08:54:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 396 extra nodes, 0 pruned nodes, max_depth=10
+[105]	validation_0-rmse:5.77057	validation_0-AUC[PR]:0.912415
+[08:54:55] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 382 extra nodes, 0 pruned nodes, max_depth=10
+[106]	validation_0-rmse:5.77345	validation_0-AUC[PR]:0.912381
+[08:55:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 408 extra nodes, 0 pruned nodes, max_depth=10
+[107]	validation_0-rmse:5.77755	validation_0-AUC[PR]:0.913573
+[08:55:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 530 extra nodes, 0 pruned nodes, max_depth=10
+[108]	validation_0-rmse:5.7844	validation_0-AUC[PR]:0.911665
+[08:55:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 498 extra nodes, 0 pruned nodes, max_depth=10
+[109]	validation_0-rmse:5.78728	validation_0-AUC[PR]:0.911199
+[08:55:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 338 extra nodes, 0 pruned nodes, max_depth=10
+[110]	validation_0-rmse:5.79019	validation_0-AUC[PR]:0.911655
+[08:55:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 470 extra nodes, 0 pruned nodes, max_depth=10
+[111]	validation_0-rmse:5.79562	validation_0-AUC[PR]:0.911322
+[08:56:03] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 472 extra nodes, 0 pruned nodes, max_depth=10
+[112]	validation_0-rmse:5.80017	validation_0-AUC[PR]:0.911299
+[08:56:13] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 442 extra nodes, 0 pruned nodes, max_depth=10
+[113]	validation_0-rmse:5.80398	validation_0-AUC[PR]:0.911404
+[08:56:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 546 extra nodes, 0 pruned nodes, max_depth=10
+[114]	validation_0-rmse:5.81061	validation_0-AUC[PR]:0.911618
+[08:56:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 468 extra nodes, 0 pruned nodes, max_depth=10
+[115]	validation_0-rmse:5.8166	validation_0-AUC[PR]:0.909858
+[08:56:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 614 extra nodes, 0 pruned nodes, max_depth=10
+[116]	validation_0-rmse:5.82147	validation_0-AUC[PR]:0.91012
+[08:56:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 516 extra nodes, 0 pruned nodes, max_depth=10
+[117]	validation_0-rmse:5.82597	validation_0-AUC[PR]:0.910376
+[08:57:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 498 extra nodes, 0 pruned nodes, max_depth=10
+[118]	validation_0-rmse:5.83164	validation_0-AUC[PR]:0.910507
+[08:57:21] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 518 extra nodes, 0 pruned nodes, max_depth=10
+[119]	validation_0-rmse:5.8356	validation_0-AUC[PR]:0.910524
+[08:57:32] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 482 extra nodes, 0 pruned nodes, max_depth=10
+[120]	validation_0-rmse:5.83858	validation_0-AUC[PR]:0.910542
+[08:57:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 440 extra nodes, 0 pruned nodes, max_depth=10
+[121]	validation_0-rmse:5.8423	validation_0-AUC[PR]:0.910648
+[08:57:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 430 extra nodes, 0 pruned nodes, max_depth=10
+[122]	validation_0-rmse:5.84529	validation_0-AUC[PR]:0.91019
+[08:58:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 434 extra nodes, 0 pruned nodes, max_depth=10
+[123]	validation_0-rmse:5.84906	validation_0-AUC[PR]:0.910223
+[08:58:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 506 extra nodes, 0 pruned nodes, max_depth=10
+[124]	validation_0-rmse:5.85309	validation_0-AUC[PR]:0.910436
+[08:58:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 408 extra nodes, 0 pruned nodes, max_depth=10
+[125]	validation_0-rmse:5.85583	validation_0-AUC[PR]:0.910394
+[08:58:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 396 extra nodes, 0 pruned nodes, max_depth=10
+[126]	validation_0-rmse:5.85917	validation_0-AUC[PR]:0.910521
+[08:59:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 480 extra nodes, 0 pruned nodes, max_depth=10
+[127]	validation_0-rmse:5.86406	validation_0-AUC[PR]:0.910198
+[08:59:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 490 extra nodes, 0 pruned nodes, max_depth=10
+[128]	validation_0-rmse:5.8684	validation_0-AUC[PR]:0.910331
+[08:59:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 352 extra nodes, 0 pruned nodes, max_depth=10
+[129]	validation_0-rmse:5.87147	validation_0-AUC[PR]:0.910136
+[08:59:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 486 extra nodes, 0 pruned nodes, max_depth=10
+[130]	validation_0-rmse:5.87514	validation_0-AUC[PR]:0.910075
+[09:00:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 466 extra nodes, 0 pruned nodes, max_depth=10
+[131]	validation_0-rmse:5.87991	validation_0-AUC[PR]:0.910282
+[09:00:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 448 extra nodes, 0 pruned nodes, max_depth=10
+[132]	validation_0-rmse:5.88303	validation_0-AUC[PR]:0.910288
+[09:00:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[133]	validation_0-rmse:5.88617	validation_0-AUC[PR]:0.90985
+[09:01:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 380 extra nodes, 0 pruned nodes, max_depth=10
+[134]	validation_0-rmse:5.88962	validation_0-AUC[PR]:0.90981
+[09:01:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 406 extra nodes, 0 pruned nodes, max_depth=10
+[135]	validation_0-rmse:5.89355	validation_0-AUC[PR]:0.909641
+[09:01:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[136]	validation_0-rmse:5.89719	validation_0-AUC[PR]:0.909653
+[09:01:55] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 410 extra nodes, 0 pruned nodes, max_depth=10
+[137]	validation_0-rmse:5.90316	validation_0-AUC[PR]:0.909974
+[09:02:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 482 extra nodes, 0 pruned nodes, max_depth=10
+[138]	validation_0-rmse:5.90874	validation_0-AUC[PR]:0.909937
+[09:02:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 358 extra nodes, 0 pruned nodes, max_depth=10
+[139]	validation_0-rmse:5.91251	validation_0-AUC[PR]:0.9095
+[09:02:50] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 440 extra nodes, 0 pruned nodes, max_depth=10
+[140]	validation_0-rmse:5.91494	validation_0-AUC[PR]:0.909404
+[09:03:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 356 extra nodes, 0 pruned nodes, max_depth=10
+[141]	validation_0-rmse:5.91735	validation_0-AUC[PR]:0.909222
+[09:03:25] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 334 extra nodes, 0 pruned nodes, max_depth=10
+[142]	validation_0-rmse:5.92218	validation_0-AUC[PR]:0.90703
+[09:03:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[143]	validation_0-rmse:5.92584	validation_0-AUC[PR]:0.906798
+[09:04:01] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 374 extra nodes, 0 pruned nodes, max_depth=10
+[144]	validation_0-rmse:5.92822	validation_0-AUC[PR]:0.906784
+[09:04:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 472 extra nodes, 0 pruned nodes, max_depth=10
+[145]	validation_0-rmse:5.93014	validation_0-AUC[PR]:0.906838
+[09:04:37] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[146]	validation_0-rmse:5.93271	validation_0-AUC[PR]:0.906975
+[09:04:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 502 extra nodes, 0 pruned nodes, max_depth=10
+[147]	validation_0-rmse:5.93739	validation_0-AUC[PR]:0.906388
+[09:05:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[148]	validation_0-rmse:5.93969	validation_0-AUC[PR]:0.90643
+[09:05:33] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[149]	validation_0-rmse:5.9432	validation_0-AUC[PR]:0.907352
+[09:05:50] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 478 extra nodes, 0 pruned nodes, max_depth=10
+[150]	validation_0-rmse:5.94764	validation_0-AUC[PR]:0.907558
+[09:06:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[151]	validation_0-rmse:5.95032	validation_0-AUC[PR]:0.906045
+[09:06:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 358 extra nodes, 0 pruned nodes, max_depth=10
+[152]	validation_0-rmse:5.95434	validation_0-AUC[PR]:0.906342
+[09:06:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 528 extra nodes, 0 pruned nodes, max_depth=10
+[153]	validation_0-rmse:5.95795	validation_0-AUC[PR]:0.906197
+[09:07:03] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 352 extra nodes, 0 pruned nodes, max_depth=10
+[154]	validation_0-rmse:5.96029	validation_0-AUC[PR]:0.906027
+[09:07:23] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 464 extra nodes, 0 pruned nodes, max_depth=10
+[155]	validation_0-rmse:5.96307	validation_0-AUC[PR]:0.906412
+[09:07:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 360 extra nodes, 0 pruned nodes, max_depth=10
+[156]	validation_0-rmse:5.96571	validation_0-AUC[PR]:0.906436
+[09:08:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 404 extra nodes, 0 pruned nodes, max_depth=10
+[157]	validation_0-rmse:5.96852	validation_0-AUC[PR]:0.90646
+[09:08:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 518 extra nodes, 0 pruned nodes, max_depth=10
+[158]	validation_0-rmse:5.97243	validation_0-AUC[PR]:0.906366
+[09:08:33] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 452 extra nodes, 0 pruned nodes, max_depth=10
+[159]	validation_0-rmse:5.97481	validation_0-AUC[PR]:0.906419
+[09:08:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 426 extra nodes, 0 pruned nodes, max_depth=10
+[160]	validation_0-rmse:5.97747	validation_0-AUC[PR]:0.906522
+[09:09:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[161]	validation_0-rmse:5.98037	validation_0-AUC[PR]:0.906479
+[09:09:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 362 extra nodes, 0 pruned nodes, max_depth=10
+[162]	validation_0-rmse:5.98305	validation_0-AUC[PR]:0.906636
+[09:09:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 400 extra nodes, 0 pruned nodes, max_depth=10
+[163]	validation_0-rmse:5.98591	validation_0-AUC[PR]:0.906332
+[09:10:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 500 extra nodes, 0 pruned nodes, max_depth=10
+[164]	validation_0-rmse:5.98803	validation_0-AUC[PR]:0.906253
+[09:10:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 432 extra nodes, 0 pruned nodes, max_depth=10
+[165]	validation_0-rmse:5.99053	validation_0-AUC[PR]:0.90583
+[09:10:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 478 extra nodes, 0 pruned nodes, max_depth=10
+[166]	validation_0-rmse:5.994	validation_0-AUC[PR]:0.905918
+[09:11:03] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 380 extra nodes, 0 pruned nodes, max_depth=10
+[167]	validation_0-rmse:5.99643	validation_0-AUC[PR]:0.905869
+[09:11:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 360 extra nodes, 0 pruned nodes, max_depth=10
+[168]	validation_0-rmse:5.9984	validation_0-AUC[PR]:0.905553
+[09:11:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 386 extra nodes, 0 pruned nodes, max_depth=10
+[169]	validation_0-rmse:6.00138	validation_0-AUC[PR]:0.90559
+[09:11:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 404 extra nodes, 0 pruned nodes, max_depth=10
+[170]	validation_0-rmse:6.00245	validation_0-AUC[PR]:0.905614
+[09:12:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 354 extra nodes, 0 pruned nodes, max_depth=10
+[171]	validation_0-rmse:6.00491	validation_0-AUC[PR]:0.905639
+[09:12:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 386 extra nodes, 0 pruned nodes, max_depth=10
+[172]	validation_0-rmse:6.00761	validation_0-AUC[PR]:0.905531
+[09:12:54] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[173]	validation_0-rmse:6.00946	validation_0-AUC[PR]:0.905485
+[09:13:12] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 404 extra nodes, 0 pruned nodes, max_depth=10
+[174]	validation_0-rmse:6.01193	validation_0-AUC[PR]:0.905535
+[09:13:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 444 extra nodes, 0 pruned nodes, max_depth=10
+[175]	validation_0-rmse:6.01462	validation_0-AUC[PR]:0.904719
+[09:13:50] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[176]	validation_0-rmse:6.01836	validation_0-AUC[PR]:0.904938
+[09:14:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[177]	validation_0-rmse:6.02051	validation_0-AUC[PR]:0.904985
+[09:14:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 320 extra nodes, 0 pruned nodes, max_depth=10
+[178]	validation_0-rmse:6.02262	validation_0-AUC[PR]:0.904947
+[09:14:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 430 extra nodes, 0 pruned nodes, max_depth=10
+[179]	validation_0-rmse:6.0246	validation_0-AUC[PR]:0.904964
+[09:15:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 402 extra nodes, 0 pruned nodes, max_depth=10
+[180]	validation_0-rmse:6.02793	validation_0-AUC[PR]:0.905087
+[09:15:23] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[181]	validation_0-rmse:6.03116	validation_0-AUC[PR]:0.903644
+[09:15:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[182]	validation_0-rmse:6.03435	validation_0-AUC[PR]:0.903653
+[09:16:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 454 extra nodes, 0 pruned nodes, max_depth=10
+[183]	validation_0-rmse:6.03656	validation_0-AUC[PR]:0.90368
+[09:16:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 452 extra nodes, 0 pruned nodes, max_depth=10
+[184]	validation_0-rmse:6.0396	validation_0-AUC[PR]:0.903796
+[09:16:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 382 extra nodes, 0 pruned nodes, max_depth=10
+[185]	validation_0-rmse:6.04064	validation_0-AUC[PR]:0.903835
+[09:16:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 380 extra nodes, 0 pruned nodes, max_depth=10
+[186]	validation_0-rmse:6.04252	validation_0-AUC[PR]:0.903853
+[09:17:16] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 444 extra nodes, 0 pruned nodes, max_depth=10
+[187]	validation_0-rmse:6.04594	validation_0-AUC[PR]:0.90345
+[09:17:34] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 360 extra nodes, 0 pruned nodes, max_depth=10
+[188]	validation_0-rmse:6.04809	validation_0-AUC[PR]:0.903336
+[09:17:54] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 462 extra nodes, 0 pruned nodes, max_depth=10
+[189]	validation_0-rmse:6.0522	validation_0-AUC[PR]:0.90342
+[09:18:12] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 420 extra nodes, 0 pruned nodes, max_depth=10
+[190]	validation_0-rmse:6.05572	validation_0-AUC[PR]:0.903874
+[09:18:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 452 extra nodes, 0 pruned nodes, max_depth=10
+[191]	validation_0-rmse:6.05857	validation_0-AUC[PR]:0.904015
+[09:18:50] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 410 extra nodes, 0 pruned nodes, max_depth=10
+[192]	validation_0-rmse:6.06221	validation_0-AUC[PR]:0.902467
+[09:19:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 374 extra nodes, 0 pruned nodes, max_depth=10
+[193]	validation_0-rmse:6.06306	validation_0-AUC[PR]:0.902329
+[09:19:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 378 extra nodes, 0 pruned nodes, max_depth=10
+[194]	validation_0-rmse:6.06419	validation_0-AUC[PR]:0.902336
+[09:19:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[195]	validation_0-rmse:6.06806	validation_0-AUC[PR]:0.902433
+[09:20:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 414 extra nodes, 0 pruned nodes, max_depth=10
+[196]	validation_0-rmse:6.07224	validation_0-AUC[PR]:0.902357
+[09:20:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 496 extra nodes, 0 pruned nodes, max_depth=10
+[197]	validation_0-rmse:6.07489	validation_0-AUC[PR]:0.902493
+[09:20:44] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 490 extra nodes, 0 pruned nodes, max_depth=10
+[198]	validation_0-rmse:6.0784	validation_0-AUC[PR]:0.902606
+[09:21:03] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 462 extra nodes, 0 pruned nodes, max_depth=10
+[199]	validation_0-rmse:6.08026	validation_0-AUC[PR]:0.902651
+[09:21:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 382 extra nodes, 0 pruned nodes, max_depth=10
+[200]	validation_0-rmse:6.08184	validation_0-AUC[PR]:0.902772
+[09:21:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 400 extra nodes, 0 pruned nodes, max_depth=10
+[201]	validation_0-rmse:6.0836	validation_0-AUC[PR]:0.902737
+[09:21:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 344 extra nodes, 0 pruned nodes, max_depth=10
+[202]	validation_0-rmse:6.08478	validation_0-AUC[PR]:0.902615
+[09:22:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[203]	validation_0-rmse:6.08808	validation_0-AUC[PR]:0.902013
+[09:22:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 410 extra nodes, 0 pruned nodes, max_depth=10
+[204]	validation_0-rmse:6.09017	validation_0-AUC[PR]:0.901996
+[09:22:55] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[205]	validation_0-rmse:6.09163	validation_0-AUC[PR]:0.901992
+[09:23:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 498 extra nodes, 0 pruned nodes, max_depth=10
+[206]	validation_0-rmse:6.09497	validation_0-AUC[PR]:0.902102
+[09:23:33] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 480 extra nodes, 0 pruned nodes, max_depth=10
+[207]	validation_0-rmse:6.09586	validation_0-AUC[PR]:0.902249
+[09:23:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 390 extra nodes, 0 pruned nodes, max_depth=10
+[208]	validation_0-rmse:6.09743	validation_0-AUC[PR]:0.902379
+[09:24:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 368 extra nodes, 0 pruned nodes, max_depth=10
+[209]	validation_0-rmse:6.0994	validation_0-AUC[PR]:0.902672
+[09:24:28] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[210]	validation_0-rmse:6.10137	validation_0-AUC[PR]:0.902628
+[09:24:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 476 extra nodes, 0 pruned nodes, max_depth=10
+[211]	validation_0-rmse:6.10336	validation_0-AUC[PR]:0.90266
+[09:25:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 524 extra nodes, 0 pruned nodes, max_depth=10
+[212]	validation_0-rmse:6.10732	validation_0-AUC[PR]:0.902424
+[09:25:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 546 extra nodes, 0 pruned nodes, max_depth=10
+[213]	validation_0-rmse:6.1106	validation_0-AUC[PR]:0.902268
+[09:25:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[214]	validation_0-rmse:6.11342	validation_0-AUC[PR]:0.902276
+[09:26:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[215]	validation_0-rmse:6.11552	validation_0-AUC[PR]:0.902431
+[09:26:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 370 extra nodes, 0 pruned nodes, max_depth=10
+[216]	validation_0-rmse:6.11795	validation_0-AUC[PR]:0.902521
+[09:26:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 520 extra nodes, 0 pruned nodes, max_depth=10
+[217]	validation_0-rmse:6.12087	validation_0-AUC[PR]:0.902519
+[09:27:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 344 extra nodes, 0 pruned nodes, max_depth=10
+[218]	validation_0-rmse:6.12458	validation_0-AUC[PR]:0.901175
+[09:27:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 396 extra nodes, 0 pruned nodes, max_depth=10
+[219]	validation_0-rmse:6.12585	validation_0-AUC[PR]:0.900913
+[09:27:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 482 extra nodes, 0 pruned nodes, max_depth=10
+[220]	validation_0-rmse:6.12699	validation_0-AUC[PR]:0.900982
+[09:27:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 348 extra nodes, 0 pruned nodes, max_depth=10
+[221]	validation_0-rmse:6.12837	validation_0-AUC[PR]:0.900846
+[09:28:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 352 extra nodes, 0 pruned nodes, max_depth=10
+[222]	validation_0-rmse:6.13018	validation_0-AUC[PR]:0.900977
+[09:28:33] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 432 extra nodes, 0 pruned nodes, max_depth=10
+[223]	validation_0-rmse:6.13229	validation_0-AUC[PR]:0.900999
+[09:28:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 420 extra nodes, 0 pruned nodes, max_depth=10
+[224]	validation_0-rmse:6.13536	validation_0-AUC[PR]:0.901151
+[09:29:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 494 extra nodes, 0 pruned nodes, max_depth=10
+[225]	validation_0-rmse:6.13775	validation_0-AUC[PR]:0.900069
+[09:29:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 512 extra nodes, 0 pruned nodes, max_depth=10
+[226]	validation_0-rmse:6.14264	validation_0-AUC[PR]:0.900152
+[09:29:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 416 extra nodes, 0 pruned nodes, max_depth=10
+[227]	validation_0-rmse:6.14474	validation_0-AUC[PR]:0.899945
+[09:30:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[228]	validation_0-rmse:6.14707	validation_0-AUC[PR]:0.900021
+[09:30:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 466 extra nodes, 0 pruned nodes, max_depth=10
+[229]	validation_0-rmse:6.14911	validation_0-AUC[PR]:0.90002
+[09:30:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[230]	validation_0-rmse:6.15139	validation_0-AUC[PR]:0.900006
+[09:31:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[231]	validation_0-rmse:6.15449	validation_0-AUC[PR]:0.899993
+[09:31:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 336 extra nodes, 0 pruned nodes, max_depth=10
+[232]	validation_0-rmse:6.15697	validation_0-AUC[PR]:0.89979
+[09:31:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 490 extra nodes, 0 pruned nodes, max_depth=10
+[233]	validation_0-rmse:6.16116	validation_0-AUC[PR]:0.899762
+[09:32:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 484 extra nodes, 0 pruned nodes, max_depth=10
+[234]	validation_0-rmse:6.16324	validation_0-AUC[PR]:0.899893
+[09:32:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 364 extra nodes, 0 pruned nodes, max_depth=10
+[235]	validation_0-rmse:6.1648	validation_0-AUC[PR]:0.899934
+[09:32:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 334 extra nodes, 0 pruned nodes, max_depth=10
+[236]	validation_0-rmse:6.16653	validation_0-AUC[PR]:0.89997
+[09:32:53] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 334 extra nodes, 0 pruned nodes, max_depth=10
+[237]	validation_0-rmse:6.16808	validation_0-AUC[PR]:0.900006
+[09:33:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 320 extra nodes, 0 pruned nodes, max_depth=10
+[238]	validation_0-rmse:6.16966	validation_0-AUC[PR]:0.900006
+[09:33:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 394 extra nodes, 0 pruned nodes, max_depth=10
+[239]	validation_0-rmse:6.17137	validation_0-AUC[PR]:0.899894
+[09:33:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 426 extra nodes, 0 pruned nodes, max_depth=10
+[240]	validation_0-rmse:6.17348	validation_0-AUC[PR]:0.899934
+[09:34:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 394 extra nodes, 0 pruned nodes, max_depth=10
+[241]	validation_0-rmse:6.17569	validation_0-AUC[PR]:0.899854
+[09:34:25] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 520 extra nodes, 0 pruned nodes, max_depth=10
+[242]	validation_0-rmse:6.17869	validation_0-AUC[PR]:0.8998
+[09:34:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 314 extra nodes, 0 pruned nodes, max_depth=10
+[243]	validation_0-rmse:6.17985	validation_0-AUC[PR]:0.899809
+[09:35:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[244]	validation_0-rmse:6.18178	validation_0-AUC[PR]:0.899636
+[09:35:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 408 extra nodes, 0 pruned nodes, max_depth=10
+[245]	validation_0-rmse:6.18433	validation_0-AUC[PR]:0.899196
+[09:35:37] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[246]	validation_0-rmse:6.18641	validation_0-AUC[PR]:0.900127
+[09:35:55] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 408 extra nodes, 0 pruned nodes, max_depth=10
+[247]	validation_0-rmse:6.18805	validation_0-AUC[PR]:0.900202
+[09:36:15] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 502 extra nodes, 0 pruned nodes, max_depth=10
+[248]	validation_0-rmse:6.18886	validation_0-AUC[PR]:0.900192
+[09:36:34] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 488 extra nodes, 0 pruned nodes, max_depth=10
+[249]	validation_0-rmse:6.19093	validation_0-AUC[PR]:0.900221
+[09:36:53] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 380 extra nodes, 0 pruned nodes, max_depth=10
+[250]	validation_0-rmse:6.19295	validation_0-AUC[PR]:0.900493
+[09:37:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 406 extra nodes, 0 pruned nodes, max_depth=10
+[251]	validation_0-rmse:6.19512	validation_0-AUC[PR]:0.89942
+[09:37:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[252]	validation_0-rmse:6.19666	validation_0-AUC[PR]:0.899467
+[09:37:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 394 extra nodes, 0 pruned nodes, max_depth=10
+[253]	validation_0-rmse:6.19819	validation_0-AUC[PR]:0.899427
+[09:38:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[254]	validation_0-rmse:6.19952	validation_0-AUC[PR]:0.899221
+[09:38:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 514 extra nodes, 0 pruned nodes, max_depth=10
+[255]	validation_0-rmse:6.20359	validation_0-AUC[PR]:0.899374
+[09:38:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 430 extra nodes, 0 pruned nodes, max_depth=10
+[256]	validation_0-rmse:6.20606	validation_0-AUC[PR]:0.899598
+[09:39:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[257]	validation_0-rmse:6.20762	validation_0-AUC[PR]:0.899523
+[09:39:23] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 408 extra nodes, 0 pruned nodes, max_depth=10
+[258]	validation_0-rmse:6.20999	validation_0-AUC[PR]:0.899957
+[09:39:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[259]	validation_0-rmse:6.21098	validation_0-AUC[PR]:0.899984
+[09:39:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[260]	validation_0-rmse:6.21269	validation_0-AUC[PR]:0.900166
+[09:40:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 536 extra nodes, 0 pruned nodes, max_depth=10
+[261]	validation_0-rmse:6.2171	validation_0-AUC[PR]:0.900471
+[09:40:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 462 extra nodes, 0 pruned nodes, max_depth=10
+[262]	validation_0-rmse:6.21876	validation_0-AUC[PR]:0.900508
+[09:40:57] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[263]	validation_0-rmse:6.21968	validation_0-AUC[PR]:0.90033
+[09:41:16] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[264]	validation_0-rmse:6.22166	validation_0-AUC[PR]:0.900107
+[09:41:34] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 440 extra nodes, 0 pruned nodes, max_depth=10
+[265]	validation_0-rmse:6.22498	validation_0-AUC[PR]:0.899918
+[09:41:53] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 416 extra nodes, 0 pruned nodes, max_depth=10
+[266]	validation_0-rmse:6.22738	validation_0-AUC[PR]:0.900033
+[09:42:12] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 452 extra nodes, 0 pruned nodes, max_depth=10
+[267]	validation_0-rmse:6.22949	validation_0-AUC[PR]:0.900121
+[09:42:32] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 478 extra nodes, 0 pruned nodes, max_depth=10
+[268]	validation_0-rmse:6.23507	validation_0-AUC[PR]:0.900133
+[09:42:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 430 extra nodes, 0 pruned nodes, max_depth=10
+[269]	validation_0-rmse:6.23672	validation_0-AUC[PR]:0.89964
+[09:43:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 434 extra nodes, 0 pruned nodes, max_depth=10
+[270]	validation_0-rmse:6.23801	validation_0-AUC[PR]:0.899411
+[09:43:28] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 386 extra nodes, 0 pruned nodes, max_depth=10
+[271]	validation_0-rmse:6.23951	validation_0-AUC[PR]:0.899222
+[09:43:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 340 extra nodes, 0 pruned nodes, max_depth=10
+[272]	validation_0-rmse:6.24146	validation_0-AUC[PR]:0.899252
+[09:44:03] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 334 extra nodes, 0 pruned nodes, max_depth=10
+[273]	validation_0-rmse:6.24304	validation_0-AUC[PR]:0.899431
+[09:44:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[274]	validation_0-rmse:6.24584	validation_0-AUC[PR]:0.899371
+[09:44:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 414 extra nodes, 0 pruned nodes, max_depth=10
+[275]	validation_0-rmse:6.24822	validation_0-AUC[PR]:0.89939
+[09:44:44] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 358 extra nodes, 0 pruned nodes, max_depth=10
+[276]	validation_0-rmse:6.25008	validation_0-AUC[PR]:0.899509
+[09:44:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[277]	validation_0-rmse:6.25172	validation_0-AUC[PR]:0.899454
+[09:45:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 384 extra nodes, 0 pruned nodes, max_depth=10
+[278]	validation_0-rmse:6.25228	validation_0-AUC[PR]:0.899502
+[09:45:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 458 extra nodes, 0 pruned nodes, max_depth=10
+[279]	validation_0-rmse:6.25456	validation_0-AUC[PR]:0.899572
+[09:45:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 402 extra nodes, 0 pruned nodes, max_depth=10
+[280]	validation_0-rmse:6.25532	validation_0-AUC[PR]:0.899662
+[09:45:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 410 extra nodes, 0 pruned nodes, max_depth=10
+[281]	validation_0-rmse:6.25705	validation_0-AUC[PR]:0.899674
+[09:45:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 352 extra nodes, 0 pruned nodes, max_depth=10
+[282]	validation_0-rmse:6.2592	validation_0-AUC[PR]:0.899551
+[09:46:03] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[283]	validation_0-rmse:6.26143	validation_0-AUC[PR]:0.899504
+[09:46:16] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[284]	validation_0-rmse:6.26383	validation_0-AUC[PR]:0.899434
+[09:46:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[285]	validation_0-rmse:6.26516	validation_0-AUC[PR]:0.899357
+[09:46:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 448 extra nodes, 0 pruned nodes, max_depth=10
+[286]	validation_0-rmse:6.2669	validation_0-AUC[PR]:0.899346
+[09:46:50] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 408 extra nodes, 0 pruned nodes, max_depth=10
+[287]	validation_0-rmse:6.26992	validation_0-AUC[PR]:0.899488
+[09:47:02] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[288]	validation_0-rmse:6.27158	validation_0-AUC[PR]:0.898341
+[09:47:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 420 extra nodes, 0 pruned nodes, max_depth=10
+[289]	validation_0-rmse:6.27268	validation_0-AUC[PR]:0.896393
+[09:47:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[290]	validation_0-rmse:6.27511	validation_0-AUC[PR]:0.896847
+[09:47:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 442 extra nodes, 0 pruned nodes, max_depth=10
+[291]	validation_0-rmse:6.27617	validation_0-AUC[PR]:0.896882
+[09:47:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 452 extra nodes, 0 pruned nodes, max_depth=10
+[292]	validation_0-rmse:6.27815	validation_0-AUC[PR]:0.89689
+[09:47:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 372 extra nodes, 0 pruned nodes, max_depth=10
+[293]	validation_0-rmse:6.27945	validation_0-AUC[PR]:0.896719
+[09:48:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 430 extra nodes, 0 pruned nodes, max_depth=10
+[294]	validation_0-rmse:6.28139	validation_0-AUC[PR]:0.896777
+[09:48:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 474 extra nodes, 0 pruned nodes, max_depth=10
+[295]	validation_0-rmse:6.2842	validation_0-AUC[PR]:0.897028
+[09:48:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[296]	validation_0-rmse:6.28648	validation_0-AUC[PR]:0.896757
+[09:48:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 406 extra nodes, 0 pruned nodes, max_depth=10
+[297]	validation_0-rmse:6.2881	validation_0-AUC[PR]:0.896981
+[09:48:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 360 extra nodes, 0 pruned nodes, max_depth=10
+[298]	validation_0-rmse:6.28973	validation_0-AUC[PR]:0.89704
+[09:49:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 442 extra nodes, 0 pruned nodes, max_depth=10
+[299]	validation_0-rmse:6.29249	validation_0-AUC[PR]:0.896925
+[09:49:21] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 374 extra nodes, 0 pruned nodes, max_depth=10
+[300]	validation_0-rmse:6.29336	validation_0-AUC[PR]:0.896788
+[09:49:32] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 334 extra nodes, 0 pruned nodes, max_depth=10
+[301]	validation_0-rmse:6.29414	validation_0-AUC[PR]:0.896444
+[09:49:44] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 372 extra nodes, 0 pruned nodes, max_depth=10
+[302]	validation_0-rmse:6.29499	validation_0-AUC[PR]:0.896442
+[09:49:55] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 466 extra nodes, 0 pruned nodes, max_depth=10
+[303]	validation_0-rmse:6.29652	validation_0-AUC[PR]:0.896396
+[09:50:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 536 extra nodes, 0 pruned nodes, max_depth=10
+[304]	validation_0-rmse:6.29811	validation_0-AUC[PR]:0.896375
+[09:50:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 346 extra nodes, 0 pruned nodes, max_depth=10
+[305]	validation_0-rmse:6.29948	validation_0-AUC[PR]:0.896476
+[09:50:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[306]	validation_0-rmse:6.30165	validation_0-AUC[PR]:0.896472
+[09:50:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 384 extra nodes, 0 pruned nodes, max_depth=10
+[307]	validation_0-rmse:6.30298	validation_0-AUC[PR]:0.896434
+[09:50:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[308]	validation_0-rmse:6.30468	validation_0-AUC[PR]:0.896242
+[09:51:03] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 418 extra nodes, 0 pruned nodes, max_depth=10
+[309]	validation_0-rmse:6.30646	validation_0-AUC[PR]:0.896413
+[09:51:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[310]	validation_0-rmse:6.30793	validation_0-AUC[PR]:0.896207
+[09:51:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 432 extra nodes, 0 pruned nodes, max_depth=10
+[311]	validation_0-rmse:6.31003	validation_0-AUC[PR]:0.896222
+[09:51:37] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[312]	validation_0-rmse:6.31071	validation_0-AUC[PR]:0.896189
+[09:51:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 420 extra nodes, 0 pruned nodes, max_depth=10
+[313]	validation_0-rmse:6.3131	validation_0-AUC[PR]:0.896316
+[09:51:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[314]	validation_0-rmse:6.31575	validation_0-AUC[PR]:0.89621
+[09:52:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 366 extra nodes, 0 pruned nodes, max_depth=10
+[315]	validation_0-rmse:6.31664	validation_0-AUC[PR]:0.896226
+[09:52:21] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 408 extra nodes, 0 pruned nodes, max_depth=10
+[316]	validation_0-rmse:6.31824	validation_0-AUC[PR]:0.896416
+[09:52:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 288 extra nodes, 0 pruned nodes, max_depth=10
+[317]	validation_0-rmse:6.31935	validation_0-AUC[PR]:0.896192
+[09:52:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 334 extra nodes, 0 pruned nodes, max_depth=10
+[318]	validation_0-rmse:6.3206	validation_0-AUC[PR]:0.896086
+[09:52:53] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 292 extra nodes, 0 pruned nodes, max_depth=10
+[319]	validation_0-rmse:6.32207	validation_0-AUC[PR]:0.896212
+[09:53:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[320]	validation_0-rmse:6.32335	validation_0-AUC[PR]:0.896407
+[09:53:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 370 extra nodes, 0 pruned nodes, max_depth=10
+[321]	validation_0-rmse:6.32552	validation_0-AUC[PR]:0.896112
+[09:53:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[322]	validation_0-rmse:6.32665	validation_0-AUC[PR]:0.896391
+[09:53:53] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 368 extra nodes, 0 pruned nodes, max_depth=10
+[323]	validation_0-rmse:6.32845	validation_0-AUC[PR]:0.896304
+[09:54:02] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 384 extra nodes, 0 pruned nodes, max_depth=10
+[324]	validation_0-rmse:6.32952	validation_0-AUC[PR]:0.896136
+[09:54:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 364 extra nodes, 0 pruned nodes, max_depth=10
+[325]	validation_0-rmse:6.33133	validation_0-AUC[PR]:0.896073
+[09:54:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 374 extra nodes, 0 pruned nodes, max_depth=10
+[326]	validation_0-rmse:6.33285	validation_0-AUC[PR]:0.896088
+[09:54:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 462 extra nodes, 0 pruned nodes, max_depth=10
+[327]	validation_0-rmse:6.33507	validation_0-AUC[PR]:0.896127
+[09:54:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 470 extra nodes, 0 pruned nodes, max_depth=10
+[328]	validation_0-rmse:6.33716	validation_0-AUC[PR]:0.896103
+[09:54:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 316 extra nodes, 0 pruned nodes, max_depth=10
+[329]	validation_0-rmse:6.33841	validation_0-AUC[PR]:0.896094
+[09:54:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 468 extra nodes, 0 pruned nodes, max_depth=10
+[330]	validation_0-rmse:6.33969	validation_0-AUC[PR]:0.896146
+[09:55:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 470 extra nodes, 0 pruned nodes, max_depth=10
+[331]	validation_0-rmse:6.34077	validation_0-AUC[PR]:0.896114
+[09:55:28] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 422 extra nodes, 0 pruned nodes, max_depth=10
+[332]	validation_0-rmse:6.34175	validation_0-AUC[PR]:0.896097
+[09:55:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 370 extra nodes, 0 pruned nodes, max_depth=10
+[333]	validation_0-rmse:6.34268	validation_0-AUC[PR]:0.896133
+[09:56:01] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 364 extra nodes, 0 pruned nodes, max_depth=10
+[334]	validation_0-rmse:6.3437	validation_0-AUC[PR]:0.896148
+[09:56:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 336 extra nodes, 0 pruned nodes, max_depth=10
+[335]	validation_0-rmse:6.34555	validation_0-AUC[PR]:0.896016
+[09:56:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 338 extra nodes, 0 pruned nodes, max_depth=10
+[336]	validation_0-rmse:6.3476	validation_0-AUC[PR]:0.896071
+[09:56:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 448 extra nodes, 0 pruned nodes, max_depth=10
+[337]	validation_0-rmse:6.34957	validation_0-AUC[PR]:0.89595
+[09:57:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 370 extra nodes, 0 pruned nodes, max_depth=10
+[338]	validation_0-rmse:6.35094	validation_0-AUC[PR]:0.895971
+[09:57:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 422 extra nodes, 0 pruned nodes, max_depth=10
+[339]	validation_0-rmse:6.35276	validation_0-AUC[PR]:0.895847
+[09:57:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 452 extra nodes, 0 pruned nodes, max_depth=10
+[340]	validation_0-rmse:6.35473	validation_0-AUC[PR]:0.895955
+[09:58:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 332 extra nodes, 0 pruned nodes, max_depth=10
+[341]	validation_0-rmse:6.35616	validation_0-AUC[PR]:0.896149
+[09:58:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 402 extra nodes, 0 pruned nodes, max_depth=10
+[342]	validation_0-rmse:6.35763	validation_0-AUC[PR]:0.896096
+[09:58:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[343]	validation_0-rmse:6.35918	validation_0-AUC[PR]:0.895851
+[09:58:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 374 extra nodes, 0 pruned nodes, max_depth=10
+[344]	validation_0-rmse:6.36014	validation_0-AUC[PR]:0.89577
+[09:58:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 378 extra nodes, 0 pruned nodes, max_depth=10
+[345]	validation_0-rmse:6.36084	validation_0-AUC[PR]:0.895788
+[09:59:12] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 476 extra nodes, 0 pruned nodes, max_depth=10
+[346]	validation_0-rmse:6.36262	validation_0-AUC[PR]:0.895825
+[09:59:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 394 extra nodes, 0 pruned nodes, max_depth=10
+[347]	validation_0-rmse:6.36447	validation_0-AUC[PR]:0.896059
+[09:59:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 446 extra nodes, 0 pruned nodes, max_depth=10
+[348]	validation_0-rmse:6.36517	validation_0-AUC[PR]:0.89613
+[10:00:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 394 extra nodes, 0 pruned nodes, max_depth=10
+[349]	validation_0-rmse:6.3672	validation_0-AUC[PR]:0.896266
+[10:00:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[350]	validation_0-rmse:6.36994	validation_0-AUC[PR]:0.896312
+[10:00:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[351]	validation_0-rmse:6.37202	validation_0-AUC[PR]:0.896354
+[10:00:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 378 extra nodes, 0 pruned nodes, max_depth=10
+[352]	validation_0-rmse:6.37352	validation_0-AUC[PR]:0.896461
+[10:01:15] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[353]	validation_0-rmse:6.37482	validation_0-AUC[PR]:0.89643
+[10:01:32] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 404 extra nodes, 0 pruned nodes, max_depth=10
+[354]	validation_0-rmse:6.37599	validation_0-AUC[PR]:0.896417
+[10:01:50] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 428 extra nodes, 0 pruned nodes, max_depth=10
+[355]	validation_0-rmse:6.37698	validation_0-AUC[PR]:0.896491
+[10:02:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 490 extra nodes, 0 pruned nodes, max_depth=10
+[356]	validation_0-rmse:6.37832	validation_0-AUC[PR]:0.896116
+[10:02:21] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 508 extra nodes, 0 pruned nodes, max_depth=10
+[357]	validation_0-rmse:6.38022	validation_0-AUC[PR]:0.896093
+[10:02:33] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 474 extra nodes, 0 pruned nodes, max_depth=10
+[358]	validation_0-rmse:6.38201	validation_0-AUC[PR]:0.896235
+[10:02:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 472 extra nodes, 0 pruned nodes, max_depth=10
+[359]	validation_0-rmse:6.38313	validation_0-AUC[PR]:0.896107
+[10:03:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 364 extra nodes, 0 pruned nodes, max_depth=10
+[360]	validation_0-rmse:6.38453	validation_0-AUC[PR]:0.896104
+[10:03:28] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 506 extra nodes, 0 pruned nodes, max_depth=10
+[361]	validation_0-rmse:6.39046	validation_0-AUC[PR]:0.8965
+[10:03:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 360 extra nodes, 0 pruned nodes, max_depth=10
+[362]	validation_0-rmse:6.392	validation_0-AUC[PR]:0.896523
+[10:04:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 464 extra nodes, 0 pruned nodes, max_depth=10
+[363]	validation_0-rmse:6.39327	validation_0-AUC[PR]:0.896743
+[10:04:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 444 extra nodes, 0 pruned nodes, max_depth=10
+[364]	validation_0-rmse:6.39451	validation_0-AUC[PR]:0.896768
+[10:04:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 344 extra nodes, 0 pruned nodes, max_depth=10
+[365]	validation_0-rmse:6.396	validation_0-AUC[PR]:0.896796
+[10:04:55] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[366]	validation_0-rmse:6.39721	validation_0-AUC[PR]:0.896924
+[10:05:12] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 328 extra nodes, 0 pruned nodes, max_depth=10
+[367]	validation_0-rmse:6.3982	validation_0-AUC[PR]:0.896889
+[10:05:28] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 414 extra nodes, 0 pruned nodes, max_depth=10
+[368]	validation_0-rmse:6.4011	validation_0-AUC[PR]:0.897141
+[10:05:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 364 extra nodes, 0 pruned nodes, max_depth=10
+[369]	validation_0-rmse:6.4021	validation_0-AUC[PR]:0.897126
+[10:06:03] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 434 extra nodes, 0 pruned nodes, max_depth=10
+[370]	validation_0-rmse:6.40332	validation_0-AUC[PR]:0.897264
+[10:06:21] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 352 extra nodes, 0 pruned nodes, max_depth=10
+[371]	validation_0-rmse:6.40453	validation_0-AUC[PR]:0.89728
+[10:06:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 348 extra nodes, 0 pruned nodes, max_depth=10
+[372]	validation_0-rmse:6.40563	validation_0-AUC[PR]:0.897361
+[10:06:54] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 322 extra nodes, 0 pruned nodes, max_depth=10
+[373]	validation_0-rmse:6.40601	validation_0-AUC[PR]:0.897316
+[10:07:12] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 486 extra nodes, 0 pruned nodes, max_depth=10
+[374]	validation_0-rmse:6.40732	validation_0-AUC[PR]:0.897383
+[10:07:28] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 324 extra nodes, 0 pruned nodes, max_depth=10
+[375]	validation_0-rmse:6.4078	validation_0-AUC[PR]:0.897384
+[10:07:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 470 extra nodes, 0 pruned nodes, max_depth=10
+[376]	validation_0-rmse:6.40963	validation_0-AUC[PR]:0.89733
+[10:08:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 396 extra nodes, 0 pruned nodes, max_depth=10
+[377]	validation_0-rmse:6.41026	validation_0-AUC[PR]:0.897313
+[10:08:25] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 442 extra nodes, 0 pruned nodes, max_depth=10
+[378]	validation_0-rmse:6.41288	validation_0-AUC[PR]:0.897329
+[10:08:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 426 extra nodes, 0 pruned nodes, max_depth=10
+[379]	validation_0-rmse:6.41521	validation_0-AUC[PR]:0.897302
+[10:09:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 334 extra nodes, 0 pruned nodes, max_depth=10
+[380]	validation_0-rmse:6.41653	validation_0-AUC[PR]:0.897311
+[10:09:21] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 354 extra nodes, 0 pruned nodes, max_depth=10
+[381]	validation_0-rmse:6.41761	validation_0-AUC[PR]:0.89727
+[10:09:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 336 extra nodes, 0 pruned nodes, max_depth=10
+[382]	validation_0-rmse:6.41933	validation_0-AUC[PR]:0.900603
+[10:10:01] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 518 extra nodes, 0 pruned nodes, max_depth=10
+[383]	validation_0-rmse:6.42364	validation_0-AUC[PR]:0.900643
+[10:10:21] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[384]	validation_0-rmse:6.42499	validation_0-AUC[PR]:0.900642
+[10:10:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 434 extra nodes, 0 pruned nodes, max_depth=10
+[385]	validation_0-rmse:6.42555	validation_0-AUC[PR]:0.900665
+[10:11:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 382 extra nodes, 0 pruned nodes, max_depth=10
+[386]	validation_0-rmse:6.42573	validation_0-AUC[PR]:0.900614
+[10:11:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 492 extra nodes, 0 pruned nodes, max_depth=10
+[387]	validation_0-rmse:6.42742	validation_0-AUC[PR]:0.900606
+[10:11:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[388]	validation_0-rmse:6.42884	validation_0-AUC[PR]:0.900617
+[10:11:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[389]	validation_0-rmse:6.42971	validation_0-AUC[PR]:0.900723
+[10:12:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 386 extra nodes, 0 pruned nodes, max_depth=10
+[390]	validation_0-rmse:6.4301	validation_0-AUC[PR]:0.900741
+[10:12:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 474 extra nodes, 0 pruned nodes, max_depth=10
+[391]	validation_0-rmse:6.4311	validation_0-AUC[PR]:0.900783
+[10:12:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 408 extra nodes, 0 pruned nodes, max_depth=10
+[392]	validation_0-rmse:6.43229	validation_0-AUC[PR]:0.900761
+[10:13:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 364 extra nodes, 0 pruned nodes, max_depth=10
+[393]	validation_0-rmse:6.43361	validation_0-AUC[PR]:0.900614
+[10:13:33] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 452 extra nodes, 0 pruned nodes, max_depth=10
+[394]	validation_0-rmse:6.43435	validation_0-AUC[PR]:0.900621
+[10:13:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[395]	validation_0-rmse:6.4352	validation_0-AUC[PR]:0.900669
+[10:14:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 410 extra nodes, 0 pruned nodes, max_depth=10
+[396]	validation_0-rmse:6.43644	validation_0-AUC[PR]:0.900956
+[10:14:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 380 extra nodes, 0 pruned nodes, max_depth=10
+[397]	validation_0-rmse:6.43793	validation_0-AUC[PR]:0.900991
+[10:14:50] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 454 extra nodes, 0 pruned nodes, max_depth=10
+[398]	validation_0-rmse:6.43897	validation_0-AUC[PR]:0.90085
+[10:15:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 496 extra nodes, 0 pruned nodes, max_depth=10
+[399]	validation_0-rmse:6.44062	validation_0-AUC[PR]:0.90087
+[10:15:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 420 extra nodes, 0 pruned nodes, max_depth=10
+[400]	validation_0-rmse:6.44282	validation_0-AUC[PR]:0.899941
+[10:15:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 330 extra nodes, 0 pruned nodes, max_depth=10
+[401]	validation_0-rmse:6.44464	validation_0-AUC[PR]:0.900755
+[10:16:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 400 extra nodes, 0 pruned nodes, max_depth=10
+[402]	validation_0-rmse:6.44569	validation_0-AUC[PR]:0.900745
+[10:16:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 624 extra nodes, 0 pruned nodes, max_depth=10
+[403]	validation_0-rmse:6.44956	validation_0-AUC[PR]:0.899041
+[10:16:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 446 extra nodes, 0 pruned nodes, max_depth=10
+[404]	validation_0-rmse:6.45163	validation_0-AUC[PR]:0.900035
+[10:17:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 396 extra nodes, 0 pruned nodes, max_depth=10
+[405]	validation_0-rmse:6.45277	validation_0-AUC[PR]:0.899981
+[10:17:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 478 extra nodes, 0 pruned nodes, max_depth=10
+[406]	validation_0-rmse:6.45342	validation_0-AUC[PR]:0.899752
+[10:17:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 418 extra nodes, 0 pruned nodes, max_depth=10
+[407]	validation_0-rmse:6.45514	validation_0-AUC[PR]:0.899905
+[10:18:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 460 extra nodes, 0 pruned nodes, max_depth=10
+[408]	validation_0-rmse:6.45715	validation_0-AUC[PR]:0.899895
+[10:18:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 382 extra nodes, 0 pruned nodes, max_depth=10
+[409]	validation_0-rmse:6.45841	validation_0-AUC[PR]:0.89976
+[10:18:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 318 extra nodes, 0 pruned nodes, max_depth=10
+[410]	validation_0-rmse:6.45985	validation_0-AUC[PR]:0.899795
+[10:19:02] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 504 extra nodes, 0 pruned nodes, max_depth=10
+[411]	validation_0-rmse:6.46093	validation_0-AUC[PR]:0.899752
+[10:19:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 452 extra nodes, 0 pruned nodes, max_depth=10
+[412]	validation_0-rmse:6.46256	validation_0-AUC[PR]:0.899881
+[10:19:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[413]	validation_0-rmse:6.46401	validation_0-AUC[PR]:0.899928
+[10:19:54] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 402 extra nodes, 0 pruned nodes, max_depth=10
+[414]	validation_0-rmse:6.46492	validation_0-AUC[PR]:0.899926
+[10:20:13] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 452 extra nodes, 0 pruned nodes, max_depth=10
+[415]	validation_0-rmse:6.46572	validation_0-AUC[PR]:0.900015
+[10:20:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 400 extra nodes, 0 pruned nodes, max_depth=10
+[416]	validation_0-rmse:6.46741	validation_0-AUC[PR]:0.89999
+[10:20:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 410 extra nodes, 0 pruned nodes, max_depth=10
+[417]	validation_0-rmse:6.46893	validation_0-AUC[PR]:0.899968
+[10:20:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 358 extra nodes, 0 pruned nodes, max_depth=10
+[418]	validation_0-rmse:6.47078	validation_0-AUC[PR]:0.899666
+[10:21:13] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 664 extra nodes, 0 pruned nodes, max_depth=10
+[419]	validation_0-rmse:6.47466	validation_0-AUC[PR]:0.89825
+[10:21:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 374 extra nodes, 0 pruned nodes, max_depth=10
+[420]	validation_0-rmse:6.47567	validation_0-AUC[PR]:0.898239
+[10:21:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 320 extra nodes, 0 pruned nodes, max_depth=10
+[421]	validation_0-rmse:6.47676	validation_0-AUC[PR]:0.898245
+[10:22:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 498 extra nodes, 0 pruned nodes, max_depth=10
+[422]	validation_0-rmse:6.47822	validation_0-AUC[PR]:0.896441
+[10:22:25] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 490 extra nodes, 0 pruned nodes, max_depth=10
+[423]	validation_0-rmse:6.47952	validation_0-AUC[PR]:0.896353
+[10:22:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 312 extra nodes, 0 pruned nodes, max_depth=10
+[424]	validation_0-rmse:6.48057	validation_0-AUC[PR]:0.896381
+[10:22:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 408 extra nodes, 0 pruned nodes, max_depth=10
+[425]	validation_0-rmse:6.48207	validation_0-AUC[PR]:0.896422
+[10:23:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 576 extra nodes, 0 pruned nodes, max_depth=10
+[426]	validation_0-rmse:6.48628	validation_0-AUC[PR]:0.896828
+[10:23:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 390 extra nodes, 0 pruned nodes, max_depth=10
+[427]	validation_0-rmse:6.48726	validation_0-AUC[PR]:0.896761
+[10:23:53] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 414 extra nodes, 0 pruned nodes, max_depth=10
+[428]	validation_0-rmse:6.4883	validation_0-AUC[PR]:0.896807
+[10:24:02] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 378 extra nodes, 0 pruned nodes, max_depth=10
+[429]	validation_0-rmse:6.489	validation_0-AUC[PR]:0.898463
+[10:24:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 334 extra nodes, 0 pruned nodes, max_depth=10
+[430]	validation_0-rmse:6.49007	validation_0-AUC[PR]:0.898461
+[10:24:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 350 extra nodes, 0 pruned nodes, max_depth=10
+[431]	validation_0-rmse:6.49153	validation_0-AUC[PR]:0.898345
+[10:24:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 454 extra nodes, 0 pruned nodes, max_depth=10
+[432]	validation_0-rmse:6.49297	validation_0-AUC[PR]:0.898444
+[10:25:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 594 extra nodes, 0 pruned nodes, max_depth=10
+[433]	validation_0-rmse:6.49523	validation_0-AUC[PR]:0.898442
+[10:25:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 386 extra nodes, 0 pruned nodes, max_depth=10
+[434]	validation_0-rmse:6.49637	validation_0-AUC[PR]:0.898435
+[10:25:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 626 extra nodes, 0 pruned nodes, max_depth=10
+[435]	validation_0-rmse:6.49836	validation_0-AUC[PR]:0.898595
+[10:25:55] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 482 extra nodes, 0 pruned nodes, max_depth=10
+[436]	validation_0-rmse:6.49933	validation_0-AUC[PR]:0.898652
+[10:26:12] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 384 extra nodes, 0 pruned nodes, max_depth=10
+[437]	validation_0-rmse:6.50079	validation_0-AUC[PR]:0.89657
+[10:26:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 352 extra nodes, 0 pruned nodes, max_depth=10
+[438]	validation_0-rmse:6.50192	validation_0-AUC[PR]:0.896587
+[10:26:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 386 extra nodes, 0 pruned nodes, max_depth=10
+[439]	validation_0-rmse:6.5033	validation_0-AUC[PR]:0.897953
+[10:27:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 466 extra nodes, 0 pruned nodes, max_depth=10
+[440]	validation_0-rmse:6.50456	validation_0-AUC[PR]:0.897968
+[10:27:25] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 514 extra nodes, 0 pruned nodes, max_depth=10
+[441]	validation_0-rmse:6.50676	validation_0-AUC[PR]:0.897967
+[10:27:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 362 extra nodes, 0 pruned nodes, max_depth=10
+[442]	validation_0-rmse:6.50783	validation_0-AUC[PR]:0.897979
+[10:28:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 342 extra nodes, 0 pruned nodes, max_depth=10
+[443]	validation_0-rmse:6.50842	validation_0-AUC[PR]:0.897986
+[10:28:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[444]	validation_0-rmse:6.5093	validation_0-AUC[PR]:0.897952
+[10:28:32] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 334 extra nodes, 0 pruned nodes, max_depth=10
+[445]	validation_0-rmse:6.51044	validation_0-AUC[PR]:0.899599
+[10:28:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[446]	validation_0-rmse:6.5113	validation_0-AUC[PR]:0.899623
+[10:29:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 570 extra nodes, 0 pruned nodes, max_depth=10
+[447]	validation_0-rmse:6.51319	validation_0-AUC[PR]:0.899694
+[10:29:28] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 452 extra nodes, 0 pruned nodes, max_depth=10
+[448]	validation_0-rmse:6.51434	validation_0-AUC[PR]:0.899681
+[10:29:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 340 extra nodes, 0 pruned nodes, max_depth=10
+[449]	validation_0-rmse:6.5155	validation_0-AUC[PR]:0.89965
+[10:30:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 444 extra nodes, 0 pruned nodes, max_depth=10
+[450]	validation_0-rmse:6.51678	validation_0-AUC[PR]:0.899483
+[10:30:21] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 542 extra nodes, 0 pruned nodes, max_depth=10
+[451]	validation_0-rmse:6.51938	validation_0-AUC[PR]:0.899396
+[10:30:32] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 510 extra nodes, 0 pruned nodes, max_depth=10
+[452]	validation_0-rmse:6.52018	validation_0-AUC[PR]:0.899415
+[10:30:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 426 extra nodes, 0 pruned nodes, max_depth=10
+[453]	validation_0-rmse:6.52182	validation_0-AUC[PR]:0.899348
+[10:30:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 342 extra nodes, 0 pruned nodes, max_depth=10
+[454]	validation_0-rmse:6.52355	validation_0-AUC[PR]:0.897855
+[10:31:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 350 extra nodes, 0 pruned nodes, max_depth=10
+[455]	validation_0-rmse:6.52443	validation_0-AUC[PR]:0.897818
+[10:31:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 534 extra nodes, 0 pruned nodes, max_depth=10
+[456]	validation_0-rmse:6.52746	validation_0-AUC[PR]:0.89737
+[10:31:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 400 extra nodes, 0 pruned nodes, max_depth=10
+[457]	validation_0-rmse:6.528	validation_0-AUC[PR]:0.897375
+[10:32:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[458]	validation_0-rmse:6.52919	validation_0-AUC[PR]:0.897398
+[10:32:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 498 extra nodes, 0 pruned nodes, max_depth=10
+[459]	validation_0-rmse:6.53	validation_0-AUC[PR]:0.897278
+[10:32:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[460]	validation_0-rmse:6.53081	validation_0-AUC[PR]:0.897279
+[10:33:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 368 extra nodes, 0 pruned nodes, max_depth=10
+[461]	validation_0-rmse:6.53116	validation_0-AUC[PR]:0.897317
+[10:33:23] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[462]	validation_0-rmse:6.5331	validation_0-AUC[PR]:0.897402
+[10:33:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 444 extra nodes, 0 pruned nodes, max_depth=10
+[463]	validation_0-rmse:6.53465	validation_0-AUC[PR]:0.89733
+[10:33:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 344 extra nodes, 0 pruned nodes, max_depth=10
+[464]	validation_0-rmse:6.53519	validation_0-AUC[PR]:0.897329
+[10:34:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[465]	validation_0-rmse:6.53592	validation_0-AUC[PR]:0.896977
+[10:34:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[466]	validation_0-rmse:6.53714	validation_0-AUC[PR]:0.897017
+[10:34:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 460 extra nodes, 0 pruned nodes, max_depth=10
+[467]	validation_0-rmse:6.53879	validation_0-AUC[PR]:0.896992
+[10:35:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 330 extra nodes, 0 pruned nodes, max_depth=10
+[468]	validation_0-rmse:6.53924	validation_0-AUC[PR]:0.897039
+[10:35:33] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 352 extra nodes, 0 pruned nodes, max_depth=10
+[469]	validation_0-rmse:6.54027	validation_0-AUC[PR]:0.897143
+[10:35:54] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 490 extra nodes, 0 pruned nodes, max_depth=10
+[470]	validation_0-rmse:6.54212	validation_0-AUC[PR]:0.896764
+[10:36:13] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[471]	validation_0-rmse:6.54328	validation_0-AUC[PR]:0.89704
+[10:36:32] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 328 extra nodes, 0 pruned nodes, max_depth=10
+[472]	validation_0-rmse:6.54472	validation_0-AUC[PR]:0.897108
+[10:36:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 410 extra nodes, 0 pruned nodes, max_depth=10
+[473]	validation_0-rmse:6.54582	validation_0-AUC[PR]:0.897182
+[10:37:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 420 extra nodes, 0 pruned nodes, max_depth=10
+[474]	validation_0-rmse:6.5465	validation_0-AUC[PR]:0.897267
+[10:37:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[475]	validation_0-rmse:6.54788	validation_0-AUC[PR]:0.897557
+[10:37:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 498 extra nodes, 0 pruned nodes, max_depth=10
+[476]	validation_0-rmse:6.54979	validation_0-AUC[PR]:0.897565
+[10:38:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 340 extra nodes, 0 pruned nodes, max_depth=10
+[477]	validation_0-rmse:6.55036	validation_0-AUC[PR]:0.89754
+[10:38:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 328 extra nodes, 0 pruned nodes, max_depth=10
+[478]	validation_0-rmse:6.55131	validation_0-AUC[PR]:0.897395
+[10:38:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 386 extra nodes, 0 pruned nodes, max_depth=10
+[479]	validation_0-rmse:6.55303	validation_0-AUC[PR]:0.897365
+[10:39:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[480]	validation_0-rmse:6.55402	validation_0-AUC[PR]:0.897397
+[10:39:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[481]	validation_0-rmse:6.55477	validation_0-AUC[PR]:0.897391
+[10:39:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 500 extra nodes, 0 pruned nodes, max_depth=10
+[482]	validation_0-rmse:6.5563	validation_0-AUC[PR]:0.89747
+[10:40:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[483]	validation_0-rmse:6.55806	validation_0-AUC[PR]:0.897253
+[10:40:28] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 500 extra nodes, 0 pruned nodes, max_depth=10
+[484]	validation_0-rmse:6.56092	validation_0-AUC[PR]:0.897412
+[10:40:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 400 extra nodes, 0 pruned nodes, max_depth=10
+[485]	validation_0-rmse:6.56228	validation_0-AUC[PR]:0.897439
+[10:41:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 432 extra nodes, 0 pruned nodes, max_depth=10
+[486]	validation_0-rmse:6.56529	validation_0-AUC[PR]:0.897496
+[10:41:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[487]	validation_0-rmse:6.567	validation_0-AUC[PR]:0.897521
+[10:41:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 326 extra nodes, 0 pruned nodes, max_depth=10
+[488]	validation_0-rmse:6.568	validation_0-AUC[PR]:0.897523
+[10:42:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 394 extra nodes, 0 pruned nodes, max_depth=10
+[489]	validation_0-rmse:6.56867	validation_0-AUC[PR]:0.897376
+[10:42:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 452 extra nodes, 0 pruned nodes, max_depth=10
+[490]	validation_0-rmse:6.56997	validation_0-AUC[PR]:0.898102
+[10:42:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 474 extra nodes, 0 pruned nodes, max_depth=10
+[491]	validation_0-rmse:6.57066	validation_0-AUC[PR]:0.898103
+[10:43:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 394 extra nodes, 0 pruned nodes, max_depth=10
+[492]	validation_0-rmse:6.57162	validation_0-AUC[PR]:0.898025
+[10:43:25] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 390 extra nodes, 0 pruned nodes, max_depth=10
+[493]	validation_0-rmse:6.5727	validation_0-AUC[PR]:0.89796
+[10:43:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[494]	validation_0-rmse:6.57403	validation_0-AUC[PR]:0.897953
+[10:44:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[495]	validation_0-rmse:6.57473	validation_0-AUC[PR]:0.897954
+[10:44:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 430 extra nodes, 0 pruned nodes, max_depth=10
+[496]	validation_0-rmse:6.57592	validation_0-AUC[PR]:0.898106
+[10:44:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 364 extra nodes, 0 pruned nodes, max_depth=10
+[497]	validation_0-rmse:6.57689	validation_0-AUC[PR]:0.898114
+[10:45:02] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 296 extra nodes, 0 pruned nodes, max_depth=10
+[498]	validation_0-rmse:6.57794	validation_0-AUC[PR]:0.897775
+[10:45:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 414 extra nodes, 0 pruned nodes, max_depth=10
+[499]	validation_0-rmse:6.57944	validation_0-AUC[PR]:0.897429
+[10:45:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[500]	validation_0-rmse:6.58086	validation_0-AUC[PR]:0.897688
+[10:46:01] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 416 extra nodes, 0 pruned nodes, max_depth=10
+[501]	validation_0-rmse:6.58294	validation_0-AUC[PR]:0.897612
+[10:46:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 358 extra nodes, 0 pruned nodes, max_depth=10
+[502]	validation_0-rmse:6.58344	validation_0-AUC[PR]:0.89761
+[10:46:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 528 extra nodes, 0 pruned nodes, max_depth=10
+[503]	validation_0-rmse:6.58507	validation_0-AUC[PR]:0.897389
+[10:46:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 358 extra nodes, 0 pruned nodes, max_depth=10
+[504]	validation_0-rmse:6.58628	validation_0-AUC[PR]:0.897417
+[10:47:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 366 extra nodes, 0 pruned nodes, max_depth=10
+[505]	validation_0-rmse:6.58679	validation_0-AUC[PR]:0.897364
+[10:47:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[506]	validation_0-rmse:6.58852	validation_0-AUC[PR]:0.897469
+[10:47:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 478 extra nodes, 0 pruned nodes, max_depth=10
+[507]	validation_0-rmse:6.58962	validation_0-AUC[PR]:0.897475
+[10:48:16] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 416 extra nodes, 0 pruned nodes, max_depth=10
+[508]	validation_0-rmse:6.59065	validation_0-AUC[PR]:0.897562
+[10:48:33] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[509]	validation_0-rmse:6.59112	validation_0-AUC[PR]:0.897551
+[10:48:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 264 extra nodes, 0 pruned nodes, max_depth=10
+[510]	validation_0-rmse:6.59172	validation_0-AUC[PR]:0.897481
+[10:49:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[511]	validation_0-rmse:6.59262	validation_0-AUC[PR]:0.897501
+[10:49:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 458 extra nodes, 0 pruned nodes, max_depth=10
+[512]	validation_0-rmse:6.59394	validation_0-AUC[PR]:0.897571
+[10:49:50] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 394 extra nodes, 0 pruned nodes, max_depth=10
+[513]	validation_0-rmse:6.59513	validation_0-AUC[PR]:0.897529
+[10:50:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 420 extra nodes, 0 pruned nodes, max_depth=10
+[514]	validation_0-rmse:6.59648	validation_0-AUC[PR]:0.897548
+[10:50:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 350 extra nodes, 0 pruned nodes, max_depth=10
+[515]	validation_0-rmse:6.59741	validation_0-AUC[PR]:0.897477
+[10:50:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 364 extra nodes, 0 pruned nodes, max_depth=10
+[516]	validation_0-rmse:6.59844	validation_0-AUC[PR]:0.897195
+[10:51:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 440 extra nodes, 0 pruned nodes, max_depth=10
+[517]	validation_0-rmse:6.59946	validation_0-AUC[PR]:0.897221
+[10:51:21] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 386 extra nodes, 0 pruned nodes, max_depth=10
+[518]	validation_0-rmse:6.60197	validation_0-AUC[PR]:0.897141
+[10:51:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 482 extra nodes, 0 pruned nodes, max_depth=10
+[519]	validation_0-rmse:6.60234	validation_0-AUC[PR]:0.897153
+[10:51:54] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 428 extra nodes, 0 pruned nodes, max_depth=10
+[520]	validation_0-rmse:6.603	validation_0-AUC[PR]:0.8971
+[10:52:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 514 extra nodes, 0 pruned nodes, max_depth=10
+[521]	validation_0-rmse:6.60515	validation_0-AUC[PR]:0.897191
+[10:52:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 304 extra nodes, 0 pruned nodes, max_depth=10
+[522]	validation_0-rmse:6.60578	validation_0-AUC[PR]:0.897066
+[10:52:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 454 extra nodes, 0 pruned nodes, max_depth=10
+[523]	validation_0-rmse:6.60681	validation_0-AUC[PR]:0.897115
+[10:52:55] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[524]	validation_0-rmse:6.60818	validation_0-AUC[PR]:0.897096
+[10:53:12] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 390 extra nodes, 0 pruned nodes, max_depth=10
+[525]	validation_0-rmse:6.60973	validation_0-AUC[PR]:0.897033
+[10:53:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 472 extra nodes, 0 pruned nodes, max_depth=10
+[526]	validation_0-rmse:6.61154	validation_0-AUC[PR]:0.89707
+[10:53:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 396 extra nodes, 0 pruned nodes, max_depth=10
+[527]	validation_0-rmse:6.6136	validation_0-AUC[PR]:0.897128
+[10:54:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 518 extra nodes, 0 pruned nodes, max_depth=10
+[528]	validation_0-rmse:6.61566	validation_0-AUC[PR]:0.897128
+[10:54:23] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 318 extra nodes, 0 pruned nodes, max_depth=10
+[529]	validation_0-rmse:6.616	validation_0-AUC[PR]:0.897124
+[10:54:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 384 extra nodes, 0 pruned nodes, max_depth=10
+[530]	validation_0-rmse:6.61668	validation_0-AUC[PR]:0.897084
+[10:55:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[531]	validation_0-rmse:6.61766	validation_0-AUC[PR]:0.897187
+[10:55:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[532]	validation_0-rmse:6.61823	validation_0-AUC[PR]:0.897199
+[10:55:34] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 348 extra nodes, 0 pruned nodes, max_depth=10
+[533]	validation_0-rmse:6.61963	validation_0-AUC[PR]:0.897109
+[10:55:53] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[534]	validation_0-rmse:6.62126	validation_0-AUC[PR]:0.896965
+[10:56:02] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 374 extra nodes, 0 pruned nodes, max_depth=10
+[535]	validation_0-rmse:6.62209	validation_0-AUC[PR]:0.896914
+[10:56:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 414 extra nodes, 0 pruned nodes, max_depth=10
+[536]	validation_0-rmse:6.62315	validation_0-AUC[PR]:0.896949
+[10:56:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 374 extra nodes, 0 pruned nodes, max_depth=10
+[537]	validation_0-rmse:6.62436	validation_0-AUC[PR]:0.896926
+[10:56:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 270 extra nodes, 0 pruned nodes, max_depth=10
+[538]	validation_0-rmse:6.62513	validation_0-AUC[PR]:0.897061
+[10:57:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 410 extra nodes, 0 pruned nodes, max_depth=10
+[539]	validation_0-rmse:6.62638	validation_0-AUC[PR]:0.896914
+[10:57:25] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 362 extra nodes, 0 pruned nodes, max_depth=10
+[540]	validation_0-rmse:6.62736	validation_0-AUC[PR]:0.897009
+[10:57:44] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 394 extra nodes, 0 pruned nodes, max_depth=10
+[541]	validation_0-rmse:6.62812	validation_0-AUC[PR]:0.897031
+[10:57:54] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 350 extra nodes, 0 pruned nodes, max_depth=10
+[542]	validation_0-rmse:6.6292	validation_0-AUC[PR]:0.897014
+[10:58:12] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 404 extra nodes, 0 pruned nodes, max_depth=10
+[543]	validation_0-rmse:6.63021	validation_0-AUC[PR]:0.897004
+[10:58:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[544]	validation_0-rmse:6.63104	validation_0-AUC[PR]:0.896998
+[10:58:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 488 extra nodes, 0 pruned nodes, max_depth=10
+[545]	validation_0-rmse:6.63266	validation_0-AUC[PR]:0.897053
+[10:59:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[546]	validation_0-rmse:6.63377	validation_0-AUC[PR]:0.89705
+[10:59:23] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[547]	validation_0-rmse:6.63467	validation_0-AUC[PR]:0.897051
+[10:59:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 396 extra nodes, 0 pruned nodes, max_depth=10
+[548]	validation_0-rmse:6.63552	validation_0-AUC[PR]:0.897047
+[11:00:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[549]	validation_0-rmse:6.63637	validation_0-AUC[PR]:0.897066
+[11:00:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 510 extra nodes, 0 pruned nodes, max_depth=10
+[550]	validation_0-rmse:6.63782	validation_0-AUC[PR]:0.896925
+[11:00:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 322 extra nodes, 0 pruned nodes, max_depth=10
+[551]	validation_0-rmse:6.63814	validation_0-AUC[PR]:0.896933
+[11:00:55] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 442 extra nodes, 0 pruned nodes, max_depth=10
+[552]	validation_0-rmse:6.6399	validation_0-AUC[PR]:0.897975
+[11:01:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 332 extra nodes, 0 pruned nodes, max_depth=10
+[553]	validation_0-rmse:6.64013	validation_0-AUC[PR]:0.897989
+[11:01:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 496 extra nodes, 0 pruned nodes, max_depth=10
+[554]	validation_0-rmse:6.64144	validation_0-AUC[PR]:0.897872
+[11:01:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 338 extra nodes, 0 pruned nodes, max_depth=10
+[555]	validation_0-rmse:6.64284	validation_0-AUC[PR]:0.897835
+[11:02:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 454 extra nodes, 0 pruned nodes, max_depth=10
+[556]	validation_0-rmse:6.64388	validation_0-AUC[PR]:0.89806
+[11:02:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 408 extra nodes, 0 pruned nodes, max_depth=10
+[557]	validation_0-rmse:6.64472	validation_0-AUC[PR]:0.897912
+[11:02:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 494 extra nodes, 0 pruned nodes, max_depth=10
+[558]	validation_0-rmse:6.64592	validation_0-AUC[PR]:0.897968
+[11:03:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 390 extra nodes, 0 pruned nodes, max_depth=10
+[559]	validation_0-rmse:6.64668	validation_0-AUC[PR]:0.897972
+[11:03:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 518 extra nodes, 0 pruned nodes, max_depth=10
+[560]	validation_0-rmse:6.64879	validation_0-AUC[PR]:0.897953
+[11:03:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[561]	validation_0-rmse:6.64973	validation_0-AUC[PR]:0.897864
+[11:03:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 356 extra nodes, 0 pruned nodes, max_depth=10
+[562]	validation_0-rmse:6.65104	validation_0-AUC[PR]:0.897925
+[11:04:03] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 378 extra nodes, 0 pruned nodes, max_depth=10
+[563]	validation_0-rmse:6.65191	validation_0-AUC[PR]:0.899598
+[11:04:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 446 extra nodes, 0 pruned nodes, max_depth=10
+[564]	validation_0-rmse:6.65329	validation_0-AUC[PR]:0.899643
+[11:04:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[565]	validation_0-rmse:6.65393	validation_0-AUC[PR]:0.899658
+[11:04:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 380 extra nodes, 0 pruned nodes, max_depth=10
+[566]	validation_0-rmse:6.65467	validation_0-AUC[PR]:0.89965
+[11:05:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[567]	validation_0-rmse:6.65484	validation_0-AUC[PR]:0.899649
+[11:05:23] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 382 extra nodes, 0 pruned nodes, max_depth=10
+[568]	validation_0-rmse:6.65611	validation_0-AUC[PR]:0.89944
+[11:05:33] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 320 extra nodes, 0 pruned nodes, max_depth=10
+[569]	validation_0-rmse:6.65644	validation_0-AUC[PR]:0.899414
+[11:05:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 358 extra nodes, 0 pruned nodes, max_depth=10
+[570]	validation_0-rmse:6.65805	validation_0-AUC[PR]:0.899483
+[11:06:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 422 extra nodes, 0 pruned nodes, max_depth=10
+[571]	validation_0-rmse:6.65906	validation_0-AUC[PR]:0.90032
+[11:06:25] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 368 extra nodes, 0 pruned nodes, max_depth=10
+[572]	validation_0-rmse:6.66071	validation_0-AUC[PR]:0.90035
+[11:06:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 442 extra nodes, 0 pruned nodes, max_depth=10
+[573]	validation_0-rmse:6.66186	validation_0-AUC[PR]:0.900328
+[11:06:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 416 extra nodes, 0 pruned nodes, max_depth=10
+[574]	validation_0-rmse:6.66257	validation_0-AUC[PR]:0.900331
+[11:07:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 384 extra nodes, 0 pruned nodes, max_depth=10
+[575]	validation_0-rmse:6.66316	validation_0-AUC[PR]:0.900152
+[11:07:37] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 404 extra nodes, 0 pruned nodes, max_depth=10
+[576]	validation_0-rmse:6.66407	validation_0-AUC[PR]:0.900073
+[11:07:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[577]	validation_0-rmse:6.6656	validation_0-AUC[PR]:0.900089
+[11:08:15] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[578]	validation_0-rmse:6.66612	validation_0-AUC[PR]:0.9001
+[11:08:34] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 440 extra nodes, 0 pruned nodes, max_depth=10
+[579]	validation_0-rmse:6.66686	validation_0-AUC[PR]:0.900115
+[11:08:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 306 extra nodes, 0 pruned nodes, max_depth=10
+[580]	validation_0-rmse:6.66801	validation_0-AUC[PR]:0.899297
+[11:09:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[581]	validation_0-rmse:6.6688	validation_0-AUC[PR]:0.899235
+[11:09:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[582]	validation_0-rmse:6.67028	validation_0-AUC[PR]:0.899073
+[11:09:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 530 extra nodes, 0 pruned nodes, max_depth=10
+[583]	validation_0-rmse:6.67215	validation_0-AUC[PR]:0.898783
+[11:10:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 374 extra nodes, 0 pruned nodes, max_depth=10
+[584]	validation_0-rmse:6.67275	validation_0-AUC[PR]:0.898839
+[11:10:25] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[585]	validation_0-rmse:6.67406	validation_0-AUC[PR]:0.898761
+[11:10:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[586]	validation_0-rmse:6.67437	validation_0-AUC[PR]:0.898792
+[11:11:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 372 extra nodes, 0 pruned nodes, max_depth=10
+[587]	validation_0-rmse:6.67558	validation_0-AUC[PR]:0.898797
+[11:11:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 380 extra nodes, 0 pruned nodes, max_depth=10
+[588]	validation_0-rmse:6.67694	validation_0-AUC[PR]:0.898771
+[11:11:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 470 extra nodes, 0 pruned nodes, max_depth=10
+[589]	validation_0-rmse:6.67853	validation_0-AUC[PR]:0.898761
+[11:11:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 460 extra nodes, 0 pruned nodes, max_depth=10
+[590]	validation_0-rmse:6.67981	validation_0-AUC[PR]:0.898637
+[11:12:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 312 extra nodes, 0 pruned nodes, max_depth=10
+[591]	validation_0-rmse:6.68071	validation_0-AUC[PR]:0.898603
+[11:12:37] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 384 extra nodes, 0 pruned nodes, max_depth=10
+[592]	validation_0-rmse:6.68104	validation_0-AUC[PR]:0.898567
+[11:12:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 444 extra nodes, 0 pruned nodes, max_depth=10
+[593]	validation_0-rmse:6.68156	validation_0-AUC[PR]:0.898346
+[11:13:16] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 416 extra nodes, 0 pruned nodes, max_depth=10
+[594]	validation_0-rmse:6.68192	validation_0-AUC[PR]:0.898355
+[11:13:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 368 extra nodes, 0 pruned nodes, max_depth=10
+[595]	validation_0-rmse:6.68281	validation_0-AUC[PR]:0.898313
+[11:13:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 568 extra nodes, 0 pruned nodes, max_depth=10
+[596]	validation_0-rmse:6.6841	validation_0-AUC[PR]:0.898326
+[11:14:12] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[597]	validation_0-rmse:6.68497	validation_0-AUC[PR]:0.898199
+[11:14:32] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 496 extra nodes, 0 pruned nodes, max_depth=10
+[598]	validation_0-rmse:6.68655	validation_0-AUC[PR]:0.8982
+[11:14:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[599]	validation_0-rmse:6.68784	validation_0-AUC[PR]:0.898148
+[11:15:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 452 extra nodes, 0 pruned nodes, max_depth=10
+[600]	validation_0-rmse:6.68888	validation_0-AUC[PR]:0.8981
+[11:15:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[601]	validation_0-rmse:6.68946	validation_0-AUC[PR]:0.898105
+[11:15:50] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 374 extra nodes, 0 pruned nodes, max_depth=10
+[602]	validation_0-rmse:6.68995	validation_0-AUC[PR]:0.898139
+[11:16:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 468 extra nodes, 0 pruned nodes, max_depth=10
+[603]	validation_0-rmse:6.69126	validation_0-AUC[PR]:0.898273
+[11:16:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 330 extra nodes, 0 pruned nodes, max_depth=10
+[604]	validation_0-rmse:6.69137	validation_0-AUC[PR]:0.898236
+[11:16:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[605]	validation_0-rmse:6.69197	validation_0-AUC[PR]:0.898196
+[11:17:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[606]	validation_0-rmse:6.69265	validation_0-AUC[PR]:0.898278
+[11:17:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 426 extra nodes, 0 pruned nodes, max_depth=10
+[607]	validation_0-rmse:6.69383	validation_0-AUC[PR]:0.898273
+[11:17:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 500 extra nodes, 0 pruned nodes, max_depth=10
+[608]	validation_0-rmse:6.69517	validation_0-AUC[PR]:0.898321
+[11:18:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 546 extra nodes, 0 pruned nodes, max_depth=10
+[609]	validation_0-rmse:6.69633	validation_0-AUC[PR]:0.898312
+[11:18:28] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[610]	validation_0-rmse:6.69674	validation_0-AUC[PR]:0.898312
+[11:18:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 402 extra nodes, 0 pruned nodes, max_depth=10
+[611]	validation_0-rmse:6.69727	validation_0-AUC[PR]:0.898288
+[11:19:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 558 extra nodes, 0 pruned nodes, max_depth=10
+[612]	validation_0-rmse:6.69917	validation_0-AUC[PR]:0.898245
+[11:19:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 364 extra nodes, 0 pruned nodes, max_depth=10
+[613]	validation_0-rmse:6.70018	validation_0-AUC[PR]:0.898253
+[11:19:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 338 extra nodes, 0 pruned nodes, max_depth=10
+[614]	validation_0-rmse:6.70092	validation_0-AUC[PR]:0.898255
+[11:20:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[615]	validation_0-rmse:6.7013	validation_0-AUC[PR]:0.898333
+[11:20:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 372 extra nodes, 0 pruned nodes, max_depth=10
+[616]	validation_0-rmse:6.70219	validation_0-AUC[PR]:0.89815
+[11:20:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 414 extra nodes, 0 pruned nodes, max_depth=10
+[617]	validation_0-rmse:6.70313	validation_0-AUC[PR]:0.89834
+[11:21:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 400 extra nodes, 0 pruned nodes, max_depth=10
+[618]	validation_0-rmse:6.70429	validation_0-AUC[PR]:0.897866
+[11:21:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 516 extra nodes, 0 pruned nodes, max_depth=10
+[619]	validation_0-rmse:6.70608	validation_0-AUC[PR]:0.897985
+[11:21:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 418 extra nodes, 0 pruned nodes, max_depth=10
+[620]	validation_0-rmse:6.70672	validation_0-AUC[PR]:0.89792
+[11:22:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 484 extra nodes, 0 pruned nodes, max_depth=10
+[621]	validation_0-rmse:6.70801	validation_0-AUC[PR]:0.897853
+[11:22:25] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[622]	validation_0-rmse:6.70875	validation_0-AUC[PR]:0.897751
+[11:22:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[623]	validation_0-rmse:6.7097	validation_0-AUC[PR]:0.897868
+[11:23:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 454 extra nodes, 0 pruned nodes, max_depth=10
+[624]	validation_0-rmse:6.71137	validation_0-AUC[PR]:0.897588
+[11:23:25] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 476 extra nodes, 0 pruned nodes, max_depth=10
+[625]	validation_0-rmse:6.71266	validation_0-AUC[PR]:0.897446
+[11:23:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 428 extra nodes, 0 pruned nodes, max_depth=10
+[626]	validation_0-rmse:6.71364	validation_0-AUC[PR]:0.897478
+[11:23:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 532 extra nodes, 0 pruned nodes, max_depth=10
+[627]	validation_0-rmse:6.71578	validation_0-AUC[PR]:0.898417
+[11:24:16] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 396 extra nodes, 0 pruned nodes, max_depth=10
+[628]	validation_0-rmse:6.71697	validation_0-AUC[PR]:0.898507
+[11:24:33] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 342 extra nodes, 0 pruned nodes, max_depth=10
+[629]	validation_0-rmse:6.71726	validation_0-AUC[PR]:0.898467
+[11:24:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 362 extra nodes, 0 pruned nodes, max_depth=10
+[630]	validation_0-rmse:6.718	validation_0-AUC[PR]:0.898449
+[11:25:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 618 extra nodes, 0 pruned nodes, max_depth=10
+[631]	validation_0-rmse:6.72063	validation_0-AUC[PR]:0.8985
+[11:25:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 434 extra nodes, 0 pruned nodes, max_depth=10
+[632]	validation_0-rmse:6.72193	validation_0-AUC[PR]:0.898477
+[11:25:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 478 extra nodes, 0 pruned nodes, max_depth=10
+[633]	validation_0-rmse:6.72309	validation_0-AUC[PR]:0.898486
+[11:25:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 298 extra nodes, 0 pruned nodes, max_depth=10
+[634]	validation_0-rmse:6.72371	validation_0-AUC[PR]:0.898408
+[11:26:15] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 446 extra nodes, 0 pruned nodes, max_depth=10
+[635]	validation_0-rmse:6.72434	validation_0-AUC[PR]:0.898452
+[11:26:33] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 492 extra nodes, 0 pruned nodes, max_depth=10
+[636]	validation_0-rmse:6.72601	validation_0-AUC[PR]:0.89837
+[11:26:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 416 extra nodes, 0 pruned nodes, max_depth=10
+[637]	validation_0-rmse:6.72683	validation_0-AUC[PR]:0.898328
+[11:27:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 478 extra nodes, 0 pruned nodes, max_depth=10
+[638]	validation_0-rmse:6.72743	validation_0-AUC[PR]:0.89861
+[11:27:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 484 extra nodes, 0 pruned nodes, max_depth=10
+[639]	validation_0-rmse:6.7283	validation_0-AUC[PR]:0.898573
+[11:27:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 352 extra nodes, 0 pruned nodes, max_depth=10
+[640]	validation_0-rmse:6.72904	validation_0-AUC[PR]:0.898627
+[11:28:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[641]	validation_0-rmse:6.72963	validation_0-AUC[PR]:0.898583
+[11:28:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[642]	validation_0-rmse:6.73015	validation_0-AUC[PR]:0.898566
+[11:28:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 354 extra nodes, 0 pruned nodes, max_depth=10
+[643]	validation_0-rmse:6.7307	validation_0-AUC[PR]:0.898626
+[11:28:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 444 extra nodes, 0 pruned nodes, max_depth=10
+[644]	validation_0-rmse:6.73183	validation_0-AUC[PR]:0.898635
+[11:29:15] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 484 extra nodes, 0 pruned nodes, max_depth=10
+[645]	validation_0-rmse:6.73265	validation_0-AUC[PR]:0.898558
+[11:29:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[646]	validation_0-rmse:6.73339	validation_0-AUC[PR]:0.898731
+[11:29:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 394 extra nodes, 0 pruned nodes, max_depth=10
+[647]	validation_0-rmse:6.73414	validation_0-AUC[PR]:0.898733
+[11:30:03] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 382 extra nodes, 0 pruned nodes, max_depth=10
+[648]	validation_0-rmse:6.73481	validation_0-AUC[PR]:0.898801
+[11:30:21] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 406 extra nodes, 0 pruned nodes, max_depth=10
+[649]	validation_0-rmse:6.73534	validation_0-AUC[PR]:0.898683
+[11:30:37] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 390 extra nodes, 0 pruned nodes, max_depth=10
+[650]	validation_0-rmse:6.73622	validation_0-AUC[PR]:0.898662
+[11:30:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[651]	validation_0-rmse:6.7375	validation_0-AUC[PR]:0.898617
+[11:31:13] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 304 extra nodes, 0 pruned nodes, max_depth=10
+[652]	validation_0-rmse:6.73792	validation_0-AUC[PR]:0.898615
+[11:31:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 352 extra nodes, 0 pruned nodes, max_depth=10
+[653]	validation_0-rmse:6.73974	validation_0-AUC[PR]:0.898644
+[11:31:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 408 extra nodes, 0 pruned nodes, max_depth=10
+[654]	validation_0-rmse:6.7401	validation_0-AUC[PR]:0.898666
+[11:32:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 442 extra nodes, 0 pruned nodes, max_depth=10
+[655]	validation_0-rmse:6.74035	validation_0-AUC[PR]:0.898636
+[11:32:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 346 extra nodes, 0 pruned nodes, max_depth=10
+[656]	validation_0-rmse:6.741	validation_0-AUC[PR]:0.89864
+[11:32:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 354 extra nodes, 0 pruned nodes, max_depth=10
+[657]	validation_0-rmse:6.74185	validation_0-AUC[PR]:0.898664
+[11:32:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 314 extra nodes, 0 pruned nodes, max_depth=10
+[658]	validation_0-rmse:6.74232	validation_0-AUC[PR]:0.898441
+[11:33:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 360 extra nodes, 0 pruned nodes, max_depth=10
+[659]	validation_0-rmse:6.74357	validation_0-AUC[PR]:0.897164
+[11:33:32] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 440 extra nodes, 0 pruned nodes, max_depth=10
+[660]	validation_0-rmse:6.74473	validation_0-AUC[PR]:0.89717
+[11:33:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 404 extra nodes, 0 pruned nodes, max_depth=10
+[661]	validation_0-rmse:6.7458	validation_0-AUC[PR]:0.897078
+[11:34:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 342 extra nodes, 0 pruned nodes, max_depth=10
+[662]	validation_0-rmse:6.74649	validation_0-AUC[PR]:0.897104
+[11:34:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 414 extra nodes, 0 pruned nodes, max_depth=10
+[663]	validation_0-rmse:6.74723	validation_0-AUC[PR]:0.897152
+[11:34:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[664]	validation_0-rmse:6.74808	validation_0-AUC[PR]:0.897082
+[11:34:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 378 extra nodes, 0 pruned nodes, max_depth=10
+[665]	validation_0-rmse:6.74896	validation_0-AUC[PR]:0.897045
+[11:35:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 402 extra nodes, 0 pruned nodes, max_depth=10
+[666]	validation_0-rmse:6.74977	validation_0-AUC[PR]:0.896983
+[11:35:25] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 472 extra nodes, 0 pruned nodes, max_depth=10
+[667]	validation_0-rmse:6.75089	validation_0-AUC[PR]:0.896956
+[11:35:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 428 extra nodes, 0 pruned nodes, max_depth=10
+[668]	validation_0-rmse:6.75179	validation_0-AUC[PR]:0.89695
+[11:35:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 372 extra nodes, 0 pruned nodes, max_depth=10
+[669]	validation_0-rmse:6.75236	validation_0-AUC[PR]:0.89701
+[11:36:15] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 334 extra nodes, 0 pruned nodes, max_depth=10
+[670]	validation_0-rmse:6.75271	validation_0-AUC[PR]:0.896862
+[11:36:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 336 extra nodes, 0 pruned nodes, max_depth=10
+[671]	validation_0-rmse:6.75353	validation_0-AUC[PR]:0.89689
+[11:36:44] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 358 extra nodes, 0 pruned nodes, max_depth=10
+[672]	validation_0-rmse:6.75411	validation_0-AUC[PR]:0.896849
+[11:37:01] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 468 extra nodes, 0 pruned nodes, max_depth=10
+[673]	validation_0-rmse:6.75529	validation_0-AUC[PR]:0.89692
+[11:37:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 476 extra nodes, 0 pruned nodes, max_depth=10
+[674]	validation_0-rmse:6.75612	validation_0-AUC[PR]:0.89709
+[11:37:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 372 extra nodes, 0 pruned nodes, max_depth=10
+[675]	validation_0-rmse:6.75657	validation_0-AUC[PR]:0.897096
+[11:37:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 332 extra nodes, 0 pruned nodes, max_depth=10
+[676]	validation_0-rmse:6.75742	validation_0-AUC[PR]:0.897048
+[11:38:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 434 extra nodes, 0 pruned nodes, max_depth=10
+[677]	validation_0-rmse:6.75833	validation_0-AUC[PR]:0.897071
+[11:38:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 498 extra nodes, 0 pruned nodes, max_depth=10
+[678]	validation_0-rmse:6.75986	validation_0-AUC[PR]:0.897122
+[11:38:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 362 extra nodes, 0 pruned nodes, max_depth=10
+[679]	validation_0-rmse:6.76059	validation_0-AUC[PR]:0.897065
+[11:39:01] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 572 extra nodes, 0 pruned nodes, max_depth=10
+[680]	validation_0-rmse:6.76223	validation_0-AUC[PR]:0.896967
+[11:39:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 478 extra nodes, 0 pruned nodes, max_depth=10
+[681]	validation_0-rmse:6.76296	validation_0-AUC[PR]:0.896982
+[11:39:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 458 extra nodes, 0 pruned nodes, max_depth=10
+[682]	validation_0-rmse:6.7644	validation_0-AUC[PR]:0.896758
+[11:39:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 454 extra nodes, 0 pruned nodes, max_depth=10
+[683]	validation_0-rmse:6.76508	validation_0-AUC[PR]:0.896724
+[11:40:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 330 extra nodes, 0 pruned nodes, max_depth=10
+[684]	validation_0-rmse:6.76565	validation_0-AUC[PR]:0.896651
+[11:40:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 402 extra nodes, 0 pruned nodes, max_depth=10
+[685]	validation_0-rmse:6.76642	validation_0-AUC[PR]:0.896667
+[11:40:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 464 extra nodes, 0 pruned nodes, max_depth=10
+[686]	validation_0-rmse:6.76742	validation_0-AUC[PR]:0.89597
+[11:40:57] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 430 extra nodes, 0 pruned nodes, max_depth=10
+[687]	validation_0-rmse:6.76831	validation_0-AUC[PR]:0.895982
+[11:41:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 476 extra nodes, 0 pruned nodes, max_depth=10
+[688]	validation_0-rmse:6.76915	validation_0-AUC[PR]:0.895986
+[11:41:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[689]	validation_0-rmse:6.76991	validation_0-AUC[PR]:0.896048
+[11:41:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 364 extra nodes, 0 pruned nodes, max_depth=10
+[690]	validation_0-rmse:6.77035	validation_0-AUC[PR]:0.896016
+[11:42:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 426 extra nodes, 0 pruned nodes, max_depth=10
+[691]	validation_0-rmse:6.77204	validation_0-AUC[PR]:0.895685
+[11:42:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 414 extra nodes, 0 pruned nodes, max_depth=10
+[692]	validation_0-rmse:6.77306	validation_0-AUC[PR]:0.895862
+[11:42:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[693]	validation_0-rmse:6.77423	validation_0-AUC[PR]:0.895851
+[11:43:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[694]	validation_0-rmse:6.77591	validation_0-AUC[PR]:0.896112
+[11:43:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 434 extra nodes, 0 pruned nodes, max_depth=10
+[695]	validation_0-rmse:6.77635	validation_0-AUC[PR]:0.896144
+[11:43:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 432 extra nodes, 0 pruned nodes, max_depth=10
+[696]	validation_0-rmse:6.77716	validation_0-AUC[PR]:0.896153
+[11:44:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 344 extra nodes, 0 pruned nodes, max_depth=10
+[697]	validation_0-rmse:6.77812	validation_0-AUC[PR]:0.896141
+[11:44:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[698]	validation_0-rmse:6.77909	validation_0-AUC[PR]:0.896401
+[11:44:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 418 extra nodes, 0 pruned nodes, max_depth=10
+[699]	validation_0-rmse:6.78005	validation_0-AUC[PR]:0.896335
+[11:45:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 500 extra nodes, 0 pruned nodes, max_depth=10
+[700]	validation_0-rmse:6.78134	validation_0-AUC[PR]:0.896283
+[11:45:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 308 extra nodes, 0 pruned nodes, max_depth=10
+[701]	validation_0-rmse:6.78196	validation_0-AUC[PR]:0.896355
+[11:45:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[702]	validation_0-rmse:6.78237	validation_0-AUC[PR]:0.896486
+[11:45:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 448 extra nodes, 0 pruned nodes, max_depth=10
+[703]	validation_0-rmse:6.78322	validation_0-AUC[PR]:0.896581
+[11:46:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[704]	validation_0-rmse:6.78388	validation_0-AUC[PR]:0.89656
+[11:46:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 434 extra nodes, 0 pruned nodes, max_depth=10
+[705]	validation_0-rmse:6.78484	validation_0-AUC[PR]:0.89661
+[11:46:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 524 extra nodes, 0 pruned nodes, max_depth=10
+[706]	validation_0-rmse:6.78594	validation_0-AUC[PR]:0.896638
+[11:47:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 474 extra nodes, 0 pruned nodes, max_depth=10
+[707]	validation_0-rmse:6.78704	validation_0-AUC[PR]:0.896578
+[11:47:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 406 extra nodes, 0 pruned nodes, max_depth=10
+[708]	validation_0-rmse:6.78786	validation_0-AUC[PR]:0.896442
+[11:47:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 464 extra nodes, 0 pruned nodes, max_depth=10
+[709]	validation_0-rmse:6.78808	validation_0-AUC[PR]:0.896476
+[11:48:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 472 extra nodes, 0 pruned nodes, max_depth=10
+[710]	validation_0-rmse:6.78987	validation_0-AUC[PR]:0.896099
+[11:48:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 394 extra nodes, 0 pruned nodes, max_depth=10
+[711]	validation_0-rmse:6.791	validation_0-AUC[PR]:0.897394
+[11:48:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 426 extra nodes, 0 pruned nodes, max_depth=10
+[712]	validation_0-rmse:6.79228	validation_0-AUC[PR]:0.897205
+[11:49:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 640 extra nodes, 0 pruned nodes, max_depth=10
+[713]	validation_0-rmse:6.79368	validation_0-AUC[PR]:0.897195
+[11:49:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[714]	validation_0-rmse:6.79461	validation_0-AUC[PR]:0.896419
+[11:49:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 374 extra nodes, 0 pruned nodes, max_depth=10
+[715]	validation_0-rmse:6.79501	validation_0-AUC[PR]:0.896446
+[11:50:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 536 extra nodes, 0 pruned nodes, max_depth=10
+[716]	validation_0-rmse:6.79613	validation_0-AUC[PR]:0.896514
+[11:50:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 404 extra nodes, 0 pruned nodes, max_depth=10
+[717]	validation_0-rmse:6.79692	validation_0-AUC[PR]:0.897284
+[11:51:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 478 extra nodes, 0 pruned nodes, max_depth=10
+[718]	validation_0-rmse:6.79783	validation_0-AUC[PR]:0.897266
+[11:51:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 448 extra nodes, 0 pruned nodes, max_depth=10
+[719]	validation_0-rmse:6.79849	validation_0-AUC[PR]:0.897231
+[11:51:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 406 extra nodes, 0 pruned nodes, max_depth=10
+[720]	validation_0-rmse:6.79897	validation_0-AUC[PR]:0.89722
+[11:51:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 322 extra nodes, 0 pruned nodes, max_depth=10
+[721]	validation_0-rmse:6.7988	validation_0-AUC[PR]:0.897173
+[11:52:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 464 extra nodes, 0 pruned nodes, max_depth=10
+[722]	validation_0-rmse:6.80017	validation_0-AUC[PR]:0.896953
+[11:52:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 410 extra nodes, 0 pruned nodes, max_depth=10
+[723]	validation_0-rmse:6.80127	validation_0-AUC[PR]:0.896882
+[11:52:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 410 extra nodes, 0 pruned nodes, max_depth=10
+[724]	validation_0-rmse:6.80246	validation_0-AUC[PR]:0.896682
+[11:53:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 484 extra nodes, 0 pruned nodes, max_depth=10
+[725]	validation_0-rmse:6.80375	validation_0-AUC[PR]:0.896865
+[11:53:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 460 extra nodes, 0 pruned nodes, max_depth=10
+[726]	validation_0-rmse:6.80465	validation_0-AUC[PR]:0.896859
+[11:53:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 380 extra nodes, 0 pruned nodes, max_depth=10
+[727]	validation_0-rmse:6.80567	validation_0-AUC[PR]:0.896857
+[11:54:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 360 extra nodes, 0 pruned nodes, max_depth=10
+[728]	validation_0-rmse:6.80593	validation_0-AUC[PR]:0.896758
+[11:54:37] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 442 extra nodes, 0 pruned nodes, max_depth=10
+[729]	validation_0-rmse:6.80743	validation_0-AUC[PR]:0.896632
+[11:54:57] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 562 extra nodes, 0 pruned nodes, max_depth=10
+[730]	validation_0-rmse:6.81027	validation_0-AUC[PR]:0.896753
+[11:55:16] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[731]	validation_0-rmse:6.81027	validation_0-AUC[PR]:0.896726
+[11:55:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 414 extra nodes, 0 pruned nodes, max_depth=10
+[732]	validation_0-rmse:6.81064	validation_0-AUC[PR]:0.896727
+[11:55:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 380 extra nodes, 0 pruned nodes, max_depth=10
+[733]	validation_0-rmse:6.81254	validation_0-AUC[PR]:0.896788
+[11:56:15] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 368 extra nodes, 0 pruned nodes, max_depth=10
+[734]	validation_0-rmse:6.81351	validation_0-AUC[PR]:0.896821
+[11:56:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 386 extra nodes, 0 pruned nodes, max_depth=10
+[735]	validation_0-rmse:6.81466	validation_0-AUC[PR]:0.896893
+[11:56:55] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 446 extra nodes, 0 pruned nodes, max_depth=10
+[736]	validation_0-rmse:6.81558	validation_0-AUC[PR]:0.896976
+[11:57:15] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 468 extra nodes, 0 pruned nodes, max_depth=10
+[737]	validation_0-rmse:6.81647	validation_0-AUC[PR]:0.896931
+[11:57:34] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 408 extra nodes, 0 pruned nodes, max_depth=10
+[738]	validation_0-rmse:6.81702	validation_0-AUC[PR]:0.896889
+[11:57:53] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 366 extra nodes, 0 pruned nodes, max_depth=10
+[739]	validation_0-rmse:6.81779	validation_0-AUC[PR]:0.896901
+[11:58:13] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 422 extra nodes, 0 pruned nodes, max_depth=10
+[740]	validation_0-rmse:6.8186	validation_0-AUC[PR]:0.896951
+[11:58:32] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[741]	validation_0-rmse:6.81984	validation_0-AUC[PR]:0.89695
+[11:58:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[742]	validation_0-rmse:6.82049	validation_0-AUC[PR]:0.896905
+[11:59:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 340 extra nodes, 0 pruned nodes, max_depth=10
+[743]	validation_0-rmse:6.82108	validation_0-AUC[PR]:0.896908
+[11:59:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 418 extra nodes, 0 pruned nodes, max_depth=10
+[744]	validation_0-rmse:6.82172	validation_0-AUC[PR]:0.896921
+[11:59:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 338 extra nodes, 0 pruned nodes, max_depth=10
+[745]	validation_0-rmse:6.82269	validation_0-AUC[PR]:0.896864
+[11:59:54] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 482 extra nodes, 0 pruned nodes, max_depth=10
+[746]	validation_0-rmse:6.82331	validation_0-AUC[PR]:0.896901
+[12:00:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 380 extra nodes, 0 pruned nodes, max_depth=10
+[747]	validation_0-rmse:6.82393	validation_0-AUC[PR]:0.896917
+[12:00:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 416 extra nodes, 0 pruned nodes, max_depth=10
+[748]	validation_0-rmse:6.82461	validation_0-AUC[PR]:0.896897
+[12:00:34] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[749]	validation_0-rmse:6.82507	validation_0-AUC[PR]:0.896913
+[12:00:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 328 extra nodes, 0 pruned nodes, max_depth=10
+[750]	validation_0-rmse:6.82564	validation_0-AUC[PR]:0.896896
+[12:01:01] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[751]	validation_0-rmse:6.82656	validation_0-AUC[PR]:0.896889
+[12:01:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 514 extra nodes, 0 pruned nodes, max_depth=10
+[752]	validation_0-rmse:6.82737	validation_0-AUC[PR]:0.896842
+[12:01:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[753]	validation_0-rmse:6.82757	validation_0-AUC[PR]:0.896773
+[12:01:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 354 extra nodes, 0 pruned nodes, max_depth=10
+[754]	validation_0-rmse:6.82849	validation_0-AUC[PR]:0.896679
+[12:01:54] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[755]	validation_0-rmse:6.82938	validation_0-AUC[PR]:0.896812
+[12:02:12] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 396 extra nodes, 0 pruned nodes, max_depth=10
+[756]	validation_0-rmse:6.8303	validation_0-AUC[PR]:0.896762
+[12:02:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[757]	validation_0-rmse:6.83056	validation_0-AUC[PR]:0.896797
+[12:02:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 410 extra nodes, 0 pruned nodes, max_depth=10
+[758]	validation_0-rmse:6.8311	validation_0-AUC[PR]:0.896817
+[12:03:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 330 extra nodes, 0 pruned nodes, max_depth=10
+[759]	validation_0-rmse:6.83164	validation_0-AUC[PR]:0.896856
+[12:03:23] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 362 extra nodes, 0 pruned nodes, max_depth=10
+[760]	validation_0-rmse:6.83252	validation_0-AUC[PR]:0.896872
+[12:03:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[761]	validation_0-rmse:6.83367	validation_0-AUC[PR]:0.89688
+[12:04:01] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 514 extra nodes, 0 pruned nodes, max_depth=10
+[762]	validation_0-rmse:6.83558	validation_0-AUC[PR]:0.8969
+[12:04:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[763]	validation_0-rmse:6.83645	validation_0-AUC[PR]:0.896923
+[12:04:37] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 422 extra nodes, 0 pruned nodes, max_depth=10
+[764]	validation_0-rmse:6.83716	validation_0-AUC[PR]:0.89692
+[12:04:54] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[765]	validation_0-rmse:6.83761	validation_0-AUC[PR]:0.896902
+[12:05:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 344 extra nodes, 0 pruned nodes, max_depth=10
+[766]	validation_0-rmse:6.83822	validation_0-AUC[PR]:0.896928
+[12:05:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 486 extra nodes, 0 pruned nodes, max_depth=10
+[767]	validation_0-rmse:6.83947	validation_0-AUC[PR]:0.896904
+[12:05:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 360 extra nodes, 0 pruned nodes, max_depth=10
+[768]	validation_0-rmse:6.83981	validation_0-AUC[PR]:0.8969
+[12:06:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 466 extra nodes, 0 pruned nodes, max_depth=10
+[769]	validation_0-rmse:6.84181	validation_0-AUC[PR]:0.897049
+[12:06:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 520 extra nodes, 0 pruned nodes, max_depth=10
+[770]	validation_0-rmse:6.84237	validation_0-AUC[PR]:0.897049
+[12:06:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[771]	validation_0-rmse:6.84325	validation_0-AUC[PR]:0.897017
+[12:07:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 520 extra nodes, 0 pruned nodes, max_depth=10
+[772]	validation_0-rmse:6.84424	validation_0-AUC[PR]:0.896993
+[12:07:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 426 extra nodes, 0 pruned nodes, max_depth=10
+[773]	validation_0-rmse:6.84527	validation_0-AUC[PR]:0.897016
+[12:07:34] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 360 extra nodes, 0 pruned nodes, max_depth=10
+[774]	validation_0-rmse:6.84628	validation_0-AUC[PR]:0.897078
+[12:07:50] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 310 extra nodes, 0 pruned nodes, max_depth=10
+[775]	validation_0-rmse:6.84699	validation_0-AUC[PR]:0.897077
+[12:08:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 354 extra nodes, 0 pruned nodes, max_depth=10
+[776]	validation_0-rmse:6.84816	validation_0-AUC[PR]:0.897167
+[12:08:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 442 extra nodes, 0 pruned nodes, max_depth=10
+[777]	validation_0-rmse:6.84903	validation_0-AUC[PR]:0.897235
+[12:08:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 336 extra nodes, 0 pruned nodes, max_depth=10
+[778]	validation_0-rmse:6.84932	validation_0-AUC[PR]:0.897274
+[12:08:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 364 extra nodes, 0 pruned nodes, max_depth=10
+[779]	validation_0-rmse:6.84974	validation_0-AUC[PR]:0.897443
+[12:08:53] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 480 extra nodes, 0 pruned nodes, max_depth=10
+[780]	validation_0-rmse:6.85077	validation_0-AUC[PR]:0.897578
+[12:09:01] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 418 extra nodes, 0 pruned nodes, max_depth=10
+[781]	validation_0-rmse:6.85196	validation_0-AUC[PR]:0.897596
+[12:09:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 340 extra nodes, 0 pruned nodes, max_depth=10
+[782]	validation_0-rmse:6.85307	validation_0-AUC[PR]:0.89756
+[12:09:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[783]	validation_0-rmse:6.85385	validation_0-AUC[PR]:0.897621
+[12:09:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 396 extra nodes, 0 pruned nodes, max_depth=10
+[784]	validation_0-rmse:6.85484	validation_0-AUC[PR]:0.897722
+[12:09:32] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 418 extra nodes, 0 pruned nodes, max_depth=10
+[785]	validation_0-rmse:6.8558	validation_0-AUC[PR]:0.897802
+[12:09:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 488 extra nodes, 0 pruned nodes, max_depth=10
+[786]	validation_0-rmse:6.85739	validation_0-AUC[PR]:0.897801
+[12:09:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 452 extra nodes, 0 pruned nodes, max_depth=10
+[787]	validation_0-rmse:6.85814	validation_0-AUC[PR]:0.897876
+[12:09:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 396 extra nodes, 0 pruned nodes, max_depth=10
+[788]	validation_0-rmse:6.85856	validation_0-AUC[PR]:0.897966
+[12:10:03] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 346 extra nodes, 0 pruned nodes, max_depth=10
+[789]	validation_0-rmse:6.85874	validation_0-AUC[PR]:0.898013
+[12:10:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 310 extra nodes, 0 pruned nodes, max_depth=10
+[790]	validation_0-rmse:6.85919	validation_0-AUC[PR]:0.898018
+[12:10:18] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 404 extra nodes, 0 pruned nodes, max_depth=10
+[791]	validation_0-rmse:6.85967	validation_0-AUC[PR]:0.898021
+[12:10:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 360 extra nodes, 0 pruned nodes, max_depth=10
+[792]	validation_0-rmse:6.86041	validation_0-AUC[PR]:0.898087
+[12:10:34] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[793]	validation_0-rmse:6.8612	validation_0-AUC[PR]:0.898092
+[12:10:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 356 extra nodes, 0 pruned nodes, max_depth=10
+[794]	validation_0-rmse:6.86167	validation_0-AUC[PR]:0.898107
+[12:10:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 452 extra nodes, 0 pruned nodes, max_depth=10
+[795]	validation_0-rmse:6.86221	validation_0-AUC[PR]:0.898106
+[12:10:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 380 extra nodes, 0 pruned nodes, max_depth=10
+[796]	validation_0-rmse:6.86351	validation_0-AUC[PR]:0.898091
+[12:11:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 504 extra nodes, 0 pruned nodes, max_depth=10
+[797]	validation_0-rmse:6.86424	validation_0-AUC[PR]:0.898073
+[12:11:12] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 484 extra nodes, 0 pruned nodes, max_depth=10
+[798]	validation_0-rmse:6.86518	validation_0-AUC[PR]:0.898071
+[12:11:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[799]	validation_0-rmse:6.86617	validation_0-AUC[PR]:0.898015
+[12:11:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 368 extra nodes, 0 pruned nodes, max_depth=10
+[800]	validation_0-rmse:6.86649	validation_0-AUC[PR]:0.89804
+[12:11:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 390 extra nodes, 0 pruned nodes, max_depth=10
+[801]	validation_0-rmse:6.86745	validation_0-AUC[PR]:0.898101
+[12:11:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 502 extra nodes, 0 pruned nodes, max_depth=10
+[802]	validation_0-rmse:6.86892	validation_0-AUC[PR]:0.897265
+[12:11:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 448 extra nodes, 0 pruned nodes, max_depth=10
+[803]	validation_0-rmse:6.86973	validation_0-AUC[PR]:0.898019
+[12:11:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 354 extra nodes, 0 pruned nodes, max_depth=10
+[804]	validation_0-rmse:6.87008	validation_0-AUC[PR]:0.897999
+[12:12:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[805]	validation_0-rmse:6.87102	validation_0-AUC[PR]:0.89779
+[12:12:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[806]	validation_0-rmse:6.87182	validation_0-AUC[PR]:0.897794
+[12:12:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 504 extra nodes, 0 pruned nodes, max_depth=10
+[807]	validation_0-rmse:6.87252	validation_0-AUC[PR]:0.897887
+[12:12:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[808]	validation_0-rmse:6.87341	validation_0-AUC[PR]:0.897821
+[12:12:37] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 488 extra nodes, 0 pruned nodes, max_depth=10
+[809]	validation_0-rmse:6.87395	validation_0-AUC[PR]:0.897824
+[12:12:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 444 extra nodes, 0 pruned nodes, max_depth=10
+[810]	validation_0-rmse:6.87481	validation_0-AUC[PR]:0.897765
+[12:12:53] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 440 extra nodes, 0 pruned nodes, max_depth=10
+[811]	validation_0-rmse:6.87556	validation_0-AUC[PR]:0.89781
+[12:13:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 448 extra nodes, 0 pruned nodes, max_depth=10
+[812]	validation_0-rmse:6.87572	validation_0-AUC[PR]:0.897783
+[12:13:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 458 extra nodes, 0 pruned nodes, max_depth=10
+[813]	validation_0-rmse:6.87738	validation_0-AUC[PR]:0.897889
+[12:13:16] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 354 extra nodes, 0 pruned nodes, max_depth=10
+[814]	validation_0-rmse:6.87814	validation_0-AUC[PR]:0.897901
+[12:13:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 358 extra nodes, 0 pruned nodes, max_depth=10
+[815]	validation_0-rmse:6.87861	validation_0-AUC[PR]:0.897882
+[12:13:33] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 454 extra nodes, 0 pruned nodes, max_depth=10
+[816]	validation_0-rmse:6.87938	validation_0-AUC[PR]:0.897966
+[12:13:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 464 extra nodes, 0 pruned nodes, max_depth=10
+[817]	validation_0-rmse:6.87968	validation_0-AUC[PR]:0.897912
+[12:13:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 358 extra nodes, 0 pruned nodes, max_depth=10
+[818]	validation_0-rmse:6.88004	validation_0-AUC[PR]:0.897942
+[12:13:55] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 416 extra nodes, 0 pruned nodes, max_depth=10
+[819]	validation_0-rmse:6.88124	validation_0-AUC[PR]:0.897942
+[12:14:02] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 290 extra nodes, 0 pruned nodes, max_depth=10
+[820]	validation_0-rmse:6.88156	validation_0-AUC[PR]:0.897906
+[12:14:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[821]	validation_0-rmse:6.88208	validation_0-AUC[PR]:0.897949
+[12:14:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 430 extra nodes, 0 pruned nodes, max_depth=10
+[822]	validation_0-rmse:6.88369	validation_0-AUC[PR]:0.897937
+[12:14:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 454 extra nodes, 0 pruned nodes, max_depth=10
+[823]	validation_0-rmse:6.88376	validation_0-AUC[PR]:0.897944
+[12:14:33] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 442 extra nodes, 0 pruned nodes, max_depth=10
+[824]	validation_0-rmse:6.88464	validation_0-AUC[PR]:0.897867
+[12:14:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 430 extra nodes, 0 pruned nodes, max_depth=10
+[825]	validation_0-rmse:6.88567	validation_0-AUC[PR]:0.897929
+[12:14:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 354 extra nodes, 0 pruned nodes, max_depth=10
+[826]	validation_0-rmse:6.88664	validation_0-AUC[PR]:0.897933
+[12:14:57] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 404 extra nodes, 0 pruned nodes, max_depth=10
+[827]	validation_0-rmse:6.88718	validation_0-AUC[PR]:0.897935
+[12:15:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[828]	validation_0-rmse:6.88764	validation_0-AUC[PR]:0.897785
+[12:15:13] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[829]	validation_0-rmse:6.88862	validation_0-AUC[PR]:0.897749
+[12:15:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 448 extra nodes, 0 pruned nodes, max_depth=10
+[830]	validation_0-rmse:6.8895	validation_0-AUC[PR]:0.897748
+[12:15:28] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 326 extra nodes, 0 pruned nodes, max_depth=10
+[831]	validation_0-rmse:6.88963	validation_0-AUC[PR]:0.897785
+[12:15:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 472 extra nodes, 0 pruned nodes, max_depth=10
+[832]	validation_0-rmse:6.89099	validation_0-AUC[PR]:0.897842
+[12:15:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 360 extra nodes, 0 pruned nodes, max_depth=10
+[833]	validation_0-rmse:6.89132	validation_0-AUC[PR]:0.897631
+[12:15:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[834]	validation_0-rmse:6.89232	validation_0-AUC[PR]:0.897638
+[12:15:58] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 378 extra nodes, 0 pruned nodes, max_depth=10
+[835]	validation_0-rmse:6.8932	validation_0-AUC[PR]:0.896885
+[12:16:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 396 extra nodes, 0 pruned nodes, max_depth=10
+[836]	validation_0-rmse:6.89347	validation_0-AUC[PR]:0.896816
+[12:16:13] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 406 extra nodes, 0 pruned nodes, max_depth=10
+[837]	validation_0-rmse:6.89401	validation_0-AUC[PR]:0.896811
+[12:16:21] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[838]	validation_0-rmse:6.89505	validation_0-AUC[PR]:0.897327
+[12:16:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 434 extra nodes, 0 pruned nodes, max_depth=10
+[839]	validation_0-rmse:6.89529	validation_0-AUC[PR]:0.897282
+[12:16:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 430 extra nodes, 0 pruned nodes, max_depth=10
+[840]	validation_0-rmse:6.8972	validation_0-AUC[PR]:0.897192
+[12:16:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 374 extra nodes, 0 pruned nodes, max_depth=10
+[841]	validation_0-rmse:6.89728	validation_0-AUC[PR]:0.897129
+[12:16:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 304 extra nodes, 0 pruned nodes, max_depth=10
+[842]	validation_0-rmse:6.89855	validation_0-AUC[PR]:0.896254
+[12:17:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[843]	validation_0-rmse:6.89835	validation_0-AUC[PR]:0.896159
+[12:17:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 344 extra nodes, 0 pruned nodes, max_depth=10
+[844]	validation_0-rmse:6.89896	validation_0-AUC[PR]:0.896201
+[12:17:15] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 324 extra nodes, 0 pruned nodes, max_depth=10
+[845]	validation_0-rmse:6.89967	validation_0-AUC[PR]:0.896203
+[12:17:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 400 extra nodes, 0 pruned nodes, max_depth=10
+[846]	validation_0-rmse:6.90054	validation_0-AUC[PR]:0.896233
+[12:17:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 358 extra nodes, 0 pruned nodes, max_depth=10
+[847]	validation_0-rmse:6.90079	validation_0-AUC[PR]:0.896214
+[12:17:37] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 336 extra nodes, 0 pruned nodes, max_depth=10
+[848]	validation_0-rmse:6.90178	validation_0-AUC[PR]:0.896312
+[12:17:44] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[849]	validation_0-rmse:6.90273	validation_0-AUC[PR]:0.896325
+[12:17:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 342 extra nodes, 0 pruned nodes, max_depth=10
+[850]	validation_0-rmse:6.90317	validation_0-AUC[PR]:0.896327
+[12:17:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 344 extra nodes, 0 pruned nodes, max_depth=10
+[851]	validation_0-rmse:6.90347	validation_0-AUC[PR]:0.896378
+[12:18:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 380 extra nodes, 0 pruned nodes, max_depth=10
+[852]	validation_0-rmse:6.9043	validation_0-AUC[PR]:0.896396
+[12:18:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[853]	validation_0-rmse:6.90469	validation_0-AUC[PR]:0.896408
+[12:18:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 382 extra nodes, 0 pruned nodes, max_depth=10
+[854]	validation_0-rmse:6.90522	validation_0-AUC[PR]:0.896447
+[12:18:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 406 extra nodes, 0 pruned nodes, max_depth=10
+[855]	validation_0-rmse:6.90625	validation_0-AUC[PR]:0.896453
+[12:18:37] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 378 extra nodes, 0 pruned nodes, max_depth=10
+[856]	validation_0-rmse:6.90722	validation_0-AUC[PR]:0.896379
+[12:18:44] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 372 extra nodes, 0 pruned nodes, max_depth=10
+[857]	validation_0-rmse:6.90777	validation_0-AUC[PR]:0.89638
+[12:18:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 296 extra nodes, 0 pruned nodes, max_depth=10
+[858]	validation_0-rmse:6.90824	validation_0-AUC[PR]:0.896279
+[12:18:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[859]	validation_0-rmse:6.90893	validation_0-AUC[PR]:0.896113
+[12:19:07] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 454 extra nodes, 0 pruned nodes, max_depth=10
+[860]	validation_0-rmse:6.90984	validation_0-AUC[PR]:0.895817
+[12:19:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 490 extra nodes, 0 pruned nodes, max_depth=10
+[861]	validation_0-rmse:6.91063	validation_0-AUC[PR]:0.895725
+[12:19:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 422 extra nodes, 0 pruned nodes, max_depth=10
+[862]	validation_0-rmse:6.91148	validation_0-AUC[PR]:0.895754
+[12:19:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 382 extra nodes, 0 pruned nodes, max_depth=10
+[863]	validation_0-rmse:6.912	validation_0-AUC[PR]:0.895926
+[12:19:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 488 extra nodes, 0 pruned nodes, max_depth=10
+[864]	validation_0-rmse:6.9139	validation_0-AUC[PR]:0.895547
+[12:19:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 454 extra nodes, 0 pruned nodes, max_depth=10
+[865]	validation_0-rmse:6.91463	validation_0-AUC[PR]:0.896251
+[12:19:54] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 600 extra nodes, 0 pruned nodes, max_depth=10
+[866]	validation_0-rmse:6.91549	validation_0-AUC[PR]:0.896201
+[12:20:02] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 440 extra nodes, 0 pruned nodes, max_depth=10
+[867]	validation_0-rmse:6.91584	validation_0-AUC[PR]:0.896198
+[12:20:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 378 extra nodes, 0 pruned nodes, max_depth=10
+[868]	validation_0-rmse:6.91634	validation_0-AUC[PR]:0.896219
+[12:20:16] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 340 extra nodes, 0 pruned nodes, max_depth=10
+[869]	validation_0-rmse:6.91683	validation_0-AUC[PR]:0.896176
+[12:20:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 444 extra nodes, 0 pruned nodes, max_depth=10
+[870]	validation_0-rmse:6.9183	validation_0-AUC[PR]:0.896187
+[12:20:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 426 extra nodes, 0 pruned nodes, max_depth=10
+[871]	validation_0-rmse:6.91927	validation_0-AUC[PR]:0.896238
+[12:20:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 388 extra nodes, 0 pruned nodes, max_depth=10
+[872]	validation_0-rmse:6.91981	validation_0-AUC[PR]:0.896239
+[12:20:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 352 extra nodes, 0 pruned nodes, max_depth=10
+[873]	validation_0-rmse:6.92025	validation_0-AUC[PR]:0.896261
+[12:20:53] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[874]	validation_0-rmse:6.92077	validation_0-AUC[PR]:0.896314
+[12:21:01] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 408 extra nodes, 0 pruned nodes, max_depth=10
+[875]	validation_0-rmse:6.9215	validation_0-AUC[PR]:0.896361
+[12:21:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[876]	validation_0-rmse:6.92209	validation_0-AUC[PR]:0.896588
+[12:21:21] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 360 extra nodes, 0 pruned nodes, max_depth=10
+[877]	validation_0-rmse:6.92241	validation_0-AUC[PR]:0.896585
+[12:21:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 314 extra nodes, 0 pruned nodes, max_depth=10
+[878]	validation_0-rmse:6.92352	validation_0-AUC[PR]:0.895987
+[12:21:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 554 extra nodes, 0 pruned nodes, max_depth=10
+[879]	validation_0-rmse:6.92442	validation_0-AUC[PR]:0.895969
+[12:21:54] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 514 extra nodes, 0 pruned nodes, max_depth=10
+[880]	validation_0-rmse:6.9252	validation_0-AUC[PR]:0.896
+[12:22:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 370 extra nodes, 0 pruned nodes, max_depth=10
+[881]	validation_0-rmse:6.92593	validation_0-AUC[PR]:0.896112
+[12:22:15] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[882]	validation_0-rmse:6.92691	validation_0-AUC[PR]:0.896035
+[12:22:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 504 extra nodes, 0 pruned nodes, max_depth=10
+[883]	validation_0-rmse:6.9276	validation_0-AUC[PR]:0.896046
+[12:22:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 344 extra nodes, 0 pruned nodes, max_depth=10
+[884]	validation_0-rmse:6.92834	validation_0-AUC[PR]:0.896053
+[12:22:49] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 336 extra nodes, 0 pruned nodes, max_depth=10
+[885]	validation_0-rmse:6.92869	validation_0-AUC[PR]:0.896116
+[12:23:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 500 extra nodes, 0 pruned nodes, max_depth=10
+[886]	validation_0-rmse:6.92946	validation_0-AUC[PR]:0.895353
+[12:23:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 418 extra nodes, 0 pruned nodes, max_depth=10
+[887]	validation_0-rmse:6.93013	validation_0-AUC[PR]:0.895322
+[12:23:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 404 extra nodes, 0 pruned nodes, max_depth=10
+[888]	validation_0-rmse:6.93042	validation_0-AUC[PR]:0.895379
+[12:23:32] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 414 extra nodes, 0 pruned nodes, max_depth=10
+[889]	validation_0-rmse:6.93055	validation_0-AUC[PR]:0.895428
+[12:23:44] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 454 extra nodes, 0 pruned nodes, max_depth=10
+[890]	validation_0-rmse:6.93122	validation_0-AUC[PR]:0.895349
+[12:23:54] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 402 extra nodes, 0 pruned nodes, max_depth=10
+[891]	validation_0-rmse:6.93195	validation_0-AUC[PR]:0.895442
+[12:24:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 404 extra nodes, 0 pruned nodes, max_depth=10
+[892]	validation_0-rmse:6.93309	validation_0-AUC[PR]:0.895452
+[12:24:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 608 extra nodes, 0 pruned nodes, max_depth=10
+[893]	validation_0-rmse:6.93494	validation_0-AUC[PR]:0.89552
+[12:24:28] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 510 extra nodes, 0 pruned nodes, max_depth=10
+[894]	validation_0-rmse:6.9359	validation_0-AUC[PR]:0.893849
+[12:24:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 466 extra nodes, 0 pruned nodes, max_depth=10
+[895]	validation_0-rmse:6.93658	validation_0-AUC[PR]:0.893803
+[12:24:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 498 extra nodes, 0 pruned nodes, max_depth=10
+[896]	validation_0-rmse:6.93741	validation_0-AUC[PR]:0.893823
+[12:25:02] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[897]	validation_0-rmse:6.93829	validation_0-AUC[PR]:0.893724
+[12:25:12] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[898]	validation_0-rmse:6.93895	validation_0-AUC[PR]:0.893736
+[12:25:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 406 extra nodes, 0 pruned nodes, max_depth=10
+[899]	validation_0-rmse:6.93961	validation_0-AUC[PR]:0.893739
+[12:25:26] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 366 extra nodes, 0 pruned nodes, max_depth=10
+[900]	validation_0-rmse:6.94044	validation_0-AUC[PR]:0.893682
+[12:25:37] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 386 extra nodes, 0 pruned nodes, max_depth=10
+[901]	validation_0-rmse:6.94065	validation_0-AUC[PR]:0.893652
+[12:25:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[902]	validation_0-rmse:6.94099	validation_0-AUC[PR]:0.893779
+[12:25:57] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 468 extra nodes, 0 pruned nodes, max_depth=10
+[903]	validation_0-rmse:6.94097	validation_0-AUC[PR]:0.893944
+[12:26:08] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 508 extra nodes, 0 pruned nodes, max_depth=10
+[904]	validation_0-rmse:6.94145	validation_0-AUC[PR]:0.894026
+[12:26:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 510 extra nodes, 0 pruned nodes, max_depth=10
+[905]	validation_0-rmse:6.94227	validation_0-AUC[PR]:0.894039
+[12:26:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 424 extra nodes, 0 pruned nodes, max_depth=10
+[906]	validation_0-rmse:6.94299	validation_0-AUC[PR]:0.893941
+[12:26:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 328 extra nodes, 0 pruned nodes, max_depth=10
+[907]	validation_0-rmse:6.94348	validation_0-AUC[PR]:0.893964
+[12:26:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 422 extra nodes, 0 pruned nodes, max_depth=10
+[908]	validation_0-rmse:6.9441	validation_0-AUC[PR]:0.893982
+[12:26:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[909]	validation_0-rmse:6.94476	validation_0-AUC[PR]:0.893928
+[12:27:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 378 extra nodes, 0 pruned nodes, max_depth=10
+[910]	validation_0-rmse:6.94577	validation_0-AUC[PR]:0.893921
+[12:27:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 500 extra nodes, 0 pruned nodes, max_depth=10
+[911]	validation_0-rmse:6.94658	validation_0-AUC[PR]:0.893947
+[12:27:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 368 extra nodes, 0 pruned nodes, max_depth=10
+[912]	validation_0-rmse:6.94734	validation_0-AUC[PR]:0.893963
+[12:27:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 326 extra nodes, 0 pruned nodes, max_depth=10
+[913]	validation_0-rmse:6.94791	validation_0-AUC[PR]:0.893993
+[12:27:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[914]	validation_0-rmse:6.9482	validation_0-AUC[PR]:0.893974
+[12:28:01] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[915]	validation_0-rmse:6.94858	validation_0-AUC[PR]:0.893973
+[12:28:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 372 extra nodes, 0 pruned nodes, max_depth=10
+[916]	validation_0-rmse:6.9495	validation_0-AUC[PR]:0.893899
+[12:28:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 418 extra nodes, 0 pruned nodes, max_depth=10
+[917]	validation_0-rmse:6.95044	validation_0-AUC[PR]:0.893862
+[12:28:32] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[918]	validation_0-rmse:6.95073	validation_0-AUC[PR]:0.89387
+[12:28:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 368 extra nodes, 0 pruned nodes, max_depth=10
+[919]	validation_0-rmse:6.95136	validation_0-AUC[PR]:0.893888
+[12:29:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 468 extra nodes, 0 pruned nodes, max_depth=10
+[920]	validation_0-rmse:6.95242	validation_0-AUC[PR]:0.893929
+[12:29:23] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[921]	validation_0-rmse:6.95348	validation_0-AUC[PR]:0.894085
+[12:29:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 394 extra nodes, 0 pruned nodes, max_depth=10
+[922]	validation_0-rmse:6.95389	validation_0-AUC[PR]:0.89405
+[12:29:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 374 extra nodes, 0 pruned nodes, max_depth=10
+[923]	validation_0-rmse:6.9541	validation_0-AUC[PR]:0.894059
+[12:30:13] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 354 extra nodes, 0 pruned nodes, max_depth=10
+[924]	validation_0-rmse:6.95446	validation_0-AUC[PR]:0.894068
+[12:30:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 434 extra nodes, 0 pruned nodes, max_depth=10
+[925]	validation_0-rmse:6.95587	validation_0-AUC[PR]:0.894172
+[12:30:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 280 extra nodes, 0 pruned nodes, max_depth=10
+[926]	validation_0-rmse:6.95599	validation_0-AUC[PR]:0.894195
+[12:31:04] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 352 extra nodes, 0 pruned nodes, max_depth=10
+[927]	validation_0-rmse:6.95636	validation_0-AUC[PR]:0.894251
+[12:31:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 442 extra nodes, 0 pruned nodes, max_depth=10
+[928]	validation_0-rmse:6.95728	validation_0-AUC[PR]:0.894248
+[12:31:39] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 354 extra nodes, 0 pruned nodes, max_depth=10
+[929]	validation_0-rmse:6.95747	validation_0-AUC[PR]:0.894209
+[12:31:57] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 404 extra nodes, 0 pruned nodes, max_depth=10
+[930]	validation_0-rmse:6.95809	validation_0-AUC[PR]:0.894337
+[12:32:16] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 456 extra nodes, 0 pruned nodes, max_depth=10
+[931]	validation_0-rmse:6.95818	validation_0-AUC[PR]:0.894313
+[12:32:34] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 414 extra nodes, 0 pruned nodes, max_depth=10
+[932]	validation_0-rmse:6.95929	validation_0-AUC[PR]:0.89434
+[12:32:51] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 312 extra nodes, 0 pruned nodes, max_depth=10
+[933]	validation_0-rmse:6.95936	validation_0-AUC[PR]:0.894346
+[12:33:10] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 506 extra nodes, 0 pruned nodes, max_depth=10
+[934]	validation_0-rmse:6.96041	validation_0-AUC[PR]:0.894212
+[12:33:28] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[935]	validation_0-rmse:6.96102	validation_0-AUC[PR]:0.89418
+[12:33:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 556 extra nodes, 0 pruned nodes, max_depth=10
+[936]	validation_0-rmse:6.96229	validation_0-AUC[PR]:0.894204
+[12:34:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 362 extra nodes, 0 pruned nodes, max_depth=10
+[937]	validation_0-rmse:6.96318	validation_0-AUC[PR]:0.894258
+[12:34:23] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 342 extra nodes, 0 pruned nodes, max_depth=10
+[938]	validation_0-rmse:6.96364	validation_0-AUC[PR]:0.894367
+[12:34:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 368 extra nodes, 0 pruned nodes, max_depth=10
+[939]	validation_0-rmse:6.96391	validation_0-AUC[PR]:0.89437
+[12:34:55] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 356 extra nodes, 0 pruned nodes, max_depth=10
+[940]	validation_0-rmse:6.96559	validation_0-AUC[PR]:0.89417
+[12:35:12] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 324 extra nodes, 0 pruned nodes, max_depth=10
+[941]	validation_0-rmse:6.96611	validation_0-AUC[PR]:0.894406
+[12:35:31] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 402 extra nodes, 0 pruned nodes, max_depth=10
+[942]	validation_0-rmse:6.96644	validation_0-AUC[PR]:0.894408
+[12:35:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 314 extra nodes, 0 pruned nodes, max_depth=10
+[943]	validation_0-rmse:6.96704	validation_0-AUC[PR]:0.894417
+[12:36:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 496 extra nodes, 0 pruned nodes, max_depth=10
+[944]	validation_0-rmse:6.96818	validation_0-AUC[PR]:0.896218
+[12:36:23] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 348 extra nodes, 0 pruned nodes, max_depth=10
+[945]	validation_0-rmse:6.96863	validation_0-AUC[PR]:0.896183
+[12:36:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 422 extra nodes, 0 pruned nodes, max_depth=10
+[946]	validation_0-rmse:6.96939	validation_0-AUC[PR]:0.896279
+[12:37:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 450 extra nodes, 0 pruned nodes, max_depth=10
+[947]	validation_0-rmse:6.97046	validation_0-AUC[PR]:0.896322
+[12:37:17] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 438 extra nodes, 0 pruned nodes, max_depth=10
+[948]	validation_0-rmse:6.97147	validation_0-AUC[PR]:0.896322
+[12:37:35] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 370 extra nodes, 0 pruned nodes, max_depth=10
+[949]	validation_0-rmse:6.97186	validation_0-AUC[PR]:0.896318
+[12:37:52] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 330 extra nodes, 0 pruned nodes, max_depth=10
+[950]	validation_0-rmse:6.97205	validation_0-AUC[PR]:0.896321
+[12:38:09] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 370 extra nodes, 0 pruned nodes, max_depth=10
+[951]	validation_0-rmse:6.97232	validation_0-AUC[PR]:0.896328
+[12:38:28] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 402 extra nodes, 0 pruned nodes, max_depth=10
+[952]	validation_0-rmse:6.97319	validation_0-AUC[PR]:0.89638
+[12:38:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 348 extra nodes, 0 pruned nodes, max_depth=10
+[953]	validation_0-rmse:6.97376	validation_0-AUC[PR]:0.896373
+[12:39:03] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 492 extra nodes, 0 pruned nodes, max_depth=10
+[954]	validation_0-rmse:6.97442	validation_0-AUC[PR]:0.896369
+[12:39:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 386 extra nodes, 0 pruned nodes, max_depth=10
+[955]	validation_0-rmse:6.97495	validation_0-AUC[PR]:0.896364
+[12:39:38] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 364 extra nodes, 0 pruned nodes, max_depth=10
+[956]	validation_0-rmse:6.97501	validation_0-AUC[PR]:0.896367
+[12:39:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 376 extra nodes, 0 pruned nodes, max_depth=10
+[957]	validation_0-rmse:6.97611	validation_0-AUC[PR]:0.896237
+[12:40:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[958]	validation_0-rmse:6.97643	validation_0-AUC[PR]:0.896208
+[12:40:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 330 extra nodes, 0 pruned nodes, max_depth=10
+[959]	validation_0-rmse:6.97705	validation_0-AUC[PR]:0.896205
+[12:40:48] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[960]	validation_0-rmse:6.97738	validation_0-AUC[PR]:0.896211
+[12:41:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 422 extra nodes, 0 pruned nodes, max_depth=10
+[961]	validation_0-rmse:6.97782	validation_0-AUC[PR]:0.896271
+[12:41:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 504 extra nodes, 0 pruned nodes, max_depth=10
+[962]	validation_0-rmse:6.97855	validation_0-AUC[PR]:0.896285
+[12:41:42] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 420 extra nodes, 0 pruned nodes, max_depth=10
+[963]	validation_0-rmse:6.97972	validation_0-AUC[PR]:0.895965
+[12:42:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 298 extra nodes, 0 pruned nodes, max_depth=10
+[964]	validation_0-rmse:6.98001	validation_0-AUC[PR]:0.896028
+[12:42:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 436 extra nodes, 0 pruned nodes, max_depth=10
+[965]	validation_0-rmse:6.98103	validation_0-AUC[PR]:0.895984
+[12:42:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 334 extra nodes, 0 pruned nodes, max_depth=10
+[966]	validation_0-rmse:6.98092	validation_0-AUC[PR]:0.895961
+[12:42:59] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[967]	validation_0-rmse:6.98137	validation_0-AUC[PR]:0.895953
+[12:43:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 434 extra nodes, 0 pruned nodes, max_depth=10
+[968]	validation_0-rmse:6.98225	validation_0-AUC[PR]:0.895983
+[12:43:40] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 326 extra nodes, 0 pruned nodes, max_depth=10
+[969]	validation_0-rmse:6.98256	validation_0-AUC[PR]:0.896154
+[12:44:00] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 426 extra nodes, 0 pruned nodes, max_depth=10
+[970]	validation_0-rmse:6.98265	validation_0-AUC[PR]:0.896199
+[12:44:19] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 458 extra nodes, 0 pruned nodes, max_depth=10
+[971]	validation_0-rmse:6.98299	validation_0-AUC[PR]:0.896205
+[12:44:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 478 extra nodes, 0 pruned nodes, max_depth=10
+[972]	validation_0-rmse:6.98426	validation_0-AUC[PR]:0.896208
+[12:45:02] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 442 extra nodes, 0 pruned nodes, max_depth=10
+[973]	validation_0-rmse:6.98508	validation_0-AUC[PR]:0.896222
+[12:45:22] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 444 extra nodes, 0 pruned nodes, max_depth=10
+[974]	validation_0-rmse:6.98556	validation_0-AUC[PR]:0.896212
+[12:45:43] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 422 extra nodes, 0 pruned nodes, max_depth=10
+[975]	validation_0-rmse:6.9862	validation_0-AUC[PR]:0.896092
+[12:46:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 588 extra nodes, 0 pruned nodes, max_depth=10
+[976]	validation_0-rmse:6.9876	validation_0-AUC[PR]:0.895937
+[12:46:24] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 330 extra nodes, 0 pruned nodes, max_depth=10
+[977]	validation_0-rmse:6.9884	validation_0-AUC[PR]:0.895932
+[12:46:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 512 extra nodes, 0 pruned nodes, max_depth=10
+[978]	validation_0-rmse:6.98918	validation_0-AUC[PR]:0.895921
+[12:47:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 428 extra nodes, 0 pruned nodes, max_depth=10
+[979]	validation_0-rmse:6.98969	validation_0-AUC[PR]:0.895941
+[12:47:27] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 394 extra nodes, 0 pruned nodes, max_depth=10
+[980]	validation_0-rmse:6.99026	validation_0-AUC[PR]:0.895948
+[12:47:47] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 414 extra nodes, 0 pruned nodes, max_depth=10
+[981]	validation_0-rmse:6.99057	validation_0-AUC[PR]:0.89596
+[12:48:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 412 extra nodes, 0 pruned nodes, max_depth=10
+[982]	validation_0-rmse:6.9912	validation_0-AUC[PR]:0.895852
+[12:48:25] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 330 extra nodes, 0 pruned nodes, max_depth=10
+[983]	validation_0-rmse:6.99165	validation_0-AUC[PR]:0.895775
+[12:48:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 468 extra nodes, 0 pruned nodes, max_depth=10
+[984]	validation_0-rmse:6.99303	validation_0-AUC[PR]:0.895813
+[12:49:06] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 442 extra nodes, 0 pruned nodes, max_depth=10
+[985]	validation_0-rmse:6.99382	validation_0-AUC[PR]:0.895583
+[12:49:25] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 392 extra nodes, 0 pruned nodes, max_depth=10
+[986]	validation_0-rmse:6.99482	validation_0-AUC[PR]:0.895541
+[12:49:41] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 386 extra nodes, 0 pruned nodes, max_depth=10
+[987]	validation_0-rmse:6.99556	validation_0-AUC[PR]:0.89551
+[12:49:56] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 338 extra nodes, 0 pruned nodes, max_depth=10
+[988]	validation_0-rmse:6.99582	validation_0-AUC[PR]:0.895547
+[12:50:14] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 434 extra nodes, 0 pruned nodes, max_depth=10
+[989]	validation_0-rmse:6.99684	validation_0-AUC[PR]:0.895509
+[12:50:30] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[990]	validation_0-rmse:6.99741	validation_0-AUC[PR]:0.895512
+[12:50:45] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 354 extra nodes, 0 pruned nodes, max_depth=10
+[991]	validation_0-rmse:6.99777	validation_0-AUC[PR]:0.895516
+[12:51:02] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 446 extra nodes, 0 pruned nodes, max_depth=10
+[992]	validation_0-rmse:6.99858	validation_0-AUC[PR]:0.895585
+[12:51:20] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 418 extra nodes, 0 pruned nodes, max_depth=10
+[993]	validation_0-rmse:6.99938	validation_0-AUC[PR]:0.895475
+[12:51:36] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 428 extra nodes, 0 pruned nodes, max_depth=10
+[994]	validation_0-rmse:6.99985	validation_0-AUC[PR]:0.89548
+[12:51:53] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 338 extra nodes, 0 pruned nodes, max_depth=10
+[995]	validation_0-rmse:7.00024	validation_0-AUC[PR]:0.895371
+[12:52:11] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 482 extra nodes, 0 pruned nodes, max_depth=10
+[996]	validation_0-rmse:7.00151	validation_0-AUC[PR]:0.895334
+[12:52:29] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 454 extra nodes, 0 pruned nodes, max_depth=10
+[997]	validation_0-rmse:7.00219	validation_0-AUC[PR]:0.895264
+[12:52:46] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 384 extra nodes, 0 pruned nodes, max_depth=10
+[998]	validation_0-rmse:7.00266	validation_0-AUC[PR]:0.895297
+[12:53:05] src/tree/updater_prune.cc:74: tree pruning end, 1 roots, 398 extra nodes, 0 pruned nodes, max_depth=10
+[999]	validation_0-rmse:7.00263	validation_0-AUC[PR]:0.895276
+train precision: 0.282160902887
+train roc: 0.995181488773
+train hit: 308.0 out of 334.0
+
+val precision: 0.106347559489
+val roc: 0.909784949672
+val hit: 26.0 out of 55.0
+
+test precision: 0.140005554848
+test roc: 0.935877475543
+test hit: 28.0 out of 55.0
+
+ratio: 0.02, EF: 32.7272727273,	active: 55.0
+ratio: 0.02, NEF: 0.654545454545
+ratio: 0.01, EF: 50.9090909091,	active: 55.0
+ratio: 0.01, NEF: 0.509090909091
+ratio: 0.0015, EF: 157.575757576,	active: 55.0
+ratio: 0.0015, NEF: 0.236363636364
+ratio: 0.001, EF: 163.636363636,	active: 55.0
+ratio: 0.001, NEF: 0.214285714286
+

@@ -35,9 +35,19 @@ Contains a description of the datasets used in the paper.
 
 Pre-processed, merged versions of the data are available on Zenodo ([doi:10.5281/zenodo.1411506](https://doi.org/10.5281/zenodo.1411506)).
 The Zenodo files are:
+- **preprocess_datasets.tar.gz**: The LC1234 and MLPCN raw files (total of 6).
 - **training_folds.tar.gz**: The LC1234 and MLPCN compound results against PriA-SSB target used for cross validation and model selection split into ten folds.
+
 - **ams_order_results.tar.gz**: Results for the 1024 purchased AMS library compound against the PriA-SSB target.
+- **ams_filtered_preds.tar.gz**: The AMS dataset predictions when using an RF or baseline model trained on the training dataset. We started with 8434707 AMS compounds and detected that 247025 were in the LC or MLPCN compound list.  These were removed from the AMS list, leaving 8187682 compounds. The compound matching was done on the SMILES that we canonicalized in rdkit.
+
+- **enamine_top10k.csv.gz**: top-10k predictions from the REAL dataset using an RF model trained on the training dataset. 
 - **enamine_final_list.csv.gz**: description later.
+- **enamine_database.csv.gz**: the Enamine REAL dataset used in this paper.
+
+- **train_ams_order_cluster.tar.gz**: cluster results when running TB on training set + AMS orders.
+- **train_ams_real_cluster.tar.gz**: cluster results when running TB on training set + AMS orders + top10k real.
+
 
 ## src
 

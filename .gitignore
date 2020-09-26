@@ -106,8 +106,6 @@ ENV/
 !datasets/ams_order_results.csv.gz
 src/prospective_keck.py
 src/prospective_keck.py
-analysis_notebooks/ZINC-Baseline.ipynb
-analysis_notebooks/Preprocessing Info.ipynb
 clustering/tmp/dissimilarity_matrix_428307_428307.dat
 *.npy
 *.dat
@@ -116,8 +114,10 @@ clustering/data_utils.py
 analysis_notebooks/Preprocess AMS Results Info.ipynb
 *.pkl
 predict_REAL_db/real_specs.out
-analysis_notebooks/*
-analysis_notebooks/*/*
+analysis_notebooks_local/*
+analysis_notebooks_local/*/*
 output/*
 dataset/*
+src/generate_ms_preds.py
+model_weight/*
 

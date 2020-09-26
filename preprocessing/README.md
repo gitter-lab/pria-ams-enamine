@@ -11,7 +11,7 @@ All files involved in the merge are in UW-Madison Box Storage folder named: `LC1
 
 All these files have 8 columns: [`SMSSF ID`, `CDD SMILES`, `Batch Name`, `Library ID`, `Plate Name`, `Plate Well`, `Run Date`, `PriA-SSB AS % inhibition`]. Description for these can be found in the next section.
 
-The merged file is named: `merged_cdd_2018_10_8.csv` containing `442,274` molecules.
+The merged file is named: `merged_cdd_2018_10_15.csv.gz` containing `442,274` molecules.
 
 # Preprocessing Merged Dataset
 

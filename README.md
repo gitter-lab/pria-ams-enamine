@@ -27,7 +27,7 @@ source activate zinc_project
 pip install -e .
 ```
 
-Note that the neural network based models use the `gpu_env.yml` conda environment and makes use of Keras with the Theano backend.
+Note that the neural network based models use the `gpu_env.yml` conda environment and makes use of Keras with the Theano backend. 
 
 ## datasets
 
@@ -77,3 +77,6 @@ The resulting 'Master DF' dataset is used in the training pipeline described in 
 Contains source code for preprocessing the raw AMS library in similar fashion to the training dataset. 
 This is to ensure that the features are generated in the same manner. 
 
+## Taylor-Butine Custom Implementation
+
+The Taylor-Butina custom implementation can be found at [link](https://github.com/gitter-lab/active-learning-drug-discovery/blob/master/active_learning_dd/utils/generate_bt_clustering.py).

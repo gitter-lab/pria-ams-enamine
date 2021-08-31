@@ -1,7 +1,6 @@
 # Virtual screening on PriA-SSB with the AMS and Enamine REAL libraries
 
-zenodo placeholder
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1257673.svg)](https://doi.org/10.5281/zenodo.1257673)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5348291.svg)](https://doi.org/10.5281/zenodo.5348291)
 
 ## Citation
 
@@ -27,10 +26,7 @@ Note that the neural network based models use the `gpu_env.yml` conda environmen
 
 ## datasets
 
-Contains a description of the datasets used in the paper.
-
-Pre-processed, merged versions of the data are available on Zenodo ([doi:10.5281/zenodo.1411506](https://doi.org/10.5281/zenodo.1411506)).
-The Zenodo files are:
+The following datasets are available on Zenodo ([doi:10.5281/zenodo.5348291](https://doi.org/10.5281/zenodo.5348291)):
 - **raw.zip**: The LC1234 and MLPCN raw files used for preprocessing.
 - **master_df.csv.gz**: The results of preprocessing and binarizing the raw files. This is then split into folds. 
 - **training_folds.tar.gz**: The LC1234 and MLPCN compound results against PriA-SSB target used for cross validation and model selection split into ten folds.

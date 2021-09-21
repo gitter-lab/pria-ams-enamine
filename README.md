@@ -71,6 +71,6 @@ The resulting 'Master DF' dataset is used in the training pipeline described in 
 Contains source code for preprocessing the raw AMS library in similar fashion to the training dataset. 
 This is to ensure that the features are generated in the same manner. 
 
-## Taylor-Butine Custom Implementation
+## Taylor-Butina Implementation
 
-The Taylor-Butina custom implementation can be found [here](https://github.com/gitter-lab/active-learning-drug-discovery/blob/master/active_learning_dd/utils/generate_bt_clustering.py).
+The Taylor-Butina implementation can be found [here](https://github.com/gitter-lab/active-learning-drug-discovery/blob/master/active_learning_dd/utils/generate_bt_clustering.py).

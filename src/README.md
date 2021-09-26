@@ -75,7 +75,7 @@ Replace `hyperparam_idx` with the desired ensemble ID (ranges from 0 to 13, see 
 
 To generate predictions for the AMS library using the top-1 RF-C model, first create the `../model_weight/final_stage/` directory:
 ```
-mkdir -r ../model_weight/final_stage/
+mkdir -p ../model_weight/final_stage/
 ```
 
 Then run the following to train the RF-C and baseline models, and save the trained models:

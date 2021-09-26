@@ -1,0 +1,5 @@
+The `Enamine Final List.ipynb` notebook processes `enamine_costs_clustered_v3_with_nneighbor.csv.gz` containing 5620 compounds that were filtered based on the top RF predictions and availability. The compounds are then filtered down from 5620 to 100 compounds. 
+
+`enamine_costs_clustered_v3_with_nneighbor.csv.gz`: contains 5620 compounds that were filtered based on the top RF predictions and availability. This file also contains `TB_0.4 ID` column which is the clustering ID of Taylor-Butina clustering that was applied to Training+AMS(1024 cpds)+Enamine(5620 cpds) at 0.4 threshold. 
+
+The notebook uses third-party code filters from [rd_filters](https://github.com/PatWalters/rd_filters/tree/451d5cf92ac630df11851bce2dde98609967e5b4). Note we used commit version 451d5cf92ac630df11851bce2dde98609967e5b4 from September 26, 2019. The original third-party code is available under the MIT License, Copyright © 2018 Patrick Walters. 

@@ -36,6 +36,7 @@ Contains source code for models and stage runs.
 
 Contains output results from models during the cross validation and model selection stage. 
 These only include the top-20 (with ties) models from the cross validation stage from each model class.
+Also contains output predictions on AMS compounds for the prospective stage.
 
 ## analysis_notebooks
 
@@ -44,7 +45,7 @@ Contains Jupyter notebooks that analyzes AMS and Enamine results. In addition to
 
 ## chtc
 
-Contains shell scripts for training the models in `src\` on the train-folds and then computing performance on the test-fold. The results are used for cross-validation and model selection.
+Contains shell scripts for training the models in `src/` on the train-folds and then computing performance on the test-fold. The results are used for cross-validation and model selection.
 
 ## config
 
@@ -52,7 +53,8 @@ Contains json config files for model hyperparameters.
 
 ## predict_REAL_db
 
-Contains source code for generating prediction files for the Enamine REAL DB dataset.
+Contains source code for generating prediction files for the Enamine REAL DB dataset. 
+The file `predict_real_db.py` processes the Enamine REAL dataset in parts via the `real_db_file` argument. 
 
 ## preprocessing
 

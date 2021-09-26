@@ -73,7 +73,28 @@ Replace `hyperparam_idx` with the desired ensemble ID (ranges from 0 to 13, see 
 
 # AMS Prospective Stage
 
-To generate predictions for the AMS library using the top-1 RF-C model, run:
+To generate predictions for the AMS library using the top-1 RF-C model, first create the `../model_weight/final_stage/` directory:
+```
+mkdir -r ../model_weight/final_stage/
+```
+
+Then run the following to train the RF-C and baseline models, and save the trained models:
+```
+python prospective_stage.py \
+--config_json_file=../config/random_forest_classification/139.json \
+--weight_file=../model_weight/final_stage/random_forest_classification_139.pkl \
+--model=random_forest_classification \
+--mode=training
+```
+```
+python prospective_stage.py \
+--config_json_file=../config/baseline_similarity.json \
+--weight_file=../model_weight/final_stage/baseline_weight.npy \
+--model=baseline \
+--mode=training
+```
+
+Finally, to generate predictions for the AMS library, run: 
 
 ```
 python prospective_stage.py \
@@ -82,8 +103,6 @@ python prospective_stage.py \
 --model=random_forest_classification \
 --mode=prediction
 ```
-
-Similarly, to generate predictions for the AMS library using the Similarity Baseline, run: 
 ```
 python prospective_stage.py \
 --config_json_file=../config/baseline_similarity.json \
@@ -92,4 +111,4 @@ python prospective_stage.py \
 --mode=prediction
 ```
 
-Note that you can get `random_forest_classification_139.pkl` and `baseline_weight.npy` from zenodo. Alternatively, you can run the using `model=training` to generate these files before running with `mode=prediction`. 
+The predictions can be found at `../output/final_stage/`.

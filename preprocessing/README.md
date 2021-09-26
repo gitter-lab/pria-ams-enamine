@@ -1,7 +1,7 @@
 This file compiles notes and remarks for merging LC1234 and MLPCN datasets.
 
 ## Merging Raw PriA-SSB Screening Datasets
-All files involved in the merge are in UW-Madison Box Storage folder named: `LC1234_MLPCN_Clean`. A total of **five** PriA-SSB screening datasets were merged:
+All files involved in the merge are in the Zenodo file named: `cdd_training_data.tar.gz`. A total of **five** PriA-SSB screening datasets were merged:
 
 1. `CDD CSV Export - LC123 Primary.csv`: **primary** screen for `74,896` LC123 Library molecules.
 2. `CDD CSV Export - LC123 Retest.csv`: **secondary** screen for `2,698` LC123 Library molecules.
@@ -43,14 +43,14 @@ Note that some molecules can have different `SMSSF ID`, but the same `rdkit SMIL
 ## Preprocessing Strategy:
 The steps of the preprocessing can be summarized as follows:
 
-0. Read in `merged_cdd_2018_10_8.csv`.
+0. Read in `merged_cdd_2018_10_8.csv.gz`.
 1. Remove molecules with % inhibition <= -100.0.
 2. Remove NaNs. Some molecules from CDD had `SMSSF ID` present, but other entries like `CDD SMILES`, `Plate Name`, etc. missing.
 3. Define unique identifiers for each row to  `['SMSSF ID', 'Plate Name', 'Plate Well', 'Run Date', 'PriA-SSB AS % inhibition']`. Assert that there are no duplicates on the uniqueness columns.
 4. Add `rdkit SMILES` and fingerprints. Note salts are removed using rdkit [SaltRemover](https://www.rdkit.org/docs/source/rdkit.Chem.SaltRemover.html) and [Salts.txt](https://github.com/rdkit/rdkit/blob/master/Data/Salts.txt).
 5. Add `Molecule ID` and `Duplicate ID` placeholders. Group molecules that have the same `SMSSF ID` OR `rdkit SMILES` giving them the same `Molecule ID`  and increasing `Duplicate ID`.
 6. Generate binary labels `PriA-SSB AS Activity` according to binarization rules section.
-7. Finally save the Master DF named: `master_mlpcn_lc_2018_10_18.csv.gz` containing `441,900` molecules.
+7. Finally save the Master DF named: `master_df.csv.gz` containing `441,900` molecules.
 
 ## Binary Activity Rules
 Some molecules can have up to **four** % inhibition scores. How should binary activity labels be generated? 

@@ -39,7 +39,8 @@ These only include the top-20 (with ties) models from the cross validation stage
 
 ## analysis_notebooks
 
-Contains Jupyter notebooks that analyzes AMS and Enamine results.
+Contains Jupyter notebooks that analyzes AMS and Enamine results. In addition to looking at number of new hits, it also analyzes the structures beteween new hits and training set hits.
+
 
 ## chtc
 

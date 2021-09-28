@@ -21,6 +21,8 @@ Now `Zenodo/v1/` should contain the following:
 - **enamine_PriA-SSB_dose_response_data.tar.gz**: The dose response screening data from all three runs on the 68 Enamine compounds.  The 2021-06-16 run was originally screened on 2020-08-24. 2021-06-16 is the date the compound identities were corrected. This run contains two 1536 well plates.
 - **enamine_dose_reponse_curves.tsv**: The dose response curve summaries from all three runs on the 68 Enamine compounds. Only the highest-quality dose response curve per compound was used.
 
+The original chemical screening data are available in [PubChem](https://pubchem.ncbi.nlm.nih.gov/bioassay/1272365).
+
 ## patterns
 
 The `patterns/` folder contains files used in pre- and post-processing:

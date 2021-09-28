@@ -30,7 +30,7 @@ The neural network-based models use the `gpu_env.yml` conda environment instead 
 ### analysis_notebooks
 
 Contains Jupyter notebooks that analyze the AMS and Enamine results.
-In addition to looking at number of new hits, it also analyzes the chemical structures between new hits and training set hits.
+In addition to looking at the number of new hits, it also analyzes the chemical structures between new hits and training set hits.
 
 ### chtc
 

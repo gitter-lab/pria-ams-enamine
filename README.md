@@ -22,7 +22,8 @@ conda env create -f cpu_env.yml
 conda activate pria_ams_enamine_cpu
 ```
 
-Note that the neural network-based models use the `gpu_env.yml` conda environment instead and make use of Keras with the Theano backend.
+The conda environment in `cpu_env.yml` is not Windows-compatible.
+The neural network-based models use the `gpu_env.yml` conda environment instead and use Keras with the Theano backend.
 
 ## Repository contents
 

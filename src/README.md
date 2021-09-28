@@ -112,3 +112,8 @@ python prospective_stage.py \
 ```
 
 The predictions can be found at `../output/final_stage/`.
+
+# Enamine REAL Prospective Stage
+
+The directory [`predict_REAL_db`](../predict_REAL_db) contains code to score compounds in the Enamine REAL database.
+This code documents the scoring process but cannot be run because this repository does not contain Enamine's chemical library.

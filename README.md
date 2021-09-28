@@ -26,21 +26,6 @@ Note that the neural network-based models use the `gpu_env.yml` conda environmen
 
 ## Repository contents
 
-### datasets
-
-A directory for the training and prospective compound datasets, which can be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.5348291).
-Also conatins chemical pattern files used in processing.
-
-### src
-
-Contains source code for the virtual screening models and for scoring compounds in the AMS library.
-
-### output
-
-Contains output results from models during the cross validation and model selection stages. 
-These only include the top-20 (with ties) models from the cross validation stage from each model class.
-Also contains output predictions on AMS compounds for the prospective stage.
-
 ### analysis_notebooks
 
 Contains Jupyter notebooks that analyze the AMS and Enamine results.
@@ -54,6 +39,17 @@ The results are used for cross-validation and model selection.
 ### config
 
 Contains json config files for model hyperparameters.
+
+### datasets
+
+A directory for the training and prospective compound datasets, which can be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.5348291).
+Also conatins chemical pattern files used in processing.
+
+### output
+
+Contains output results from models during the cross validation and model selection stages. 
+These only include the top-20 (with ties) models from the cross validation stage from each model class.
+Also contains output predictions on AMS compounds for the prospective stage.
 
 ### predict_REAL_db
 
@@ -69,6 +65,10 @@ The resulting dataset is used in the training pipeline described in the paper.
 
 Contains source code and scripts for preprocessing the AMS library in a similar fashion to the training dataset. 
 This is to ensure that the features are generated in the same manner. 
+
+### src
+
+Contains source code for the virtual screening models and for scoring compounds in the AMS library.
 
 ## Additional information
 

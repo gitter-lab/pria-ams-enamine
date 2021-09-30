@@ -3,8 +3,8 @@
 First, download data from Zenodo ([doi:10.5281/zenodo.5348291](https://doi.org/10.5281/zenodo.5348291)). This data should be stored in `Zenodo/v1/`.
 
 Now `Zenodo/v1/` should contain the following:
-- **ams_all_preds.csv.gz**: The AMS dataset predictions when using an RF or baseline model trained on the training dataset. We started with 8434707 AMS compounds and detected that 247025 were in the LC or MLPCN compound list.  These were removed from the AMS list, leaving 8187682 compounds. The compound matching was done on the SMILES that we canonicalized in rdkit.
-- **ams_order_results.csv.gz**: Results for the 1024 purchased AMS library compound against the PriA-SSB target.
+- **ams_all_preds.csv.gz**: The AMS dataset predictions when using an RF or baseline model trained on the training dataset. Includes the predicted score and rank from each model for each compound. We started with 8,434,707 AMS compounds and detected that 247,025 were in the LC or MLPCN training data. These were removed from the AMS list, leaving 8,187,682 compounds to score. The compound matching was done on the SMILES that we canonicalized in rdkit.
+- **ams_order_results.csv.gz**: Information about the 1,024 compounds purchased from the AMS library. Excludes the 4 AMS compounds that were incompletely dissolved. Includes the chemical feature representation, information from the vendor, RF and baseline model predictions, screening results, and clustering results.
 - **cdd_training_data.tar.gz**: The LC1234 and MLPCN raw result files against PriA-SSB target. These are used in preprocessing. 
 - **enamine_dose_reponse_curves.tsv**: The dose response curve summaries from all three runs on the 68 Enamine compounds. Only the highest-quality dose response curve per compound was used.
 - **enamine_final_list.csv.gz**: Contains the final 100 filtered compounds from `enamine_top_10000.csv.gz`. See `analysis_notebooks/enamine_final_list/`.

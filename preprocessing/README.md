@@ -9,7 +9,8 @@ All files involved in the merge are in the Zenodo file named: `cdd_training_data
 4. `CDD CSV Export - MLPCN Primary.csv`: **primary** screen for `337,990` MLPCN Library molecules.
 5. `CDD CSV Export - MLPCN Retest.csv`: **secondary** screen for `1,400` MLPCN Library molecules.
 
-All these files have 8 columns: [`SMSSF ID`, `CDD SMILES`, `Batch Name`, `Library ID`, `Plate Name`, `Plate Well`, `Run Date`, `PriA-SSB AS % inhibition`]. Description for these can be found in the next section.
+All these files have 8 columns: [`SMSSF ID`, `CDD SMILES`, `Batch Name`, `Library ID`, `Plate Name`, `Plate Well`, `Run Date`, `PriA-SSB AS % inhibition`].
+Descriptions for these can be found in the next section.
 
 The merged file is named: `merged_cdd_2018_10_15.csv.gz` containing `442,274` molecules.
 
@@ -43,19 +44,18 @@ Note that some molecules can have different `SMSSF ID`, but the same `rdkit SMIL
 ## Preprocessing Strategy:
 The steps of the preprocessing can be summarized as follows:
 
-0. Read in `merged_cdd_2018_10_8.csv.gz`.
-1. Remove molecules with % inhibition <= -100.0.
-2. Remove NaNs. Some molecules from CDD had `SMSSF ID` present, but other entries like `CDD SMILES`, `Plate Name`, etc. missing.
-3. Define unique identifiers for each row to  `['SMSSF ID', 'Plate Name', 'Plate Well', 'Run Date', 'PriA-SSB AS % inhibition']`. Assert that there are no duplicates on the uniqueness columns.
-4. Add `rdkit SMILES` and fingerprints. Note salts are removed using rdkit [SaltRemover](https://www.rdkit.org/docs/source/rdkit.Chem.SaltRemover.html) and [Salts.txt](https://github.com/rdkit/rdkit/blob/master/Data/Salts.txt).
-5. Add `Molecule ID` and `Duplicate ID` placeholders. Group molecules that have the same `SMSSF ID` OR `rdkit SMILES` giving them the same `Molecule ID`  and increasing `Duplicate ID`.
-6. Generate binary labels `PriA-SSB AS Activity` according to binarization rules section.
-7. Finally save the Master DF named: `master_df.csv.gz` containing `441,900` molecules.
+1. Read in `merged_cdd_2018_10_8.csv.gz`.
+2. Remove molecules with % inhibition <= -100.0.
+3. Remove NaNs. Some molecules from CDD had `SMSSF ID` present, but other entries like `CDD SMILES`, `Plate Name`, etc. missing.
+4. Define unique identifiers for each row to  `['SMSSF ID', 'Plate Name', 'Plate Well', 'Run Date', 'PriA-SSB AS % inhibition']`. Assert that there are no duplicates on the uniqueness columns.
+5. Add `rdkit SMILES` and fingerprints. Note salts are removed using rdkit [SaltRemover](https://www.rdkit.org/docs/source/rdkit.Chem.SaltRemover.html) and [Salts.txt](https://github.com/rdkit/rdkit/blob/master/Data/Salts.txt).
+6. Add `Molecule ID` and `Duplicate ID` placeholders. Group molecules that have the same `SMSSF ID` OR `rdkit SMILES` giving them the same `Molecule ID`  and increasing `Duplicate ID`.
+7. Generate binary labels `PriA-SSB AS Activity` according to binarization rules section.
+8. Finally save the Master DF named: `master_df.csv.gz` containing `441,900` molecules.
 
 ## Binary Activity Rules
-Some molecules can have up to **four** % inhibition scores. How should binary activity labels be generated? 
-
-From discussions, the following rules/steps were defined:
+Some molecules can have up to **four** % inhibition scores.
+The following rules define how to aggregate these scores:
 
 1. The median % inhibition value over all **primary** screens of the molecule is >= 35%. This is represented by the `Primary Filter` column where a 1 indicates that the compounds passes this filter and 0 otherwise.
 2. The median % inhibition value over all **retest/secondary** screens of the molecule is >= 35%. This is represented by the `Retest Filter` column where a 1 indicates that the compounds passes this filter and 0 otherwise.
@@ -69,14 +69,10 @@ The Master DF can have many % inhibition readings for a single molecule. The tra
 1. Read in the Master DF.
 2. Remove retests, leaving the primary screens. Recall that the binary activity is still recorded in the primary entries.
 3. Standardize `Library ID`s for easy grouping by libraries followed by stratifying.
-4. Group by `Molecule ID` and compute the median for primary screens of each molecule in `PriA-SSB AS % inhibition (Primary Median)` column (and appropriate entries for the other columns; see [notebook](https://github.com/gitter-lab/zinc/blob/master/preprocessing/Stratify%20Sample%20Master%20DF.ipynb)).
+4. Group by `Molecule ID` and compute the median for primary screens of each molecule in `PriA-SSB AS % inhibition (Primary Median)` column (and appropriate entries for the other columns; see the [notebook](Stratify%20Sample%20Master%20DF.ipynb)).
 5. Save the Training DF. Note this dataframe only has 10 columns: `[Molecule ID, SMSSF ID, Library ID, rdkit SMILES, MorganFP, PriA-SSB AS % inhibition (Primary Median), PriA-SSB AS Activity, Primary Filter, Retest Filter, PAINS Filter]`.
 
-## Stratifying Training DF into 10-folds
-One simple method is to ignore the `Library ID` and just stratify sample based on `PriA-SSB AS Activity` into 10-folds.
-
-Another method is to group molecules by the `Library ID` and stratify sample each of these groups into the 10-folds. 
-
-Both of these 10-folds strategies are generated as seen in [notebook](https://github.com/gitter-lab/zinc/blob/master/preprocessing/Stratify%20Sample%20Master%20DF.ipynb).
-
-## Misc. Notes/Remarks
+## Stratifying Training DF into 10 folds
+One simple method is to ignore the `Library ID` and just stratify sample based on `PriA-SSB AS Activity` into 10 folds.
+Another method is to group molecules by the `Library ID` and stratify sample each of these groups into the 10 folds. 
+Both of these 10 folds strategies are generated as seen in the [notebook](Stratify%20Sample%20Master%20DF.ipynb).

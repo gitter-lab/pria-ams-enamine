@@ -1,8 +1,8 @@
 # Model Files
 
-Models used in paper: baseline_similarity.py, deep_classification.py (NN-C), deep_regression.py (NN-R), random_forest_classification.py (RF-C), xgboost_classification.py (XGB-C), ensemble.py (Ensemble Model-based), ensemble_02.py (Ensemble Max-Vote).
+Models used in paper: baseline_similarity.py, deep_classification.py (NN-C), deep_regression.py (NN-R), random_forest_classification.py (RF-C), xgboost_classification.py (XGB-C), xgboost_regression.py (XGB-R), ensemble.py (Ensemble Model-based), ensemble_02.py (Ensemble Max-Vote).
 
-Models NOT used in paper: character_rnn_classification.py, grammar_cnn_classification.py, random_forest_regression.py, xgboost_regression.py.
+Models NOT used in paper: character_rnn_classification.py, grammar_cnn_classification.py, random_forest_regression.py, tree_net.py.
 
 # Helper Files
 
@@ -112,3 +112,8 @@ python prospective_stage.py \
 ```
 
 The predictions can be found at `../output/final_stage/`.
+
+# Enamine REAL Prospective Stage
+
+The directory [`predict_REAL_db`](../predict_REAL_db) contains code to score compounds in the Enamine REAL database.
+This code documents the scoring process but cannot be run because this repository does not contain Enamine's chemical library.

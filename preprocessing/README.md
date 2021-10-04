@@ -57,9 +57,9 @@ Some molecules can have up to **four** % inhibition scores. How should binary ac
 
 From discussions, the following rules/steps were defined:
 
-1. The median % inhibition value over all **primary** screens of the molecule is >= 35%
-2. The median % inhibition value over all **retest/secondary** screens of the molecule is >= 35%
-3. The molecule does not match a PAINS filter. Uses rdkit's [FilterCatalog](https://github.com/rdkit/rdkit/pull/536).
+1. The median % inhibition value over all **primary** screens of the molecule is >= 35%. This is represented by the `Primary Filter` column where a 1 indicates that the compounds passes this filter and 0 otherwise.
+2. The median % inhibition value over all **retest/secondary** screens of the molecule is >= 35%. This is represented by the `Retest Filter` column where a 1 indicates that the compounds passes this filter and 0 otherwise.
+3. The molecule does not match a PAINS filter. Uses rdkit's [FilterCatalog](https://github.com/rdkit/rdkit/pull/536). This is represented by the `PAINS Filter` column where a 1 indicates that the compounds passes this filter (i.e. does not match a PAINS) and 0 otherwise.
 
 This is done for all molecules individually by grouping using the `Molecule ID`, then applying the above steps. Finally, note that this binary activity label is recorded to ALL entries of the molecule identified by `Molecule ID`. 
 

@@ -12,15 +12,10 @@ If you use this software or the high-throughput screening data, please cite:
 
 - Install [Anaconda](https://www.anaconda.com/download/).
 - Clone or download this repository.
-- Create conda environment from `cpu_env.yml`:
+- Create conda environment from `cpu_env.yml`. Note that the CPU environment is only compatible on Linux due to the `xgboost=0.80` package.
 ```
 conda env create -f cpu_env.yml
 source activate pria_ams_enamine_cpu
-```
-- Install repository package from repo's root directory `./setup.py`:
-```
-pip install -e .
-```
 
 Note that the neural network based models use the `gpu_env.yml` conda environment and makes use of Keras with the Theano backend. 
 

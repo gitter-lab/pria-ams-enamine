@@ -1,7 +1,8 @@
-This file compiles notes and remarks for merging LC1234 and MLPCN datasets.
+This file compiles notes and remarks for merging the LC1234 and MLPCN training datasets.
 
 ## Merging Raw PriA-SSB Screening Datasets
-All files involved in the merge are in the Zenodo file named: `cdd_training_data.tar.gz`. A total of **five** PriA-SSB screening datasets were merged:
+All files involved in the merge are in the Zenodo file named: `cdd_training_data.tar.gz`.
+A total of **five** PriA-SSB screening datasets were merged:
 
 1. `CDD CSV Export - LC123 Primary.csv`: **primary** screen for `74,896` LC123 Library molecules.
 2. `CDD CSV Export - LC123 Retest.csv`: **secondary** screen for `2,698` LC123 Library molecules.
@@ -13,6 +14,8 @@ All these files have 8 columns: [`SMSSF ID`, `CDD SMILES`, `Batch Name`, `Librar
 Descriptions for these can be found in the next section.
 
 The merged file is named: `merged_cdd_2018_10_15.csv.gz` containing `442,274` molecules.
+This file is a naive concatenation of the screening datasets.
+It contains duplicated molecules and is not yet ready for training models.
 
 # Preprocessing Merged Dataset
 
@@ -32,14 +35,16 @@ Create a master dataframe with the following columns:
 11. `MorganFP`: rdkit Morgan fingerprint of the molecule.
 12. `PriA-SSB AS % inhibition`: the % inhibition score of the molecule.
 13. `PriA-SSB AS Activity`: the binary activity {0, 1} of the molecule. See the binarization rules section.
-14. `Primary Filter`: is active if the median of the primary screens for this molecule are greater than or equal `binary_threshold`.
-15. `Retest Filter`: is active if the median of the retest screens for this molecule are greater than or equal `binary_threshold`.
-16. `PAINS Filter`: is active if the molecule passes the rdkit PAINS filter.
+14. `Primary Filter`: is active (1) if the median of the primary screens for this molecule are greater than or equal `binary_threshold`.
+15. `Retest Filter`: is active (1) if the median of the retest screens for this molecule are greater than or equal `binary_threshold`.
+16. `PAINS Filter`: is active (1) if the molecule passes the rdkit PAINS filter.
 
 ### Duplication Rules:
-Entries in the master dataframe should not match in the following columns: `['SMSSF ID', 'Plate Name', 'Plate Well', 'Run Date', 'PriA-SSB AS % inhibition']`. If two entries match on these columns, one of them is removed. 
+Entries in the master dataframe should not match in the following columns: `['SMSSF ID', 'Plate Name', 'Plate Well', 'Run Date', 'PriA-SSB AS % inhibition']`.
+If two entries match on these columns, one of them is removed. 
 
-Note that some molecules can have different `SMSSF ID`, but the same `rdkit SMILES`. Therefore, two molecules are duplicates (i.e. should have the same `Molecule ID`, but different `Duplicate ID`) if they have the same `SMSSF ID` OR same `rdkit SMILES`.
+Note that some molecules can have different `SMSSF ID`, but the same `rdkit SMILES`.
+Therefore, two molecules are duplicates (i.e. should have the same `Molecule ID`, but different `Duplicate ID`) if they have the same `SMSSF ID` OR same `rdkit SMILES`.
 
 ## Preprocessing Strategy:
 The steps of the preprocessing can be summarized as follows:
@@ -49,22 +54,26 @@ The steps of the preprocessing can be summarized as follows:
 3. Remove NaNs. Some molecules from CDD had `SMSSF ID` present, but other entries like `CDD SMILES`, `Plate Name`, etc. missing.
 4. Define unique identifiers for each row to  `['SMSSF ID', 'Plate Name', 'Plate Well', 'Run Date', 'PriA-SSB AS % inhibition']`. Assert that there are no duplicates on the uniqueness columns.
 5. Add `rdkit SMILES` and fingerprints. Note salts are removed using rdkit [SaltRemover](https://www.rdkit.org/docs/source/rdkit.Chem.SaltRemover.html) and [Salts.txt](https://github.com/rdkit/rdkit/blob/master/Data/Salts.txt).
-6. Add `Molecule ID` and `Duplicate ID` placeholders. Group molecules that have the same `SMSSF ID` OR `rdkit SMILES` giving them the same `Molecule ID`  and increasing `Duplicate ID`.
+6. Add `Molecule ID` and `Duplicate ID` placeholders. Group molecules that have the same `SMSSF ID` OR `rdkit SMILES` giving them the same `Molecule ID` and increasing `Duplicate ID`.
 7. Generate binary labels `PriA-SSB AS Activity` according to binarization rules section.
 8. Finally save the Master DF named: `master_df.csv.gz` containing `441,900` molecules.
 
 ## Binary Activity Rules
 Some molecules can have up to **four** % inhibition scores.
-The following rules define how to aggregate these scores:
+The following rules define how to aggregate these activity criteria:
 
-1. The median % inhibition value over all **primary** screens of the molecule is >= 35%. This is represented by the `Primary Filter` column where a 1 indicates that the compounds passes this filter and 0 otherwise.
-2. The median % inhibition value over all **retest/secondary** screens of the molecule is >= 35%. This is represented by the `Retest Filter` column where a 1 indicates that the compounds passes this filter and 0 otherwise.
-3. The molecule does not match a PAINS filter. Uses rdkit's [FilterCatalog](https://github.com/rdkit/rdkit/pull/536). This is represented by the `PAINS Filter` column where a 1 indicates that the compounds passes this filter (i.e. does not match a PAINS) and 0 otherwise.
+1. The median % inhibition value over all **primary** screens of the molecule is >= 35%. This is represented by the `Primary Filter` column, where a 1 indicates that the compound passes this filter and 0 otherwise.
+2. The median % inhibition value over all **retest/secondary** screens of the molecule is >= 35%. This is represented by the `Retest Filter` column, where a 1 indicates that the compound passes this filter and 0 otherwise.
+3. The molecule does not match a PAINS filter. Uses rdkit's [FilterCatalog](https://github.com/rdkit/rdkit/pull/536). This is represented by the `PAINS Filter` column, where a 1 indicates that the compound **does not** match a PAINS and 0 otherwise.
 
-This is done for all molecules individually by grouping using the `Molecule ID`, then applying the above steps. Finally, note that this binary activity label is recorded to ALL entries of the molecule identified by `Molecule ID`. 
+If all three of the above criteria are 1, then the compound is considered active.
+This is done for all molecules individually by grouping using the `Molecule ID` and then applying the above steps.
+Finally, note that this binary activity label is recorded to all entries of the molecule identified by `Molecule ID`. 
 
 # Generating Training Dataframe
-The Master DF can have many % inhibition readings for a single molecule. The training dataframe will contain a single entry for each unique molecule identified by its `Molecule ID`. It is generated as follows:
+The Master DF can have many % inhibition readings for a single molecule.
+The training dataframe will contain a single entry for each unique molecule identified by its `Molecule ID`.
+It is generated as follows:
 
 1. Read in the Master DF.
 2. Remove retests, leaving the primary screens. Recall that the binary activity is still recorded in the primary entries.

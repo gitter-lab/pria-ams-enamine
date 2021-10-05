@@ -16,13 +16,13 @@ Evaluating scalable supervised learning for synthesize-on-demand chemical librar
 
 - Install [Anaconda](https://www.anaconda.com/download/).
 - Clone or download this repository.
-- Create conda environment from `cpu_env.yml`. Note that the CPU environment is only compatible on Linux due to the `xgboost=0.80` package.
+- Create conda environment from `cpu_env.yml`.
 ```
 conda env create -f cpu_env.yml
 conda activate pria_ams_enamine_cpu
 ```
 
-The conda environment in `cpu_env.yml` is not Windows-compatible.
+The conda environment in `cpu_env.yml` is not Windows-compatible due to the `xgboost=0.80` package.
 The neural network-based models use the `gpu_env.yml` conda environment instead and use Keras with the Theano backend.
 
 ## Repository contents

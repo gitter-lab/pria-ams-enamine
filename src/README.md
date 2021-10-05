@@ -13,7 +13,7 @@ Models NOT used in paper: character_rnn_classification.py, grammar_cnn_classific
 
 # Cross Validation Stage
 
-To run a model in the cross validation stage, see example below:
+To run a model in the cross validation stage, see the example below:
 
 ```
 model=random_forest_classification
@@ -33,18 +33,18 @@ python cross_validation_keck.py \
 model_list=[single_deep_classification, single_deep_regression, xgboost_classification, xgboost_regression, random_forest_classification]
 ```
 2. Replace `cv_idx` with the desired cross validation ID (0, 1, 2, or 3 as shown in the paper). 
-3. Replace `hyperparam_idx` with the desired model class' hyperparameter ID (see config folder). 
+3. Replace `hyperparam_idx` with the desired model class hyperparameter ID (see [`config`](../config) folder). 
 
 The weight and output files will generated in the designated directories.
 
 # Model Selection Stage
 
-For models in the following list:
+Models in the following list:
 ```
 model_list=[single_deep_classification, single_deep_regression, xgboost_classification, xgboost_regression, random_forest_classification]
 ```
-
-Similar to the cross validation stage script, but the `cv_idx` is restricted to 4:
+can be scored as shown below.
+The process is similar to the cross validation stage script, but the `cv_idx` is restricted to 4:
 
 ```
 model=random_forest_classification
@@ -58,7 +58,7 @@ python cross_validation_keck.py \
 > ../output/"$model"/"$model"_"${hyperparam_idx}"_4.out
 ```
 
-For Ensemble models, use the following:
+For the Ensemble models, use the following:
 
 ```
 hyperparam_idx=0
@@ -69,11 +69,12 @@ python ensemble.py \
 --config_json_file=../config/ensemble/"${hyperparam_idx}".json > ../output/ensemble/"${hyperparam_idx}".out
 ```
 
-Replace `hyperparam_idx` with the desired ensemble ID (ranges from 0 to 13, see config folder). Replace `ensemble.py` with `ensemble_02.py` for Max-Vote.
+Replace `hyperparam_idx` with the desired ensemble ID (ranges from 0 to 12, see [`config`](../config) folder).
+Replace `ensemble.py` with `ensemble_02.py` for Max-Vote instead of Model-based.
 
 # AMS Prospective Stage
 
-To generate predictions for the AMS library using the top-1 RF-C model, run:
+To generate predictions for the AMS library using the best RF-C model, run:
 
 ```
 python prospective_stage.py \
@@ -93,7 +94,8 @@ python prospective_stage.py \
 --mode=prediction
 ```
 
-Note that you can get `random_forest_classification_139.pkl` and `baseline_weight.npy` from zenodo. Alternatively, you can run using `model=training` to generate these files before running with `mode=prediction`. 
+The saved model weight files `random_forest_classification_139.pkl` and `baseline_weight.npy` are available from Zenodo.
+Alternatively, you can run this Python code using `mode=training` to generate these model files before running with `mode=prediction`.
 
 # Enamine REAL Prospective Stage
 

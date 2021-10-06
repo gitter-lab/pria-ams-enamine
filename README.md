@@ -1,6 +1,6 @@
 # Virtual screening on PriA-SSB with the AMS and Enamine REAL libraries
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5348291.svg)](https://doi.org/10.5281/zenodo.5348291)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5348290.svg)](https://doi.org/10.5281/zenodo.5348290)
 
 ## Citation
 
@@ -43,7 +43,7 @@ Contains json config files for model hyperparameters.
 
 ### datasets
 
-A directory for the training and prospective compound datasets, which can be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.5348291).
+A directory for the training and prospective compound datasets, which can be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.5348290).
 Also conatins chemical pattern files used in processing.
 
 ### output

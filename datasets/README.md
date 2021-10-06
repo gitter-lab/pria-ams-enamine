@@ -1,6 +1,6 @@
 ## Zenodo
 
-First, download data from Zenodo ([doi:10.5281/zenodo.5348291](https://doi.org/10.5281/zenodo.5348291)). This data should be stored in `Zenodo/v1/`.
+First, download data from Zenodo ([doi:10.5281/zenodo.5348290](https://doi.org/10.5281/zenodo.5348290)). This data should be stored in `Zenodo/v1/`.
 
 Now `Zenodo/v1/` should contain the following:
 - **ams_all_preds.csv.gz**: The AMS dataset predictions when using an RF or baseline model trained on the training dataset. Includes the predicted score and rank from each model for each compound. We started with 8,434,707 AMS compounds and detected that 247,025 were in the LC or MLPCN training data. These were removed from the AMS list, leaving 8,187,682 compounds to score. The compound matching was done on the SMILES that we canonicalized in rdkit.

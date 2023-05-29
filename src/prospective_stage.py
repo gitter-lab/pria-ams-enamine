@@ -120,7 +120,6 @@ if __name__ == '__main__':
     given_args = parser.parse_args()
     
     config_json_file = given_args.config_json_file
-    train_file_dir_fmt = given_args.train_file_dir_fmt
     weight_file = given_args.weight_file
     model = given_args.model
     mode = given_args.mode
@@ -131,7 +130,7 @@ if __name__ == '__main__':
             'random_forest_classification',
             'baseline'
             ))
-     if mode not in ['training', 'prediction']:
+    if mode not in ['training', 'prediction']:
         raise Exception('mode should be among [{}, {}].'.format(
             'training',
             'prediction'

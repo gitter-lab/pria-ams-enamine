@@ -25,7 +25,7 @@ from rdkit.Chem.SaltRemover import SaltRemover
 from rdkit.Chem.FilterCatalog import *
 
 import sys
-sys.path.insert(0,'../src/')
+sys.path.insert(0,'../../src/')
 from random_forest_classification import RandomForestClassification
     
 if __name__ == '__main__':
@@ -55,7 +55,7 @@ if __name__ == '__main__':
     pathlib.Path(output_csv_file).parent.mkdir(parents=True, exist_ok=True)
                                 
     # process real db file in chunks, generating features, and predicting using random forest model.
-    saltRemover = SaltRemover(defnFilename='../datasets/raw/Salts.txt')
+    saltRemover = SaltRemover(defnFilename='../../datasets/raw/Salts.txt')
     FP_radius, FP_size = 2, 1024
     n_cpds = 0
     data_df = pd.read_csv(real_db_file, chunksize=chunksize, 

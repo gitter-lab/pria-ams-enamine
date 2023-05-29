@@ -32,6 +32,38 @@ class SimilarityBaseline:
         tan_sim = np.sum(np.bitwise_and(x1, x2)) / np.sum(np.bitwise_or(x1, x2))
         return tan_sim
     
+    """
+    Fast tanimot similarity. Adapted from: https://github.com/gitter-lab/active-learning-drug-discovery/blob/master/active_learning_dd/utils/data_utils.py#L20
+    """
+    def _fast_tanimoto_similarity(self, X, X_batch_size=2056):
+        Y = self.X_train_actives
+        Y_batch_size = Y.shape[0]
+        
+        n_features = X.shape[-1]
+        if X.ndim == 1:
+            X = X.reshape(-1, n_features)
+        if Y.ndim == 1:
+            Y = Y.reshape(-1, n_features)    
+        tan_sim = []
+        X_total_batches = X.shape[0] // X_batch_size + 1
+        Y_total_batches = Y.shape[0] // Y_batch_size + 1
+        for X_batch_i in range(X_total_batches):
+            X_start_idx = X_batch_i*X_batch_size
+            X_end_idx = min((X_batch_i+1)*X_batch_size, X.shape[0])
+            X_batch = X[X_start_idx:X_end_idx,:]
+                
+            # adapted from: https://github.com/deepchem/deepchem/blob/2531eca8564c1dc68910d791b0bcd91fd586afb9/deepchem/trans/transformers.py#L752
+            numerator = np.dot(X_batch, self.X_train_actives.T)
+            denominator = n_features - np.dot(1-X_batch, (1-self.X_train_actives).T)
+            
+            tan_sim.append(numerator / denominator)
+        
+        tan_sim = np.vstack(tan_sim)
+        
+        tan_sim_max = np.max(tan_sim, axis=1) # get nearest active distance
+        
+        return tan_sim_max
+    
     def _baseline_pred(self, X_data):
         y_preds = np.zeros(shape=(X_data.shape[0], 1))
         ts_tmp = np.zeros(shape=(self.X_train_actives.shape[0],))

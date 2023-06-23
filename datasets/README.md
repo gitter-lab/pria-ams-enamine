@@ -25,7 +25,7 @@ The original chemical screening data are available in [PubChem](https://pubchem.
 The screening datasets were compiled from three separate sources that should all be cited if the training dataset is used in a publication:
 - Moayad Alnammi, Shengchao Liu, Spencer S. Ericksen, Gene E. Ananiev, Andrew F. Voter, Song Guo, James L. Keck, F. Michael Hoffmann, Scott A. Wildman, Anthony Gitter. [Evaluating scalable supervised learning for synthesize-on-demand chemical libraries](https://doi.org/10.26434/chemrxiv-2021-fg8z9-v3). *ChemRxiv* 2021.
 - Shengchao Liu<sup>+</sup>, Moayad Alnammi<sup>+</sup>, Spencer S. Ericksen, Andrew F. Voter, Gene E. Ananiev, James L. Keck, F. Michael Hoffmann, Scott A. Wildman, Anthony Gitter. [Practical model selection for prospective virtual screening](https://doi.org/10.1021/acs.jcim.8b00363). *Journal of Chemical Information and Modeling* 2018.
-- Andrew F. Voter<sup>+</sup>, Michael P. Killoran<sup>+</sup>, Gene E. Ananiev, Scott A. Wildman, F. Michael Hoffmann, James L. Keck. [A High-throughput screening strategy to identify inhibitors of SSB protein–protein interactions in an academic screening facility](https://doi.org/10.1177/2472555217712001). *SLAS Discovery* 2018.
+- Andrew F. Voter<sup>+</sup>, Michael P. Killoran<sup>+</sup>, Gene E. Ananiev, Scott A. Wildman, F. Michael Hoffmann, James L. Keck. [A high-throughput screening strategy to identify inhibitors of SSB protein–protein interactions in an academic screening facility](https://doi.org/10.1177/2472555217712001). *SLAS Discovery* 2018.
 
 ## patterns
 

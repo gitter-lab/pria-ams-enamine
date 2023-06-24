@@ -8,7 +8,7 @@
 If you use this software or the high-throughput screening data, please cite:
 
 Moayad Alnammi, Shengchao Liu, Spencer S. Ericksen, Gene E. Ananiev, Andrew F. Voter, Song Guo, James L. Keck, F. Michael Hoffmann, Scott A. Wildman, Anthony Gitter.
-[Evaluating scalable supervised learning for synthesize-on-demand chemical libraries](https://doi.org/10.33774/chemrxiv-2021-fg8z9).
+[Evaluating scalable supervised learning for synthesize-on-demand chemical libraries](https://doi.org/10.26434/chemrxiv-2021-fg8z9-v3).
 *ChemRxiv* 2021.
 
 ## Setup
@@ -23,22 +23,24 @@ conda activate pria_ams_enamine_cpu
 
 The conda environment in `cpu_env.yml` is not Windows-compatible due to the `xgboost=0.80` package.
 The neural network-based models use the `gpu_env.yml` conda environment instead and use Keras with the Theano backend.
+The similarity baseline required a newer conda environment `predict_REAL_db/enamine_predict_env.yml` to scale to the Enamine REAL library.
 
 ## Repository contents
 
 ### analysis_notebooks
 
 Contains Jupyter notebooks that analyze the AMS and Enamine results.
-In addition to looking at the number of new hits, it also analyzes the chemical structures between new hits and training set hits.
+In addition to looking at the number of new hits, they also analyze the chemical structures between new hits and training set hits.
 
 ### chtc
 
-Contains shell scripts for training the models in `src/` on the train-folds and then computing performance on the test-fold at the Center for High-Throughput Computing (CHTC).
+Contains shell scripts for training the models in `src/` on the train folds and then computing performance on the test fold at the Center for High Throughput Computing (CHTC).
 The results are used for cross-validation and model selection.
 
 ### config
 
 Contains json config files for model hyperparameters.
+The numeric filenames correspond to the numeric hyperparameter combination IDs in the manuscript.
 
 ### datasets
 
@@ -78,4 +80,4 @@ See the [`datasets`](datasets#patterns) and [`analysis_notebooks/enamine_final_l
 
 ### Taylor-Butina implementation
 
-The Taylor-Butina implementation can be found [here](https://github.com/gitter-lab/active-learning-drug-discovery/blob/master/active_learning_dd/utils/generate_bt_clustering.py).
+The Taylor-Butina implementation can be found [here](https://github.com/gitter-lab/active-learning-drug-discovery/blob/3aaa01aad535b276fb0e0e1e208e850068107687/active_learning_dd/utils/generate_bt_clustering.py).

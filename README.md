@@ -8,8 +8,8 @@
 If you use this software or the high-throughput screening data, please cite:
 
 Moayad Alnammi, Shengchao Liu, Spencer S. Ericksen, Gene E. Ananiev, Andrew F. Voter, Song Guo, James L. Keck, F. Michael Hoffmann, Scott A. Wildman, Anthony Gitter.
-[Evaluating scalable supervised learning for synthesize-on-demand chemical libraries](https://doi.org/10.26434/chemrxiv-2021-fg8z9-v3).
-*ChemRxiv* 2021.
+[Evaluating scalable supervised learning for synthesize-on-demand chemical libraries](https://doi.org/10.1021/acs.jcim.3c00912).
+*Journal of Chemical Information and Modeling* 2023.
 
 ## Setup
 

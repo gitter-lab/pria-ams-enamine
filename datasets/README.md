@@ -13,7 +13,7 @@ Now `Zenodo/v1/` should contain the following:
 - **enamine_final_list.csv.gz**: The final 100 filtered compounds from `enamine_top_10000.csv.gz`. Contains compound information from Enamine as well as RF model scores, chemical feature representations, and clustering results. See [`analysis_notebooks/enamine_final_list/`](../analysis_notebooks/enamine_final_list/).
 - **enamine_PriA-SSB_dose_response_data.tar.gz**: The dose response screening data from all three runs on the 68 Enamine compounds.  The 2021-06-16 run was originally screened on 2020-08-24. 2021-06-16 is the date the compound identities were corrected. This run contains two 1,536 well plates.
 - **enamine_top_10000.csv.gz**: Top 10,000 predictions from the Enamine REAL dataset using the selected RF model. Contains compound information from Enamine as well as RF model scores, chemical feature representations, and clustering results.
-- **master_df.csv.gz**: The output of preprocessing the files in `cdd_training_data.tar.gz`. Contains 441,900 rows. See the [`preprocessing`](../preprocessing) directory for more information.
+- **master_df.csv.gz**: The output of preprocessing the files in `cdd_training_data.tar.gz`. Contains 441,900 rows.Â See the [`preprocessing`](../preprocessing) directory for more information.
 - **random_forest_classification_139.pkl**: The saved RF classification model with [hyperparameter ID 139](../config/random_forest_classification/139.json). This model was used to score the AMS and Enamine REAL libraries. See the [`src`](../src) directory for code to load the model and make predictions on new compounds.
 - **train_ams_real_cluster.csv.gz**: Contains cluster IDs for Taylor-Butina clustering at a 0.4 threshold applied to the training compounds, 1,024 tested AMS compounds, and top-ranked compounds from Enamine. Includes the chemical features, dataset to which the compound belongs, leader compound for each cluster, and whether the compound is a known hit.
 - **training_df_single_fold.csv.gz**: This is all ten folds in `training_folds.tar.gz` merged for convenience. Contains 427,300 compounds.
@@ -21,11 +21,12 @@ Now `Zenodo/v1/` should contain the following:
 - **training_folds.tar.gz**: The LC1234 and MLPCN training data split into ten folds. This dataset with 427,300 compounds was used for cross validation and model selection. This dataset is derived from `master_df.csv.gz` as described in the [`preprocessing`](../preprocessing) directory.
 
 The original chemical screening data are available in [PubChem](https://pubchem.ncbi.nlm.nih.gov/bioassay/1272365).
+The Enamine REAL dose-response chemical screening data are also available in [PubChem](https://pubchem.ncbi.nlm.nih.gov/bioassay/1918986).
 
 The screening datasets were compiled from three separate sources that should all be cited if the training dataset is used in a publication:
-- Moayad Alnammi, Shengchao Liu, Spencer S. Ericksen, Gene E. Ananiev, Andrew F. Voter, Song Guo, James L. Keck, F. Michael Hoffmann, Scott A. Wildman, Anthony Gitter. [Evaluating scalable supervised learning for synthesize-on-demand chemical libraries](https://doi.org/10.26434/chemrxiv-2021-fg8z9-v3). *ChemRxiv* 2021.
+- Moayad Alnammi, Shengchao Liu, Spencer S. Ericksen, Gene E. Ananiev, Andrew F. Voter, Song Guo, James L. Keck, F. Michael Hoffmann, Scott A. Wildman, Anthony Gitter. [Evaluating scalable supervised learning for synthesize-on-demand chemical libraries](https://doi.org/10.1021/acs.jcim.3c00912). *Journal of Chemical Information and Modeling* 2023.
 - Shengchao Liu<sup>+</sup>, Moayad Alnammi<sup>+</sup>, Spencer S. Ericksen, Andrew F. Voter, Gene E. Ananiev, James L. Keck, F. Michael Hoffmann, Scott A. Wildman, Anthony Gitter. [Practical model selection for prospective virtual screening](https://doi.org/10.1021/acs.jcim.8b00363). *Journal of Chemical Information and Modeling* 2018.
-- Andrew F. Voter<sup>+</sup>, Michael P. Killoran<sup>+</sup>, Gene E. Ananiev, Scott A. Wildman, F. Michael Hoffmann, James L. Keck. [A high-throughput screening strategy to identify inhibitors of SSB protein�protein interactions in an academic screening facility](https://doi.org/10.1177/2472555217712001). *SLAS Discovery* 2018.
+- Andrew F. Voter<sup>+</sup>, Michael P. Killoran<sup>+</sup>, Gene E. Ananiev, Scott A. Wildman, F. Michael Hoffmann, James L. Keck. [A high-throughput screening strategy to identify inhibitors of SSB protein–protein interactions in an academic screening facility](https://doi.org/10.1177/2472555217712001). *SLAS Discovery* 2018.
 
 ## patterns
 
